@@ -13,13 +13,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.4.1/octicons.min.css">
 
-    <!-- sure that we need this ? -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- 颜色颜色 注意颜色 使用 material.主色-副色 来配置颜色-->
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.light_green-orange.min.css">
 
-    <script defer src="https://code.getmdl.io/1.1.0/material.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+
+    <!--  use or not use, it's a problem
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+    -->
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -32,12 +35,6 @@
     </script>
   </head>
   <body>
-    <div class="github-fork-ribbon-wrapper right">
-        <div class="github-fork-ribbon">
-            <a href="https://github.com/yang-le/yang-le.github.io">Fork me on GitHub</a>
-        </div>
-    </div>
-
     <!-- The outer div that holds the entire layout -->
     <div class="mdl-layout mdl-js-layout">
       <!-- This holds the header row with navigation links that is displayed on large screens,
@@ -49,13 +46,21 @@
         <div class="mdl-layout__header-row">
           <!-- the title -->
           <span class="mdl-layout__title">雨天小猪の窝</span>
-          <!-- to align the header's navigation links to the right -->
           <div class="mdl-layout-spacer"></div>
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#">Nav link 1</a>
-            <a class="mdl-navigation__link" href="#">Nav link 2</a>
-            <a class="mdl-navigation__link" href="#">关于我</a>
-          </nav>
+          <!-- the search button -->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
+              <span class="octicon octicon-search"></span>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-expandable">
+            </div>
+          </div>
+          <!-- here i want a clear button, but ... how ?
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
+            <span class="octicon octicon-x"></span>
+          </label>
+          -->
         </div>
       </header>
 
@@ -64,14 +69,21 @@
         <!-- the title， again -->
         <span class="mdl-layout__title">雨天小猪</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="#">Nav link 1</a>
-          <a class="mdl-navigation__link" href="#">Nav link 2</a>
+          <a class="mdl-navigation__link" href="#">数学笔记</a>
+          <a class="mdl-navigation__link" href="#">译来译去</a>
+          <a class="mdl-navigation__link" href="#">藏经阁</a>
+          <a class="mdl-navigation__link" href="#">碎碎念</a>
           <a class="mdl-navigation__link" href="#">关于我</a>
         </nav>
       </div>
 
       <!-- finally, our main contents -->
       <main class="mdl-layout__content">
+        <div class="github-fork-ribbon-wrapper right">
+            <div class="github-fork-ribbon">
+                <a href="https://github.com/yang-le/yang-le.github.io">Fork me on GitHub</a>
+            </div>
+        </div>
         <!-- use grid layout -->
         <div class="mdl-grid">
           <!--
