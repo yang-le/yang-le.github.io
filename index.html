@@ -5,24 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>雨天小猪の窝</title>
-    <!-- fuck 哦不 是 fork me on github -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
-    <!--[if lt IE 9]>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
-    <![endif]-->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.4.1/octicons.min.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- 颜色颜色 注意颜色 使用 material.主色-副色 来配置颜色-->
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.light_green-orange.min.css">
-
     <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 
-    <!--  use or not use, it's a problem
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
-    -->
+    <!-- do not use jquery, use html5's querySelector -->
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -37,117 +28,11 @@
   <body>
     <!-- The outer div that holds the entire layout -->
     <div class="mdl-layout mdl-js-layout">
-      <!-- This holds the header row with navigation links that is displayed on large screens,
-      and the menu icon that opens the navigation drawer for smaller screens -->
-      <header class="mdl-layout__header">
-        <!-- div to produce the menu icon -->
-        <div class="mdl-layout-icon"></div>
-        <!-- the header row's content -->
-        <div class="mdl-layout__header-row">
-          <!-- the title -->
-          <span class="mdl-layout__title">雨天小猪の窝</span>
-          <div class="mdl-layout-spacer"></div>
-          <!-- the search button -->
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
-              <span class="octicon octicon-search"></span>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search-expandable">
-            </div>
-          </div>
-          <!-- here i want a clear button, but ... how ?
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
-            <span class="octicon octicon-x"></span>
-          </label>
-          -->
-        </div>
-      </header>
-
-      <!-- hold the slide-out drawer's content -->
-      <div class="mdl-layout__drawer">
-        <!-- the title， again -->
-        <span class="mdl-layout__title">雨天小猪</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="#">数学笔记</a>
-          <a class="mdl-navigation__link" href="#">译来译去</a>
-          <a class="mdl-navigation__link" href="#">藏经阁</a>
-          <a class="mdl-navigation__link" href="#">碎碎念</a>
-          <a class="mdl-navigation__link" href="#">关于我</a>
-        </nav>
-      </div>
-
-      <!-- finally, our main contents -->
-      <main class="mdl-layout__content">
-        <div class="github-fork-ribbon-wrapper right">
-            <div class="github-fork-ribbon">
-                <a href="https://github.com/yang-le/yang-le.github.io">Fork me on GitHub</a>
-            </div>
-        </div>
-        <!-- use grid layout -->
-        <div class="mdl-grid">
-          <!--
-            in the grid, a row have 12 cells in desktop, 8 in tablet and 4 in phone
-            if we are on a desktop, use layout 2-8-2
-            if we are on a tablet, use layout 1-6-1
-            if we are on a phone, use layout 0-4-0
-            if we are on a don't-know-what-fuck-thing, just full-fill it
-          -->
-          <!-- this cell is a card also with a little little shadow -->
-          <div class="mdl-cell mdl-cell--2-offset-desktop mdl-cell--8-col-desktop mdl-cell--1-offset-tablet mdl-cell--6-col-tablet mdl-cell--4-col-phone mdl-cell--12-col mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title">
-              <h2 class="mdl-card__title-text">关于我</h2>
-            </div>
-            <p class="mdl-card__supporting-text">
-            雨天小猪，80后软件工程师一枚。同时也是一名科学爱好者，各种科学。<br />
-            性别男，爱好女。祖籍中华人民共和国河北省石家庄市，现居中华人民共和国辽宁省大连市。<br />
-            我不爱石家庄，我爱大连。因为显然石家庄是男的而大连，是女的。
-            </p>
-            <p class="mdl-card__supporting-text">
-            任职于东软集团智能应用事业部智能车载产品研发中心。<br />
-            主要的工作是给各种自行车、电瓶车、三轮车、摩托车、拖拉机、大卡车等等一些车的车载电脑里开发一种叫做
-            <a href="https://zh.wikipedia.org/zh-cn/高级辅助驾驶系统">高级司机辅助系统</a>
-            的软件。
-            </p>
-            <p class="mdl-card__supporting-text">
-            如果你想联系我，可以通过如下的电子邮件<br />
-            yangle0125#qq.com<br />
-            记得把#换成@。
-            </p>
-            <p class="mdl-card__supporting-text">
-            如果你自己手里有些闲钱并且实在不知道用来干嘛了，可以给我。1亿不嫌多，1分不嫌少。<br />
-            <img src="https://mobilecodec.alipay.com/show.htm?code=ap0y6wnv7xk5ut4kd8&picSize=S" alt="支付宝二维码" width="175" height="175"/><br />
-            扫码前友情提示：是你自愿给我的哈，不是我问你借的哈。一经出手，概不退还哈。
-            </p>
-          </div>
-        </div>
-      </main>
-
-      <!-- don't forget the footer -->
-      <footer class="mdl-mini-footer">
-        <!-- the left side -->
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">
-              <span class="octicon octicon-code"></span>
-              with
-              <span class="octicon octicon-heart" style="color:red"></span>
-              by YangLe
-          </div>
-          <ul class="mdl-mini-footer__link-list">
-            <li>Powered by <a href="https://www.getmdl.io">MDL</a></li>
-            <li>Published with <a href="http://pages.github.com">GitHub Pages</a></li>
-            <li>Creative Commons <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0">BY-SA</a></li>
-          </ul>
-        </div>
-
-        <!-- the right side -->
-        <div class="mdl-mini-footer__right-section">
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="https://github.com/yang-le" class="mega-octicon octicon-mark-github"></a></li>
-            <li><a href="http://www.feed43.com/yang-le.xml" class="mega-octicon octicon-rss"></a></li>
-          </ul>
-        </div>
-      </footer>
+      <link rel="import" href="header.html">
+      <link rel="import" href="drawer.html">
+      <link rel="import" href="main.html">
+      <link rel="import" href="about.html">
+      <link rel="import" href="footer.html">
     </div>
   </body>
 </html>
