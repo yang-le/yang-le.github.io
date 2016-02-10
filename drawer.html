@@ -1,0 +1,21 @@
+<!-- hold the slide-out drawer's content -->
+<div class="mdl-layout__drawer">
+	<!-- the title， again -->
+	<span class="mdl-layout__title">雨天小猪</span>
+	<nav class="mdl-navigation">
+		<a class="mdl-navigation__link" href="#">数学笔记</a>
+		<a class="mdl-navigation__link" href="#">译来译去</a>
+		<a class="mdl-navigation__link" href="#">藏经阁</a>
+		<a class="mdl-navigation__link" href="#">碎碎念</a>
+		<a class="mdl-navigation__link" href="#">关于我</a>
+	</nav>
+</div>
+<script>
+(function () {
+	var me = document.currentScript.ownerDocument;
+	var post = me.querySelector('.mdl-layout__drawer');
+
+	var container = document.querySelector('.mdl-layout');
+	container.appendChild(post.cloneNode(true));
+	}());
+</script>
