@@ -16,7 +16,7 @@ function load(src, target) {
 
 function toggle_drawer() {
   var layout = document.querySelector(".mdl-layout");
-	layout.MaterialLayout.toggleDrawer();
+  layout.MaterialLayout.toggleDrawer();
 }
 
 load('header.html', 'header');
