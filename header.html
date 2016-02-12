@@ -1,35 +1,22 @@
-<!-- This holds the header row with navigation links that is displayed on large screens,
-and the menu icon that opens the navigation drawer for smaller screens -->
-<header class="mdl-layout__header">
-  <!-- div to produce the menu icon -->
-  <div class="mdl-layout-icon"></div>
-  <!-- the header row's content -->
-  <div class="mdl-layout__header-row">
-    <!-- the title -->
-    <span class="mdl-layout__title">雨天小猪の窝</span>
-    <div class="mdl-layout-spacer"></div>
-    <!-- the search button -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-      <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
-        <span class="octicon octicon-search"></span>
-      </label>
-    <div class="mdl-textfield__expandable-holder">
-      <input class="mdl-textfield__input" type="text" id="search-expandable">
-    </div>
-  </div>
-  <!-- here i want a clear button, but ... how ?
+<!-- div to produce the menu icon -->
+<div class="mdl-layout-icon"></div>
+<!-- the header row's content -->
+<div class="mdl-layout__header-row">
+  <!-- the title -->
+  <span class="mdl-layout__title">雨天小猪の窝</span>
+  <div class="mdl-layout-spacer"></div>
+  <!-- the search button -->
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
-      <span class="octicon octicon-x"></span>
+      <span class="octicon octicon-search"></span>
     </label>
-  -->
+  <div class="mdl-textfield__expandable-holder">
+    <input class="mdl-textfield__input" type="text" id="search-expandable">
   </div>
-</header>
-<script>
-(function () {
-  var me = document.currentScript.ownerDocument;
-  var post = me.querySelector('header');
-
-  var container = document.querySelector('.mdl-layout');
-  container.appendChild(post.cloneNode(true));
-}());
-</script>
+</div>
+<!-- here i want a clear button, but ... how ?
+  <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
+    <span class="octicon octicon-x"></span>
+  </label>
+-->
+</div>
