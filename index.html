@@ -21,19 +21,24 @@
   </main>
 
   <footer>
-    <label for="theme-sel">切换主题</label>
-    <select id="theme-sel" onchange="switchTheme(this)">
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="sepia">Sepia</option>
-      <option value="milligram">Milligram</option>
-      <option value="pure">Pure</option>
-      <option value="sakura">Sakura</option>
-      <option value="skeleton">Skeleton</option>
-      <option value="bootstrap">Bootstrap</option>
-      <option value="medium">Medium</option>
-      <option value="tufte">Tufte</option>
-    </select>
+    © <time id="year"></time> Yang Le<br>
+    Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.<br>
+    Powered by <a href="https://marked.js.org/">Marked</a>, <a href="http://classless.de/">Classless.css</a> and <a href="https://katex.org/" id="KaTeX"></a>.
+    <span class="float-right">
+      <label for="theme-sel">切换主题</label>
+      <select id="theme-sel" onchange="switchTheme(this)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="milligram">Milligram</option>
+        <option value="pure">Pure</option>
+        <option value="sakura">Sakura</option>
+        <option value="skeleton">Skeleton</option>
+        <option value="bootstrap">Bootstrap</option>
+        <option value="medium">Medium</option>
+        <option value="tufte">Tufte</option>
+      </select>
+    </span>
   </footer>
 
   <script src="https://cdn.bootcdn.net/ajax/libs/marked/2.1.3/marked.min.js"></script>
@@ -60,6 +65,8 @@
       }).then(md => {
         nav.innerHTML = marked(md);
       });
+    KaTeX.innerHTML = katex.renderToString('\\KaTeX');
+    year.innerHTML = new Date().getFullYear();
   </script>
 
   <script>
