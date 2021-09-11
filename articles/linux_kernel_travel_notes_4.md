@@ -10,6 +10,7 @@
 
 ### 青铜时代
 ![tty核心概览](https://img-blog.csdnimg.cn/20190620223540911.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg3MTUyNA==,size_16,color_FFFFFF,t_70)
+
 从上图可以看到，内核的tty子系统由tty核心，tty线路规程和tty驱动组成。我们不妨从tty驱动开始说起。
 
 #### TTY 驱动程序
@@ -46,8 +47,8 @@ TTY核心的本质是一个标准的字符设备驱动，作为接口被TTY驱�
 ### 白银时代
 但是TTY驱动的开发还是过于复杂，为此，在2.6版本之后，一个专门的TTY驱动`serial_core`被加入进来，用以简化串口驱动的开发工作。于是，画风变成了这样。
 
-
 ![serial core架构](https://img-blog.csdnimg.cn/2019062721215827.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg3MTUyNA==,size_16,color_FFFFFF,t_70)
+
 #### Serial驱动程序
 Serial驱动程序由`uart_driver`结构表示。
 简单地使用`uart_register_driver() ` / `uart_unregister_driver()`进行注册即可。

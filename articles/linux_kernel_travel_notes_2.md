@@ -3,7 +3,9 @@
 上一篇分析的loopback是所谓的"伪设备"，即它不对应真实世界中的硬件，而只是一种软件抽象。今天我们来看一个真实硬件设备的驱动程序，它就是Intel 8255x 10/100 Mbps网卡，对应的内核文件是`drivers/net/ethernet/intel/e100.c`。
 ### e100
 8255x是一系列网卡的统称，包括82557, 82558, 82559, 82550,82551。以82557为例，其硬件模块图如下所示
+
 ![82557硬件模块图](https://img-blog.csdnimg.cn/20190424144000257.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg3MTUyNA==,size_16,color_FFFFFF,t_70)
+
 可以看到，该型网卡主要由三部分组成：
 - MAC, 即图中标有82557的部分，是核心部件
 - PHY, 即物理层接口设备，与核心部件之间以 MII 连接
@@ -26,7 +28,9 @@
 - `pci_iomap()` / `pci_iounmap()`
 
 说到`pci_iomap()`，就不得不提及PCI配置空间。每个PCI设备都至少有256字节的地址空间,其中前64字节是标准化的，我们现在就来看一下这块网卡的配置空间的情况。
+
 ![PCI配置空间](https://img-blog.csdnimg.cn/20190424164259369.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg3MTUyNA==,size_16,color_FFFFFF,t_70)
+
 为什么说`pci_iomap()`跟这个配置空间有关呢。注意图中用红框框起来的部分，那就是所谓的基地址，共有6个，官方名称为`PCI_BASE_ADDREESS_0`到`PCI_BASE_ADDREESS_5`。而
 ```c
 extern void __iomem *pci_iomap(struct pci_dev *dev, int bar, unsigned long max);
@@ -44,7 +48,9 @@ MODULE_PARM_DESC(use_io, "Force use of i/o access mode");
 - RFA, 接收帧区域
 
 CSR位于网卡中，而另外两个只是内存中的数据结构。CSR的前8个字节有一个名字，叫作 SCB。SCB是8255x与CPU交换状态和控制信息的中转站。驱动程序通过向SCB中写入命令来控制命令单元 CU 和接收单元 RU 的状态。设备也会更新SCB中的状态字来标示CU和RU状态的变化，并通过中断告知驱动。而且，SCB还保存着指向CBL和RFA的指针，整体的结构如下图所示。更详细的信息，请参考硬件手册[^3]。
+
 ![8255x地址空间](https://img-blog.csdnimg.cn/20190424171511498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg3MTUyNA==,size_16,color_FFFFFF,t_70)
+
 对网卡的以下控制是通过设定SCB实现的
 - 发送Command Block `e100_exec_cb()`
 - 硬件初始化 `e100_hw_init()`

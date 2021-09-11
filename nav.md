@@ -1,6 +1,6 @@
 * 数学
-    * [拉格朗日力学](index.html?article=lagrangian_mechanics)
-    * [狭义相对论](index.html?article=special_theory_of_relativity)
+    * [拉格朗日力学](?article=lagrangian_mechanics)
+    * [狭义相对论](?article=special_theory_of_relativity)
     * [Langlands纲领介绍](?article=langlands_program_introduction)
     * [黎曼的zeta函数](?article=riemann_zeta_function)
     * [电动力学](?article=electrodynamics)
