@@ -1,4 +1,4 @@
-* [首页](#)
+* [首页](.)
 * 数学 ▾
     * [拉格朗日力学](?article=lagrangian_mechanics)
     * [狭义相对论](?article=special_theory_of_relativity)
