@@ -41,7 +41,7 @@
   <script>
     const url = new URL(window.location.href);
     const article = url.searchParams.get("article");
-    fetch("https://yang-le.github.io/" + article + ".md")
+    fetch("https://yang-le.github.io/articles/" + article + ".md")
       .then(response => {
         return response.text();
       }).then(md => {
