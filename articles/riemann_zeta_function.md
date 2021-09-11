@@ -1,5 +1,5 @@
 @[TOC](黎曼的zeta函数)
-# $\Gamma$函数
+## $\Gamma$函数
 考虑如下等式
 $$\sum^{\infin}_{k=0}x^k = 1 + x +x^2 + \cdots = \frac{1}{1-x}$$
 而恰有
@@ -20,14 +20,14 @@ $$\Gamma(a) = \int_0^{\infin}x^{a-1}e^{-x}\rm dx$$
 $$\Gamma(a) = (a-1)\Gamma(a-1)$$
 加之$\Gamma(1) = 1$，用归纳法就可以得出
 $$\Gamma(n) = (n -1)! ~ \forall n \in \N$$
-## 余元公式
+### 余元公式
 $$\Gamma(s)\Gamma(1-s)=\frac{\pi}{\sin(s\pi)}$$
 根据[两类欧拉积分](https://zhuanlan.zhihu.com/p/63225812)的关系，这也就是说
 $$\Beta(s, 1-s) = \frac{\pi}{\sin(s\pi)}$$
 做换元$x \to \frac{y}{1+y}$，就有
 $$\Beta(s, 1-s) = \int_0^\infin\frac{y^{s-1}}{1+y}\rm dy$$
 然后使用柯西积分公式(或者留数定理)就可以[证明](https://zhuanlan.zhihu.com/p/40837866)。
-# $\zeta$函数
+## $\zeta$函数
 黎曼的$\zeta$函数定义为
 $$\zeta(s) = \sum_{n = 1}^\infin \frac{1}{n^s}$$
 我们对$\Gamma$函数做一个变换$x \to nx$，就有
@@ -37,7 +37,7 @@ $$\sum_{n = 1}^\infin\frac{1}{n^s}\Gamma(s) = \int_0^\infin x^{s-1}\sum_{n = 1}^
 所以
 $$\zeta(s) =\frac{1}{\Gamma(s)}\int_0^\infin\frac{x^{s-1}}{e^x -1}\rm dx$$
 这称为$\zeta$函数的第一积分表示。
-## 解析延拓
+### 解析延拓
 现考虑将$\zeta$函数定义为复变函数，将上述积分中的$x$简单地换为$z$，并选择Hankel围道进行积分，经过一番化简之后，发现并不能与原定义相容。实际上，应当考虑如下稍作修改后的复积分
 $$\int_H\frac{(-z)^{s-1}}{e^z - 1}\rm dz$$
 式中$(-z)^{s-1}$应理解为$e^{(s-1)\ln(-z)}$，根据复对数的定义，$\ln(-z) = \ln|-z| + i\arg(-z)$。当Hankel围道无限趋近于正实轴时
@@ -57,7 +57,7 @@ $$\int_H\frac{(-z)^{s-1}}{e^z - 1}\rm dz =\frac{-2\pi i}{\Gamma(s)\Gamma(1-s)}\i
 因此
 $$\zeta(s) = -\frac{\Gamma(1-s)}{2\pi i}\int_H\frac{(-z)^{s-1}}{e^z - 1}\rm dz$$
 这就把$\zeta(s)$的定义扩展到了整个复平面上。上式也称为$\zeta$函数的第三积分表示。
-## 函数方程
+### 函数方程
 黎曼注意到这个积分还可以有另一种方法计算，也就是按负方向围绕Hankel围道的余集，注意到对于模趋于无穷大的$z$，上述积分是无穷小的。因此这两个围道积分所得的结果是相等的。在这个围道的内部，仅当$z = \pm2n\pi i$时，被积函数存在极点。因此这个积分可以使用留数定理来进行计算，也就是
 $$\int_{H^*}\frac{(-z)^{s-1}}{e^z - 1}\rm dz = -2\pi i\sum_{n \in \Z} Res[\frac{(-z)^{s-1}}{e^z - 1}, 2n\pi i]$$
 注意到$z \to 2n\pi i$时，$e^z -1$与$z - 2n\pi i$是等价的无穷小，据此可以得出

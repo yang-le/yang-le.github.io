@@ -1,5 +1,5 @@
 @[TOC](狭义相对论)
-# 洛伦兹变换
+## 洛伦兹变换
 根据光速不变假设，有
 $$\frac{ds}{dt} = \frac{ds'}{dt'} = c$$
 
@@ -43,35 +43,35 @@ x' &= \gamma(x -vt)
 我们稍作变形，这样可以使洛伦兹变换看起来更加对称
 $$\begin{pmatrix}ct' \\ x'\end{pmatrix} = \gamma\begin{pmatrix}1 & -\frac{v}{c} \\ -\frac{v}{c} & 1\end{pmatrix}\begin{pmatrix}ct \\ x\end{pmatrix}$$
 
-## “尺缩”效应
+### “尺缩”效应
 根据$dx' = \gamma(dx - vdt)$，当dt = 0时，就有$dx' = \gamma dx$。换句话说，一个静止的观者，观察一把运动着的原长度为$dx'$的尺子，其结果为$dx$。显然有$dx < dx'$。
 
-# 闵可夫斯基空间
+## 闵可夫斯基空间
 闵可夫斯基空间是一种四维矢量空间，其中的坐标以$\{x^0, x^1, x^2, x^3\}$来表示。其中$\{x^0 = ct\}$为类时坐标，$\{x^1, x^2, x^3\}$为类空坐标。其中矢量模长的平方定义为$ds^2 = -(dx^0)^2 + (dx^1)^2 + (dx^2)^2 + (dx^3)^2$。其与$t$的关系为
 $$ds^2 = -(c^2 - v^2)dt^2$$
 不难看出，以速度$c$运动的物体，其矢量模长平方为0，称为类光矢量。而小于速度$c$运动的物体，其矢量模长平方为负，称为类时矢量。另外，模长平方大于0的矢量，称为类空矢量。前面说的光速不变假设，在这里可以推广为洛伦兹变换保持闵可夫斯基空间中的向量模长不变。这一点不难通过计算验证，也可以通过
 $$|\Lambda| = 1$$
 得出。质点的运动表现为闵可夫斯基空间中的曲线。而运动相关的物理量，则可由闵可夫斯基空间中的标量，矢量，张量等予以表示。
 
-## 固有时和“钟慢”效应
+### 固有时和“钟慢”效应
 闵可夫斯基空间中的线长(为取时间单位，需除以$c$)称为固有时，其定义为
 $$d\tau = \frac{1}{c}\sqrt{-ds^2}$$
 
 根据上述定义可得$dt = \gamma d\tau$，因此惯性观者在本惯性系内的固有时等于其坐标时。一个质点运动固有时$d\tau$时间，在与其一起运动的观者看来，其坐标时为$dt'$；但在外界看来，其经过的时间为$dt = \gamma d\tau = \gamma dt'$。显然有$dt > dt'$。
 
-# 4-矢量
-## 4-速度
+## 4-矢量
+### 4-速度
 由于"钟慢"效应，速度就不再具有绝对意义。然而固有时在洛伦兹变换下不变，因此可以考虑重新将速度定义为$\frac{ds}{d\tau}$。将各分量展开写就是
 $$V = (\frac{cdt}{d\tau}, \frac{dx}{d\tau}, \frac{dy}{d\tau}, \frac{dz}{d\tau}) = \gamma(c, \dot x, \dot y, \dot z)$$
 称为4-速度，可以看出4-速度和普通速度的关系为
 $$V = \gamma(c, \vec v) = c\gamma(1, \vec u)$$
 且满足$V^2 = -c^2$。
 
-## 4-动量
+### 4-动量
 $$P = mV = (\gamma mc, \gamma m\vec v) = c\gamma(m, m\vec u)$$
 其中$\vec p = \gamma m\vec v$称为相对论性动量。
 
-### 质能方程
+#### 质能方程
 我们知道对质点做功可以增加其动能，即
 $$dE_k = fdx = dp\frac{dx}{dt} = mvd(\gamma v)$$
 其中$vd(\gamma v) = \frac{1}{2}\gamma dv^2 + v^2d\gamma$，而
@@ -87,24 +87,24 @@ $$\gamma(v)mc^2 = E_k(v) + mc^2$$
 其中方程左边是以速度$v$运动的物体所具有的总能量，它等于物体的动能$E_k(v)$加上物体本身所具有的能量$mc^2$。这就是著名的质能方程
 $$E = mc^2$$
 
-### 能量-动量关系
+#### 能量-动量关系
 4维表述下的能量-动量有个有趣的关系式
 $$E^2 = m^2c^4 + p^2c^2$$
 它实际上和$V^2 = -c^2$等价。因为$V^2 = -c^2 \iff ||(\gamma c, \gamma v)||^2 = -c^2 \iff ||(\gamma mc^2, \gamma mvc)||^2 = -m^2c^4 \iff ||(E, pc)||^2 = -m^2c^4 \iff m^2c^4 + (pc)^2 = E^2$
 
-## 4-加速度
+### 4-加速度
 $$A = \frac{dV}{d\tau} = (\gamma\dot\gamma c, \gamma^2\vec a + \gamma\dot\gamma \vec v) = c\gamma(\dot\gamma, \gamma \dot{\vec u} + \dot\gamma\vec u)$$
 其中$\vec a$就是通常意义下的加速度
 $$\dot\gamma = \frac{d\gamma}{dt} = \frac{\gamma^3}{c^2}\vec v\cdot\vec a = \gamma^3\vec u\dot{\vec u}$$
 在与物体共同移动的惯性系中，因$\gamma = 1, \dot\gamma = 0$，就有
 $$A = (0, a)$$
 
-## 4-力
+### 4-力
 $$F = \frac{dP}{d\tau} = mA = (\frac{\gamma}{c}\vec f\cdot\vec v, \gamma \vec f) = \gamma(\vec f\cdot\vec u, \vec f)$$
 其中$f$的定义为
 $$\vec f = \frac{d\vec p}{dt} = \gamma^3m\vec a$$
 
-## 常用计算结论
+### 常用计算结论
 |表达式| 结果 |
 |--|--|
 | $\dot\gamma = \frac{d\gamma}{dt}$ | $\gamma^3\vec u\dot{\vec u} = \frac{\vec f\cdot\vec u}{mc}$ |

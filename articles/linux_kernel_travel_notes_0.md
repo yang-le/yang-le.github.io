@@ -1,6 +1,6 @@
 @[TOC]
-# 出发前的准备
-## 下载内核源码
+## 出发前的准备
+### 下载内核源码
 查看系统内核版本
 ```shell
 uname -r
@@ -15,7 +15,7 @@ tar xf /usr/src/linux-source-4.18.0.tar.bz2 -C ~
 ```
 将源码解压到自己的home目录下。
 
-## 下载vscode
+### 下载vscode
 [下载传送门](https://code.visualstudio.com/Download)
 双击下载到的.deb包按照提示进行安装即可，执行
 ```shell
@@ -23,11 +23,11 @@ code
 ```
 即可打开安装好的vscode
 
-## 加载源码到vscode中
+### 加载源码到vscode中
 按<kbd>Ctrl</kbd>+<kbd>K</kbd><kbd>Ctrl</kbd>+<kbd>O</kbd>
 选择刚才解压的文件夹进行加载
 
-# Hello World
+## Hello World
 我们的第一个内核模块代码`hello.c`如下所示[^1]
 ```c
 #include <linux/init.h>

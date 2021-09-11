@@ -1,14 +1,14 @@
 @[TOC]
-# 网络设备驱动
+## 网络设备驱动
 上一篇分析的loopback是所谓的"伪设备"，即它不对应真实世界中的硬件，而只是一种软件抽象。今天我们来看一个真实硬件设备的驱动程序，它就是Intel 8255x 10/100 Mbps网卡，对应的内核文件是`drivers/net/ethernet/intel/e100.c`。
-## e100
+### e100
 8255x是一系列网卡的统称，包括82557, 82558, 82559, 82550,82551。以82557为例，其硬件模块图如下所示
 ![82557硬件模块图](https://img-blog.csdnimg.cn/20190424144000257.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg3MTUyNA==,size_16,color_FFFFFF,t_70)
 可以看到，该型网卡主要由三部分组成：
 - MAC, 即图中标有82557的部分，是核心部件
 - PHY, 即物理层接口设备，与核心部件之间以 MII 连接
 - EEPROM, 用来存储相关节点地址和 PCI 配置参数等信息
-### PCI接口
+#### PCI接口
 来到代码的最末，可以看到模块的初始化函数中只是简单的进行了PCI驱动信息的注册。
 在`pci_driver`结构中，最重要的两个成员分别是`id_table`和`probe`。前者列出了设备支持的PCI标识信息，后者为当系统发现有匹配的PCI设备插入时所调用的函数。
 `id_table`中包含以下成员:`vendor`, `device`, `subvendor`, `subdevice`, `class`, `class_mask`, `driver_data`。对于Intel的这款网卡来说，`vendor`为`0x8086`表示Intel，`class`为`0x0200`表示以太网设备。代码中定义了宏
@@ -37,7 +37,7 @@ MODULE_PARM_DESC(use_io, "Force use of i/o access mode");
 ```
 而图中`PCI_BASE_ADDREESS_1`的位置对应的恰好是CSR **I/O** Mapped Base Address Register。是不是很合理？
 
-### CSR
+#### CSR
 8255x网卡是通过共享内存地址空间来与CPU进行交互的。该地址空间分为三部分：
 - CSR, 控制/状态寄存器
 - CBL, 命令块列表
@@ -59,14 +59,14 @@ CSR支持的其他功能还有
 - PHY控制 `mdio_ctrl_hw()`
 
 对于CBL和RFA，为了收发性能考量，如果设备支持，则应将它们创建为DMA缓冲区。
-#### 啥是DMA？能吃吗？
+##### 啥是DMA？能吃吗？
 不能。
 
 DMA 是一种硬件机制，它允许外围设备和内存之间直接传输它们的I/O数据，而不需要CPU的参与。使用这种机制可以大大提高与设备通信的吞吐量。
 可以通过`pci_set_dma_mask()` / `dma_set_mask()`来查询设备是否支持DMA。
 
 有两篇内核文档[^4][^5]对DMA API提供了详细的说明，以下仅对代码中用到的内容作简要介绍。
-##### 一致DMA映射
+###### 一致DMA映射
 使用`pci_alloc_consistent()` / `dma_alloc_coherent()`建立一致DMA映射。
 在代码中，`e100_alloc()`使用该函数为存放自检结果，统计数据及dump信息创建了DMA缓冲区。
 
@@ -74,7 +74,7 @@ DMA 是一种硬件机制，它允许外围设备和内存之间直接传输它�
 在代码中，CBL就是以DMA池的形式分配的。
 
 一致DMA映射的开销通常是比较大的，对于那些存在于驱动程序整个生命周期中的数据结构，可以考虑使用这种方法。
-##### 流式DMA映射
+###### 流式DMA映射
 对于单独或者临时性的操作，建议使用流式DMA映射。
 
 调用 `pci_map_single()` / `dma_map_single()`可创建流式DMA映射。
@@ -83,7 +83,7 @@ DMA 是一种硬件机制，它允许外围设备和内存之间直接传输它�
 最后，如果你想多次使用同一缓冲区并在两次DMA传输之间改变了数据，缓冲区就需要在CPU和设备之间进行同步。调用`pci_dma_sync_single_for_cpu()` / `dma_sync_single_for_cpu()`将数据同步到CPU侧，调用`pci_dma_sync_single_for_device()` / `dma_sync_single_for_device()`将数据同步到设备侧。
 
 在代码中对于RFA区域使用了流式DMA映射。
-#### Command Block
+##### Command Block
 对网卡的以下控制是通过发送Command Block实现的
 - 地址设定 `e100_set_mac_address()`
 - 多播设定 `e100_set_multicast_list()`
@@ -92,10 +92,10 @@ DMA 是一种硬件机制，它允许外围设备和内存之间直接传输它�
 - 获取设备寄存器信息 `e100_get_regs()`
 - 各种配置设定 `e100_configure()`
 
-##### 数据包发送
+###### 数据包发送
 `e100_xmit_frame()`会调用`e100_exec_cb()`来发送一个 TCB。后者将调用`e100_xmit_prepare()`将`sk_buff`挂到TCB上。
 
-### 中断处理
+#### 中断处理
 在调用`pci_enable_device()`之后，PCI设备的中断号就保存在`pdev->irq`中了。
 代码中调用了`request_irq()`为该中断安装了中断处理程序`e100_intr()`。
 有很多事件都会触发中断，在代码中我们关心的主要有以下两种:
@@ -103,7 +103,7 @@ DMA 是一种硬件机制，它允许外围设备和内存之间直接传输它�
 - RU接收到新的数据包
 
 代码中对这些事件的实际处理是由NAPI完成的。
-#### NAPI
+##### NAPI
 NAPI[^6]是一种新的旨在提高高速网络性能的API，它将传统的一次中断接收一个数据包改为一次中断后通过轮询接收多个数据包。其调用的大致流程是：
 1. 注册轮询函数
 ```c
@@ -138,7 +138,7 @@ static int e100_poll(struct napi_struct *napi, int budget)
 	return work_done;
 }
 ```
-##### 数据包接收
+###### 数据包接收
 在`e100_rx_clean()`中使用一个循环对每一个数据包进行接收处理。
 ```c
 	/* Indicate newly arrived packets */

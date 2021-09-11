@@ -1,6 +1,6 @@
 @[TOC]
-# 设备模型
-## 设备
+## 设备模型
+### 设备
 在最底层，Linux系统中的每一个设备都用`device`结构的一个实例来表示。
 结构中比较重要的成员包括
 - `parent` 该设备的"父"设备
@@ -29,7 +29,7 @@
 通常只需要使用`device_register()` / `device_unregister()`对设备进行注册和移除。
 `device_is_registered()`可以判断设备是否已经被注册。
 
-### 字符设备
+#### 字符设备
 字符设备用`cdev`结构表示。其成员包括
 - `owner` 所属模块
 - `ops` 文件操作回调函数集
@@ -41,11 +41,11 @@
 使用`cdev_add()`向系统添加该设备。
 移除时，应使用`cdev_del()`，并使用`unregister_chrdev_region()`释放分配的编号。
 
-### 块设备
+#### 块设备
 T.B.D.
-### 网络设备
+#### 网络设备
 请参考[Linux 内核游记 (1)](https://blog.csdn.net/weixin_41871524/article/details/89477547)。
-## 驱动程序
+### 驱动程序
 设备模型跟踪所有系统所知道的设备。进行跟踪的主要原因是让驱动程序核心协调驱动程序与新设备之间的关系。驱动程序由`device_driver`结构定义。
 结构中比较重要的成员包括
 - `name` 名字
@@ -67,7 +67,7 @@ T.B.D.
 
 最后`driver_register()` / `driver_unregister()` 仍然是这里最常用的函数。
 
-## 总线
+### 总线
 总线是处理器与一个或多个设备之间的通道。在设备模型中，所有的设备都通过总线相连 。
 在Linux设备模型中，用`bus_type`结构表示总线。
 结构中比较重要的成员包括
@@ -93,7 +93,7 @@ T.B.D.
 
 当然，还有最常用的`bus_register()` / `bus_unregister()` 注册或移除总线。
 
-## 类
+### 类
 类是一个设备的高层视图，它抽象出了低层的实现细节。例如驱动程序看到的是SCSI磁盘和ATA磁盘，但是在类的层次上，它们都是磁盘而已。类由`class`结构表示。
 结构中比较重要的成员包括
 - `name` 名字
@@ -108,7 +108,7 @@ T.B.D.
 使用`class_for_each_device()` 遍历设备。
 使用`class_find_device()` 查找设备。
 
-### 类接口
+#### 类接口
 类接口是一个奇葩的概念。可以把它理解成一种设备加入或者离开时获得信息的触发机制。
 类接口由`class_interface`结构表示，其中的成员包括
 - `node` 链表节点
@@ -118,7 +118,7 @@ T.B.D.
 
 只有两个函数可用于类接口，注册函数`class_interface_register()`以及移除函数`class_interface_unregister()`。
 
-## 属性
+### 属性
 几乎在Linux设备模型的每一层都提供了添加属性的函数。属性由`attribute`结构表示，其成员包括
 - `name` 属性名
 - `mode` 属性权限
@@ -137,7 +137,7 @@ T.B.D.
 - `xxx_create_file()` 创建属性文件
 - `xxx_remove_file()` 移除属性文件
 
-### 属性组
+#### 属性组
 多个属性可以组成属性组，这样就可以利用前面提到的属性组相关函数来一次性添加多个属性。属性组由`attribute_group`结构表示。其主要成员包括
 - `name` 属性组名称(可选)
 - `attrs` 指向属性数组指针，以NULL结尾
@@ -159,7 +159,7 @@ static struct attribute *gnss_attrs[] = {
 };
 ATTRIBUTE_GROUPS(gnss);
 ```
-# 参考资料
+## 参考资料
 关于设备模型这部分的资料真的是很少，即使英文资料大多也是比较旧的，并不能反映内核的最新状态。如果有朋友知道关于这方面的比较新的资料，欢迎在下方评论留言。除阅读内核代码之外，个人认为，目前最好的资料仍然是经典的：
 - [Linux Device Drivers](https://lwn.net/Kernel/LDD3/) 中关于设备模型和字符设备的部分
 - [内核文档](https://github.com/torvalds/linux/blob/master/Documentation/driver-model) 中关于设备模型的部分

@@ -2,7 +2,7 @@
 
 > 注：本文为b站视频[莫仲鹏教授：Langlands纲领介绍](https://www.bilibili.com/video/BV1sv411r7tc)的笔记整理，仅作个人学习之用。若相关作者觉得有不当之处，可随时私信我处理。
 
-# 记号
+## 记号
 |符号| 说明 |
 |--|--|
 | $\Z$ | 正整数集合，$n \in \Z, n \ge 1$ |
@@ -11,7 +11,7 @@
 | $a \equiv b \mod n$ |  $a, b$模$n$同余，$n \mid a - b$ |
 | $\mathbb F_p$ |  当$n= p$为素数时，$\Z/p\Z$是有限域，记作$\mathbb F_p$  |
 
-# 二次同余方程
+## 二次同余方程
 固定$d\in \Z$，$d$不是平方数，考虑同余方程
 $$x^2 \equiv d \mod p$$
 其中$p$是素数，且$p \nmid 2d$。设$N_p$为该同余方程在有限域$\mathbb F_p$上的解的个数。
@@ -40,7 +40,7 @@ $$\left(d \over p\right) = \chi(p)$$
 > Q$上不可约，我们有 $$\operatorname{Gal}(\mathbb Q(\sqrt d) / \mathbb Q) \cong
 > \Z / 2\Z \cong \{\pm 1\}$$ 是交换群。
 
-# 三次同余方程
+## 三次同余方程
 考虑三次多项式
 $$x^3 - x - 1$$
 其在$\mathbb Q$上为不可约，椭圆曲线判别式$\Delta = -(4a^3 + 27b^2) = -23$。
@@ -96,14 +96,14 @@ $$\operatorname{Gal}(S/\mathbb Q) \cong S_3$$
 
 **小结**：概括地说，我们希望把二次互反律的结果推广至非交换的Galios扩张。Langlands认为，在非交换的情形下，Dirichlet特征应该被取代为模形式，或者是更加一般的自守形式（或自守表示）。对于交换的Galios扩张的情形，类域论已经给出了完整的结果。
 
-# 自守形式
+## 自守形式
 对于$SL_2$或$GL_2$，其自守形式分为两种：
-## 全纯模形式
+### 全纯模形式
 设$k \ge 1， N \ge 1, \chi$为模$N$的Dirichlet特征。权$k$，级$N$带特征$\chi$的全纯尖点模形式$f$为$\mathcal H$上的全纯函数。并且对于$\begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \Gamma_0(N)$有
 $$f(\frac{az + b}{cz + d}) = \chi(d)\cdot(cz + d)^k\cdot f(z) ~ \forall z \in \mathcal H$$
 且在尖点上的取值为0。特别地，$f(z + 1) = f(z)$，且该函数存在$q$-展开。记$S_k(N, \chi)$为权$k$，级$N$，带特征$\chi$的全纯尖点模形式的$\mathbb C$-向量空间，我们有
 $$\dim_{\mathbb C}S_k(N, \chi) < \infty$$
-## Maass模形式
+### Maass模形式
 设$N \ge 1, \chi$为模$N$的特征。$f$在$\mathcal H$上为实解析的$\mathbb C$-值函数。并且对于$\begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \Gamma_0(N)$有
 $$f(\frac{az + b}{cz + d}) = \chi(d)\cdot f(z) ~ \forall z \in \mathcal H$$
 且$f$是双曲Laplace算子
@@ -128,7 +128,7 @@ Selberg自己证明了(1965)：$\lambda \ge \frac{3}{16}$，且$N = 1$时，有$
 
 > 注：Kim-Sarnak关于Selberg猜想的结果其中关键的一步是Kim-Shahidi(2002)关于Langlands函子性猜想的一些特殊情形。在Kim-Shahidi中，需要用到例外群$E_7$的自守形式和自守表示理论。
 
-# Hecke本征形式
+## Hecke本征形式
 在有限维$\mathbb C$-向量空间$S_k(N, \chi)$和$S_\lambda^M(N, \chi)$有Hecke算子$T_n$作用在之上。这里$n \ge 1, (n, N) = 1$。且$T_1$为恒等算子。这些算子互相交换，并且对于Peterson内积是正规算子。如果$\chi$是平凡的，这些算子还是自伴算子。Peterson内积定义如下：对于$S_k(N, \chi)$的情形
 $$<f, g> = \iint_{\Gamma_0(N)/\mathcal H}f(z)\overline{g(z)}y^k\frac{dxdy}{y^2}$$
 对于$S_\lambda^M(N, \chi)$的情形
@@ -156,7 +156,7 @@ $$\lambda_n = a_n ~ \forall n \ge 1, (n, N) = 1$$
 
 > 注3：严格来说，Dirichlet特征在非交换情形的推广是Hecke本征形式。
 
-# Ramanujan猜想
+## Ramanujan猜想
 
 > **设$f \in S_k(N, \chi)$或$S_\lambda^M(N, \chi)$为Hecke本征形式。$a_1 = 1$，对于所有$p \nmid N$，设$\alpha_p, \beta_p$为二次多项式 $$x^2 - a_px +
 > \chi(p)\cdot p^{k-1}$$ （Maass形式的情形则为$x^2 - a_px +
@@ -171,7 +171,7 @@ $$\lambda_n = a_n ~ \forall n \ge 1, (n, N) = 1$$
 Maass形式$S_\lambda^M(N, \chi)$时，目前最好的结果为Kim-Sarnak给出的
 $$p^{-\frac{7}{64}} \le |\alpha_p|, |\beta_p| \le p^{\frac{7}{64}}$$
 
-# 椭圆曲线
+## 椭圆曲线
 $$y^2 = P(x)$$
 其中$P(x)$为有理系数的三次多项式，且没有重根。
 
@@ -191,7 +191,7 @@ $$|N_p - p| < 2\sqrt p, ~ (p \ne 11)$$
 > **$$N_p = p - a_p$$ 这里 $$q\prod_{n=1}^\infty[(1-q^n)(1-q^{11n})]^2 = \sum_{n = 1}^\infty a_nq^n, ~ a_1 = 1$$ 是属于$S_2(11, \mathcal
 > 1)$的Hecke本征形式。**
 
-## 谷山-志村(Taniyama-Shimura)猜想
+### 谷山-志村(Taniyama-Shimura)猜想
 
 > **对于所有定义在$\mathbb Q$上的椭圆曲线，均有类似的情形成立。**
 
@@ -201,8 +201,9 @@ Ribet再此之前已经证明从谷山-志村猜想可以推出著名的费马�
 > 注：Wiles的证明也是需要用到Langlands(1980)的结果，Base Change for GL(2)。
 > 更多信息可参考维基百科关于函子性猜想，Endoscopy以及基本引理（吴宝珠，2008）的相关内容。
 
-# 总结
+## 总结
 横向为Weil的所谓罗塞塔石碑，纵向为Langlands对应。
+
 | 数论 | 有限域平面上的曲线 | 黎曼曲面 | 量子物理 |
 |--|--|--|--|
 | Langlands关系 |  Langlands关系 | 几何Langlands关系 | 电磁对偶性、镜像对称 |
@@ -210,7 +211,7 @@ Ribet再此之前已经证明从谷山-志村猜想可以推出著名的费马�
 | Galios群在$L_G$中的表示 |  Galios群在$L_G$中的表示 | 基本群在$L_G$中的表示 | M($L_G$, X)上的零膜 |
 | 自守函数 |  自守函数或自守层 | 自守层 | M(G, X)上的X膜 |
 
-# 参考文献
+## 参考文献
 E. Frenkel: Love and Math, The Heart of Hidden Reality, Basic Books, 2013.
 http://www.sunsite.ubc.ca/DigitalMathArchive/Langlands/functoriality.html
 https://www.bilibili.com/video/BV1sv411r7tc
