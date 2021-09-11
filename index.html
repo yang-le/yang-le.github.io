@@ -7,20 +7,14 @@
   <meta name="description" content="杨乐的个人主页">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.13.13/katex.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="entry.css" />
+  <!-- <link id="mainstyle" rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Steely" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="entry.css" /> -->
+  <link rel="stylesheet" href="https://classless.de/classless.css">
+  <link rel="stylesheet" href="https://classless.de/addons/themes.css">
 </head>
 
 <body>
-  <!--[if lte IE 9]>
-    <p>你正在使用<strong>过时的</strong>浏览器。请<a href="https://browsehappy.com/">更新你的浏览器</a>以增强浏览体验和安全性。</p>
-  <![endif]-->
-
-  <header>
-    <h1>杨乐的个人主页</h1>
-  </header>
-
-  <nav>
-    <a href="#">文章</a> | <a href="#">关于</a>
+  <nav id="nav">
   </nav>
 
   <main>
@@ -29,17 +23,25 @@
   </main>
 
   <footer>
-    <p>© 2018 杨乐</p>
-    <p>最后修改时间：<time datetime="2018-11">2018年11月</time></p>
-    <address>
-      <p>任何意见和建议，欢迎<a href="mailto:yangle0125@qq.com">联系</a>。</p>
-    </address>
+    <label for="theme-sel">切换主题</label>
+    <select id="theme-sel" onchange="switchTheme(this)">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="sepia">Sepia</option>
+      <option value="milligram">Milligram</option>
+      <option value="pure">Pure</option>
+      <option value="sakura">Sakura</option>
+      <option value="skeleton">Skeleton</option>
+      <option value="bootstrap">Bootstrap</option>
+      <option value="medium">Medium</option>
+      <option value="tufte">Tufte</option>
+    </select>
   </footer>
 
   <script src="https://cdn.bootcdn.net/ajax/libs/marked/2.1.3/marked.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.13.13/katex.min.js"></script>
   <script>
-    fetch("index.md")
+    fetch("https://yang-le.github.io/index.md")
       .then(response => {
         return response.text();
       }).then(md => {
@@ -49,6 +51,19 @@
           return katex.renderToString(tex);
         }));
       });
+  </script>
+
+  <script>
+    fetch("https://yang-le.github.io/nav.md")
+      .then(response => {
+        return response.text();
+      }).then(md => {
+        nav.innerHTML = marked(md);
+      });
+  </script>
+
+  <script>
+    function switchTheme(el) { document.documentElement.setAttribute('data-theme', el.value) }
   </script>
 
   <script>
