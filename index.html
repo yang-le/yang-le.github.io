@@ -6,9 +6,9 @@
   <title>杨乐的个人主页</title>
   <meta name="description" content="杨乐的个人主页">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.13.13/katex.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/emareg/classlesscss/docs/classless.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/emareg/classlesscss/docs/addons/themes.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/emareg/classlesscss/docs/classless.min.css,gh/emareg/classlesscss/docs/addons/themes.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/emareg/classlesscss/docs/addons/hljs-style.min.css"> -->
 </head>
 
 <body>
@@ -22,12 +22,12 @@
 
   <footer>
     © <time id="year"></time> Yang Le<br>
-    Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.<br>
-    Powered by <a href="https://marked.js.org/">Marked</a>, <a href="http://classless.de/">Classless.css</a> and <a
+    Hosted on <a href="https://pages.github.com/">GitHub Pages</a>, with <a href="https://www.jsdelivr.com/">jsDelivr</a> CDN.<br>
+    Powered by <a href="https://markdown-it.github.io/">markdown-it</a>, <a href="http://classless.de/">Classless.css</a> and <a
       href="https://katex.org/" id="KaTeX"></a>.
     <span class="float-right">
-      <label for="theme-sel">切换主题</label>
-      <select id="theme-sel" onchange="switchTheme(this.value)">
+      <label for="theme">切换主题</label>
+      <select id="theme" onchange="switchTheme(this.value)">
         <option value="light">Light</option>
         <option value="dark">Dark</option>
         <option value="sepia">Sepia</option>
@@ -42,34 +42,34 @@
     </span>
   </footer>
 
-  <script src="https://cdn.bootcdn.net/ajax/libs/marked/2.1.3/marked.min.js"></script>
-  <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.13.13/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/katex@0.13.18,npm/markdown-it@12/dist/markdown-it.min.js,npm/markdown-it-anchor@8/dist/markdownItAnchor.umd.min.js,npm/markdown-it-katexx@3/dist/index.umd.min.js,npm/markdown-it-toc-done-right@4/dist/markdownItTocDoneRight.umd.min.js"></script>
+
   <script>
     const url = new URL(window.location.href);
-    const article = url.searchParams.get("article");
+    const article = url.searchParams.get('article');
+    const markdown = markdownit().use(markdownItKatexx).use(markdownItAnchor).use(markdownItTocDoneRight, { placeholder: '\\@\\[TOC\\](\\(.*\\))?' });
 
-    fetch("https://yang-le.github.io/articles/" + (article ? article : "home") + ".md")
+    fetch('https://yang-le.github.io/articles/' + (article ? article : 'home') + '.md')
       .then(response => {
         return response.text();
       }).then(md => {
-        content.innerHTML = marked(md.replace(/\$\$([\s\S]+?)\$\$/g, (match, tex) => {
-          return "<pre>" + katex.renderToString(tex, { displayMode: true }) + "</pre>";
-        }).replace(/\$(.+?)\$/g, (match, tex) => {
-          return katex.renderToString(tex);
-        }));
+        content.innerHTML = markdown.render(md);
       });
 
-    fetch("https://yang-le.github.io/nav.md")
+    fetch('https://yang-le.github.io/nav.md')
       .then(response => {
         return response.text();
       }).then(md => {
-        nav.innerHTML = marked(md);
+        nav.innerHTML = markdown.render(md);
       });
 
     KaTeX.innerHTML = katex.renderToString('\\KaTeX');
     year.innerHTML = new Date().getFullYear();
+    theme.value = localStorage.getItem('theme');
+    switchTheme(theme.value);
 
     function switchTheme(theme) {
+      localStorage.setItem('theme', theme);
       document.documentElement.setAttribute('data-theme', theme)
     }
   </script>
