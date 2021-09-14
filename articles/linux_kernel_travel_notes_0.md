@@ -2,15 +2,15 @@
 ## 出发前的准备
 ### 下载内核源码
 查看系统内核版本
-```shell
+```bash
 uname -r
 ```
 我的内核版本为4.18.0-15-generic，安装适合当前系统版本的源码
-```shell
+```bash
 sudo apt install linux-source-4.18.0
 ```
 安装后的源码在/usr/src/linux-source-4.18.0.tar.bz2，将其解压到合适的目录下，如
-```shell
+```bash
 tar xf /usr/src/linux-source-4.18.0.tar.bz2 -C ~
 ```
 将源码解压到自己的home目录下。
@@ -18,7 +18,7 @@ tar xf /usr/src/linux-source-4.18.0.tar.bz2 -C ~
 ### 下载vscode
 [下载传送门](https://code.visualstudio.com/Download)
 双击下载到的.deb包按照提示进行安装即可，执行
-```shell
+```bash
 code
 ```
 即可打开安装好的vscode
@@ -61,23 +61,23 @@ default:
 endif
 ```
 执行
-```shell
+```bash
 make
 ```
 命令，可编译出模块`hello.ko`，执行
-```shell
+```bash
 sudo insmod ./hello.ko
 ```
 将该模块加载进内核。执行
-```shell
+```bash
 lsmod
 ```
 可以看到我们刚刚加载的模块，名称为`hello`。执行
-```shell
+```bash
 sudo rmmod hello
 ```
 可以卸载该模块。最后，执行
-```shell
+```bash
 dmesg
 ```
 可以看到我们的hello模块打印的log。

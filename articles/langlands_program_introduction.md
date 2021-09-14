@@ -212,7 +212,7 @@ Ribet再此之前已经证明从谷山-志村猜想可以推出著名的费马�
 | 自守函数 |  自守函数或自守层 | 自守层 | M(G, X)上的X膜 |
 
 ## 参考文献
-E. Frenkel: Love and Math, The Heart of Hidden Reality, Basic Books, 2013.
-http://www.sunsite.ubc.ca/DigitalMathArchive/Langlands/functoriality.html
-https://www.bilibili.com/video/BV1sv411r7tc
-https://en.wikipedia.org/wiki/Langlands_program
+- E. Frenkel: Love and Math, The Heart of Hidden Reality, Basic Books, 2013.
+- http://www.sunsite.ubc.ca/DigitalMathArchive/Langlands/functoriality.html
+- https://www.bilibili.com/video/BV1sv411r7tc
+- https://en.wikipedia.org/wiki/Langlands_program
