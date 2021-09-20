@@ -2,13 +2,19 @@
 
 # 坐标变换
 ## 切矢和切空间
-从流形$M$到$R$的映射$$f \colon M \to \R$$称为$M$上的函数或$M$上的标量场。
-从流形$M$上的全体光滑函数的集合$\mathscr F_M$到$\R$的映射$$v \colon \mathscr F_M \to \R$$称为点$p \in M$的一个矢量，若$\forall f, g \in \mathscr F_M; ~ \alpha, \beta \in \R$有
+从流形$M$到$R$的映射
+$$f \colon M \to \R$$
+称为$M$上的函数或$M$上的标量场。
+从流形$M$上的全体光滑函数的集合$\mathscr F_M$到$\R$的映射
+$$v \colon \mathscr F_M \to \R$$
+称为点$p \in M$的一个矢量，若$\forall f, g \in \mathscr F_M; ~ \alpha, \beta \in \R$有
 $$\begin{array}{ll}
 v(\alpha f + \beta g) = \alpha v(f) + \beta v(g) \\
 v(fg) = v(f)g|_p + f|_pv(g)
 \end{array}$$
-设$I$为$\R$的一个区间，映射$$C \colon I \to M$$称为$M$上的一条曲线。对任一$t \in I$，有唯一的点$C(t) \in M$与之对应。$t$称为曲线的参数。
+设$I$为$\R$的一个区间，映射
+$$C \colon I \to M$$
+称为$M$上的一条曲线。对任一$t \in I$，有唯一的点$C(t) \in M$与之对应。$t$称为曲线的参数。
 设$C(t)$是$M$上的曲线，则线上$C(t_0)$点的切于$C(t)$的切矢$T$是$C(t_0)$点的矢量，定义为
 $$T(f) := \frac{d(f \circ C)}{dt}|_{t_0}, ~ \forall f \in \mathscr F_M$$
 常把$C(t_0)$点的切于$C(t)$的切矢$T$记作$\frac{\partial}{\partial t}|_{C(t_0)}$。
