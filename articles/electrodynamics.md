@@ -36,15 +36,23 @@ $$\vec{F} = I\vec{l}\times\vec{B}$$
 $$\iiint\vec\nabla\cdot\vec{A} \rm dV = \oiint\vec{A}\cdot \rm d\vec{S}$$
 $$\iint\vec\nabla\times\vec{A}\cdot\rm d\vec{S} = \oint\vec{A}\cdot\rm d\vec{l}$$
 ### 积分形式
-高斯电场定理$$ \oiint\vec{E}\cdot \rm d\vec{S} = {1\over{\epsilon_0}}\iiint\rho \rm dV$$
-高斯磁场定理$$\oiint\vec{B}\cdot \rm d\vec{S} = 0$$
-法拉第定律$$\oint\vec{E}\cdot \rm d\vec{l} = -\iint{\partial\vec{B}\over\partial t}\cdot \rm d\vec{S}$$
-安培-麦克斯韦定律$$\oint\vec{B}\cdot \rm d\vec{l} = \mu_0\iint(\vec{j} + \epsilon_0{\partial\vec{E} \over {\partial t}})\cdot \rm d \vec{S}$$
+高斯电场定理
+$$ \oiint\vec{E}\cdot \rm d\vec{S} = {1\over{\epsilon_0}}\iiint\rho \rm dV$$
+高斯磁场定理
+$$\oiint\vec{B}\cdot \rm d\vec{S} = 0$$
+法拉第定律
+$$\oint\vec{E}\cdot \rm d\vec{l} = -\iint{\partial\vec{B}\over\partial t}\cdot \rm d\vec{S}$$
+安培-麦克斯韦定律
+$$\oint\vec{B}\cdot \rm d\vec{l} = \mu_0\iint(\vec{j} + \epsilon_0{\partial\vec{E} \over {\partial t}})\cdot \rm d \vec{S}$$
 ### 微分形式
-高斯电场定理$$\vec\nabla\cdot\vec{E} = {\rho \over \epsilon_0}$$
-高斯磁场定理$$\vec\nabla\cdot\vec{B} = 0$$
-法拉第定律$$\vec\nabla\times\vec{E} = -{\partial\vec{B}\over\partial t}$$
-安培-麦克斯韦定律$$\vec\nabla\times\vec{B} = \mu_0(\vec{j} + \epsilon_0{\partial\vec{E} \over {\partial t}})$$
+高斯电场定理
+$$\vec\nabla\cdot\vec{E} = {\rho \over \epsilon_0}$$
+高斯磁场定理
+$$\vec\nabla\cdot\vec{B} = 0$$
+法拉第定律
+$$\vec\nabla\times\vec{E} = -{\partial\vec{B}\over\partial t}$$
+安培-麦克斯韦定律
+$$\vec\nabla\times\vec{B} = \mu_0(\vec{j} + \epsilon_0{\partial\vec{E} \over {\partial t}})$$
 
 ### 拉格朗日公式
 $$\vec a\times(\vec b\times \vec c) = \vec b (\vec a \cdot \vec c) - \vec c (\vec a \cdot \vec b)$$
@@ -53,7 +61,8 @@ $$\vec a\times(\vec b\times \vec c) = \vec b (\vec a \cdot \vec c) - \vec c (\ve
 由高斯磁场定律，数学上可以知道存在一个$\vec A$满足
 $$\vec B = \vec \nabla \times \vec A$$
 物理上将$\vec A$称为电磁场的矢势。由此，法拉第定律可以写为
-$$\vec\nabla\times\vec{E} = -{\partial\over\partial t}(\vec \nabla \times \vec A) = -\vec \nabla \times{\partial\vec A\over\partial t}$$即$\vec \nabla \times(\vec E + {\partial\vec A\over\partial t}) = 0$，数学上可以知道存在一个$\phi$满足$\vec E + {\partial\vec A\over\partial t} = -\vec\nabla\phi$，因此
+$$\vec\nabla\times\vec{E} = -{\partial\over\partial t}(\vec \nabla \times \vec A) = -\vec \nabla \times{\partial\vec A\over\partial t}$$
+即$\vec \nabla \times(\vec E + {\partial\vec A\over\partial t}) = 0$，数学上可以知道存在一个$\phi$满足$\vec E + {\partial\vec A\over\partial t} = -\vec\nabla\phi$，因此
 $$\vec E = -\vec\nabla\phi - {\partial\vec A\over\partial t}$$
 物理上将$\phi$称为电磁场的标势。这样，安培-麦克斯韦定律就可以写为
 $$\vec\nabla\times(\vec\nabla\times\vec A) = \vec\nabla(\vec\nabla\cdot\vec A) - \vec\nabla^2\vec A = \mu_0\vec j - \mu_0\epsilon_0\vec\nabla{\partial\phi \over \partial t} - \mu_0\epsilon_0{\partial^2\vec A \over \partial t^2}$$

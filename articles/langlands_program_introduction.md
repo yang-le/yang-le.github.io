@@ -35,10 +35,11 @@ $$\chi\colon(\Z / 4|d|\Z)^\times \to \{\pm1\}$$
 使得对于素数$p, p\nmid 2d$，有
 $$\left(d \over p\right) = \chi(p)$$
 
-> 注：一般的模$N$Dirichlet特征定义为同态 $$\chi\colon(\Z / N\Z)^\times \to \mathbb
-> C^\times$$ 其中$\chi$的取值为单位根。 因为$d$不是平方数，所以多项式$x^2 - d$在$\mathbb
-> Q$上不可约，我们有 $$\operatorname{Gal}(\mathbb Q(\sqrt d) / \mathbb Q) \cong
-> \Z / 2\Z \cong \{\pm 1\}$$ 是交换群。
+> 注：一般的模$N$Dirichlet特征定义为同态
+> $$\chi\colon(\Z / N\Z)^\times \to \mathbb C^\times$$
+> 其中$\chi$的取值为单位根。 因为$d$不是平方数，所以多项式$x^2 - d$在$\mathbb Q$上不可约，我们有
+> $$\operatorname{Gal}(\mathbb Q(\sqrt d) / \mathbb Q) \cong\Z / 2\Z \cong \{\pm 1\}$$
+> 是交换群。
 
 ## 三次同余方程
 考虑三次多项式
@@ -62,10 +63,15 @@ $$N_p= \left\{\begin{aligned}
 
 我们有如下定理(Hecke, 1920's)
 
-> **考虑 $$f(z) = q\prod_{n = 1}^\infty(1-q^n)(1-q^{23n})$$  这里 $$q = e^{2\pi iz}$$ 其中$z \in \mathcal H = \{z \in \mathbb C \mid
-> \operatorname{Im} z 0\}$, $f$在$\mathcal H$上全纯，且可以写成 $$f(z) = \sum_{n =
-> 1}^\infty a_nq^n$$ $a_1 = 1, a_n$为常数。则对于素数$p \ne 23$，有 $$N_p = 1 +
-> a_p$$**
+> **考虑
+> $$f(z) = q\prod_{n = 1}^\infty(1-q^n)(1-q^{23n})$$
+> 这里
+> $$q = e^{2\pi iz}$$
+> 其中$z \in \mathcal H = \{z \in \mathbb C \mid \operatorname{Im} z 0\}$, $f$在$\mathcal H$上全纯，且可以写成
+> $$f(z) = \sum_{n = 1}^\infty a_nq^n$$
+> $a_1 = 1, a_n$为常数。则对于素数$p \ne 23$，有
+> $$N_p = 1 +a_p$$
+> **
 
 $f(z)$的重要性在于，$f$是模形式。更准确地说，$f$是权为1，级为23，带特征$\left(\cdot \over 23\right)$的尖点模形式。也就是说，对于所有的$\begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \Gamma_0(23)$，以及$z \in \mathcal H$，有
 $$f(\frac{az + b}{cz + d}) = \left(d \over 23\right)\cdot(cz + d)\cdot f(z)$$
@@ -75,24 +81,29 @@ $$\Gamma_0(N) = \{\begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \operatorname{S
 $$\operatorname{Gal}(S/\mathbb Q) \cong S_3$$
 为置换群，特别地，还是非交换群。这是和之前的二次同余的最重要的区别。
 
-> 注1：设 $$\rho \colon S_3 \to \operatorname{GL}_2(\mathbb C)$$
-> 为$S_3$的(唯一)二维不可约表示,则$\operatorname{tr}\rho$的取值就是$-1, 0,
-> 2$。利用代数数论方法可以对$p \ne 23$定义在$\operatorname{Gal}(S/\mathbb Q) \cong
-> S_3$中的Frobenius共轭类$\operatorname{Frob}_p$，使得有： $$N_p = 1 +
-> \operatorname{tr}\rho(\operatorname{Frob}_p)$$ 所以上述定理其实就是说，对于素数$p \ne
-> 23$，有 $$\operatorname{tr}\rho(\operatorname{Frob}_p) = a_p$$
+> 注1：设
+> $$\rho \colon S_3 \to \operatorname{GL}_2(\mathbb C)$$
+> 为$S_3$的(唯一)二维不可约表示,则$\operatorname{tr}\rho$的取值就是$-1, 0, 2$。
+> 利用代数数论方法可以对$p \ne 23$定义在$\operatorname{Gal}(S/\mathbb Q) \cong S_3$
+> 中的Frobenius共轭类$\operatorname{Frob}_p$，使得有： 
+> $$N_p = 1 + \operatorname{tr}\rho(\operatorname{Frob}_p)$$
+> 所以上述定理其实就是说，对于素数$p \ne 23$，有
+> $$\operatorname{tr}\rho(\operatorname{Frob}_p) = a_p$$
 > 对于一般的在$\mathbb Q$上的不可约的三次方程，有类似的结论(Hecke, Maass 1920's - 1940's)。
 
-> 注2：回到之前的二次同余的情况，多项式为 $$x^2 - d$$ $d$不是平方数。一维表示 $$\rho \colon
-> \operatorname{Gal}(\mathbb Q(\sqrt d)/\mathbb Q) \cong \{\pm 1\} \sub
-> \mathbb C^\times = \operatorname{GL}_1(\mathbb C)$$ 则对于素数$p \nmid
-> 2d$，可以定义元素 $$\operatorname{Frob}_p \in \operatorname{Gal}(\mathbb
-> Q(\sqrt d)/\mathbb Q)$$ 使得
-> $$\operatorname{tr}\rho(\operatorname{Frob}_p) =
-> \rho(\operatorname{Frob}_p) = a_p$$ 同样有 $$N_p = 1 +
-> \rho(\operatorname{Frob}_p)$$ 这样，前面由二次互反律给出的推论其实就是说，存在Dirichlet特征
+> 注2：回到之前的二次同余的情况，多项式为
+> $$x^2 - d$$
+> $d$不是平方数。一维表示
+> $$\rho \colon \operatorname{Gal}(\mathbb Q(\sqrt d)/\mathbb Q) \cong \{\pm 1\} \sub \mathbb C^\times = \operatorname{GL}_1(\mathbb C)$$
+> 则对于素数$p \nmid 2d$，可以定义元素
+> $$\operatorname{Frob}_p \in \operatorname{Gal}(\mathbb Q(\sqrt d)/\mathbb Q)$$
+> 使得
+> $$\operatorname{tr}\rho(\operatorname{Frob}_p) = \rho(\operatorname{Frob}_p) = a_p$$
+> 同样有 $$N_p = 1 + \rho(\operatorname{Frob}_p)$$
+> 这样，前面由二次互反律给出的推论其实就是说，存在Dirichlet特征
 > $$\chi \colon (\Z/4|d|\Z)^\times \to \{\pm 1\} \sub \mathbb C^\times$$
-> 使得对于素数$p \nmid 2d$，有 $$\rho(\operatorname{Frob}_p) = \chi(p)$$
+> 使得对于素数$p \nmid 2d$，有
+> $$\rho(\operatorname{Frob}_p) = \chi(p)$$
 
 **小结**：概括地说，我们希望把二次互反律的结果推广至非交换的Galios扩张。Langlands认为，在非交换的情形下，Dirichlet特征应该被取代为模形式，或者是更加一般的自守形式（或自守表示）。对于交换的Galios扩张的情形，类域论已经给出了完整的结果。
 
@@ -138,13 +149,12 @@ $$T_n f = \lambda_n\cdot f ~ \forall n \ge 1, (n, N) = 1$$
 则称$f$为Hecke本征形式。可以证明，若$f$是Hecke本征形式，则$a_1 \ne 0$。假设$a_1 = 1$（这称为正规本征形式），则有
 $$\lambda_n = a_n ~ \forall n \ge 1, (n, N) = 1$$
 
-> 注1：对于$S_k(N, \chi)$的情形，Hecke算子满足以下恒等式： $$\begin{aligned} T_{mn} = T_m
-> \circ T_n ~ \forall (m, n) = 1, (m, N) = (n, N) = 1 \\ T_{p^{r+1}} =
-> T_p \circ T_{p^r} - \chi(p)\cdot p^{k-1}T_{p^{r-1}} ~ \forall (p, N) =
-> 1, r > 1 \end{aligned}$$ $S_\lambda^M(N, \chi)$的情形类似。所以，若 $$f =
-> \sum_{n = 1}^\infty a_nq^n \in S_k(N, \chi)$$ 为正规本征形式时，我们有：
-> $$\begin{aligned} a_{mn} = a_m \cdot a_n ~ \forall (m, n) = 1, (m, N)
-> = (n, N) = 1 \\ a_{p^{r+1}} = a_p \cdot a_{p^r} - \chi(p)\cdot p^{k-1}a_{p^{r-1}} ~ \forall (p, N) = 1, r > 1 \end{aligned}$$
+> 注1：对于$S_k(N, \chi)$的情形，Hecke算子满足以下恒等式： 
+> $$\begin{aligned} T_{mn} = T_m \circ T_n ~ \forall (m, n) = 1, (m, N) = (n, N) = 1 \\ T_{p^{r+1}} = T_p \circ T_{p^r} - \chi(p)\cdot p^{k-1}T_{p^{r-1}} ~ \forall (p, N) = 1, r > 1 \end{aligned}$$
+> $S_\lambda^M(N, \chi)$的情形类似。所以，若
+> $$f = \sum_{n = 1}^\infty a_nq^n \in S_k(N, \chi)$$
+> 为正规本征形式时，我们有：
+> $$\begin{aligned} a_{mn} = a_m \cdot a_n ~ \forall (m, n) = 1, (m, N) = (n, N) = 1 \\ a_{p^{r+1}} = a_p \cdot a_{p^r} - \chi(p)\cdot p^{k-1}a_{p^{r-1}} ~ \forall (p, N) = 1, r > 1 \end{aligned}$$
 > $S_\lambda^M(N, \chi)$的情形类似。
 
 > 注2：关于之前讨论的三次同余方程，设$P$为$\mathbb
@@ -158,10 +168,11 @@ $$\lambda_n = a_n ~ \forall n \ge 1, (n, N) = 1$$
 
 ## Ramanujan猜想
 
-> **设$f \in S_k(N, \chi)$或$S_\lambda^M(N, \chi)$为Hecke本征形式。$a_1 = 1$，对于所有$p \nmid N$，设$\alpha_p, \beta_p$为二次多项式 $$x^2 - a_px +
-> \chi(p)\cdot p^{k-1}$$ （Maass形式的情形则为$x^2 - a_px +
-> \chi(p)$）的根，则我们有$|\alpha_p| = |\beta_p| = p^{\frac{k - 1}{2}}$，这就意味着
-> $$|a_p| \le 2p^{\frac{k - 1}{2}}$$ （Maass形式的情形则有$|a_p| \le 2$）。**
+> **设$f \in S_k(N, \chi)$或$S_\lambda^M(N, \chi)$为Hecke本征形式。$a_1 = 1$，对于所有$p \nmid N$，设$\alpha_p, \beta_p$为二次多项式
+> $$x^2 - a_px +\chi(p)\cdot p^{k-1}$$
+> （Maass形式的情形则为$x^2 - a_px + \chi(p)$）的根，则我们有$|\alpha_p| = |\beta_p| = p^{\frac{k - 1}{2}}$，这就意味着
+> $$|a_p| \le 2p^{\frac{k - 1}{2}}$$
+> （Maass形式的情形则有$|a_p| \le 2$）。**
 
 ![比利时邮局为纪念Deligne证明了Ramanujan猜想而发行的邮票](https://img-blog.csdnimg.cn/20210215183613239.gif#pic_center)
 
@@ -188,8 +199,11 @@ $$|N_p - p| < 2\sqrt p, ~ (p \ne 11)$$
 
 对于这个问题，有如下定理（Eichler，1950's）
 
-> **$$N_p = p - a_p$$ 这里 $$q\prod_{n=1}^\infty[(1-q^n)(1-q^{11n})]^2 = \sum_{n = 1}^\infty a_nq^n, ~ a_1 = 1$$ 是属于$S_2(11, \mathcal
-> 1)$的Hecke本征形式。**
+> **
+> $$N_p = p - a_p$$
+> 这里
+> $$q\prod_{n=1}^\infty[(1-q^n)(1-q^{11n})]^2 = \sum_{n = 1}^\infty a_nq^n, ~ a_1 = 1$$
+> 是属于$S_2(11, \mathcal 1)$的Hecke本征形式。**
 
 ### 谷山-志村(Taniyama-Shimura)猜想
 
