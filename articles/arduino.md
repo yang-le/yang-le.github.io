@@ -66,7 +66,7 @@ Uno的微型版。
 - 主芯片为ATmega328P
 - USB芯片为FTDI生产的FT232R。
 
-#### ~Mini~
+#### ~~Mini~~
 
 The Arduino Mini is a very compact version of the Arduino Nano without an on-board USB to Serial connection.
 
@@ -114,13 +114,13 @@ The Arduino Due is the first Arduino board based on a 32-bit ARM core microcontr
   - 提供54路GPIO（其中12路支持PWM输出），12路模拟输入和2路模拟输出（DAC）。
 - USB芯片为ATmega16u2。
 
-#### ~Mega ADK~
+#### ~~Mega ADK~~
 
-#### ~M0~
+#### ~~M0~~
 
 已停产，被Zero替代。
 
-#### ~M0 Pro~
+#### ~~M0 Pro~~
 
 已停产，被Zero替代。
 
@@ -146,13 +146,13 @@ The Yún with the power of a Linux based system that enables advanced network co
   - 核心为MIPS 24K CPU
 - USB2.0 HUB及SD读卡器芯片 AU6351GL
 
-#### ~Ethernet~
+#### ~~Ethernet~~
 
 An Arduino Uno incorporating a WizNet W5100 TCP/IP Ethernet Controller.
 
 已停产。
 
-#### ~Tian~
+#### ~~Tian~~
 
 The new Arduino Tian board is powered by Atmel’s SAMD21 MCU,
 featuring a 32-bit ARM Cortex® M0+ core and a Qualcomm Atheros AR9342,
@@ -172,13 +172,13 @@ It is possible to Switch ON/OFF the Linux port from the MCU to reduce the power 
 
 已停产。
 
-#### ~Industrial 101~
+#### ~~Industrial 101~~
 
 The Industrial 101 is a small form-factor Yún designed for product integration.
 
 已停产
 
-#### ~Leonardo Eth~
+#### ~~Leonardo Eth~~
 
 All the fun of a Leonardo, plus an Ethernet port to extend your project to the IoT world.
 

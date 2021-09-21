@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>幂函数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    TeX: { equationNumbers: {autoNumber: "AMS"} }
+  });
+</script>
+<script src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+<style>
+h1 {text-align:center}
+h2 {
+  font-weight: bold;
+  background-color: #DDDDDD;
+  padding: .2em .5em;
+  margin-top: 1.5em;
+  border-top: 3px solid #666666;
+  border-bottom: 2px solid #999999;
+}
+</style>
+</head>
+<body>
+
+<h2>幂函数</h2>
+<p>
+定义变量$x$的$n$次幂为$\underbrace{x \cdot x \cdots x}_\text{$n$ times}$，记为$f(x) = x^n$，其中$n$为正整数。
+</p>
+<p>
+根据上述定义，这个函数有一个显而易见的性质，即
+\begin{equation}
+x^n \cdot x^m = x^{n + m}
+\end{equation}
+</p>
+<p>
+为了把$n$可以取值的范围推广，我们先考虑$x^n \cdot x^0$，根据上面的性质，应该等于$x^{n + 0} = x^n$。<br />
+即$x^n \cdot x^0 = x^n$,所以我们得到
+\begin{equation}
+x^0 = 1
+\end{equation}
+</p>
+<p>
+然后我们尝试进入负数，因为$x^n \cdot x^{-n} = x^0 = 1$,所以应该有
+\begin{equation}
+x^{-n} = {1 \over x^n}
+\end{equation}
+</p>
+<p>
+为了引入分数，我们考虑$(x^n)^m$这个式子。根据定义，这表示$\underbrace{x^n \cdot x^n \cdots x^n}_\text{$m$ times}$。再结合$x^n$的定义，我们得到
+\begin{equation}
+(x^n)^m = x^{nm}
+\end{equation}
+现在，因为$(x^{1 \over n})^n = x^1 = x$，所以两边同时开n次方得到
+\begin{equation}
+x^{1 \over n} = \sqrt[n]x
+\end{equation}
+注意当我们使用$\sqrt[n]x$这个符号时，表示的是$x$的主n次方根，即$x$的n次方根中与$x$同号的唯一实数。如果n是偶数，那么负数将没有主n次方根。
+</p>
+<p>
+因为我们的讨论仅限于实数范围内，需要注意幂函数的定义域。<br />
+当幂函数为整数幂时，定义域为$\mathbb R$。例如$3^2 = 9$，$(-\pi)^{-3} = -{1 \over \pi ^ 3}$,$0^0 = 1$都是有定义的。<br />
+当幂函数为分数幂时，如果分母是奇数，定义域仍为$\mathbb R$;如果分母是偶数，定义域则限定为$[0, +\infty)$。例如$(-8)^{1 \over 3} = -2$，$9^{1 \over 2} = 3$但$(-9)^{1 \over 2}$因为是复数，则在实数范围内没有定义。
+</p>
+<p>
+分数幂自然不能只限于${1 \over n}$这样的形式，考虑一般的有理数${p \over q}$，有理数幂的定义如下
+\begin{equation}
+x^{p \over q} = (x^p)^{1\over q} = \sqrt[q]{x^p}
+\end{equation}
+注意到$p$,$q$不能同时为偶数(否则$p \over q$就可以继续化简)，所以可以分三种情况讨论有理数幂的定义域<br />
+情况1：$p$是奇数，$q$也是奇数。定义域为$\mathbb R$<br />
+情况2：$p$是偶数，$q$是奇数。定义域为$\mathbb R$<br />
+情况3：$p$是奇数，$q$是偶数。定义域应限定为$[0, +\infty)$<br />
+总之，若化简$p \over q$使其分子分母不同时为偶数，则有理数次幂同样是当分母为偶数时，定义域为非负实数；其他情况，定义域为全部实数。
+</p>
+<p>
+最后，我们还要定义无理数幂为有理数幂的极限，即
+\begin{equation}
+x^r = \lim_{q(\in \mathbb Q) \to r} x^q (x \in \mathbb R^+, r \in \mathbb R)
+\end{equation}
+这个极限在$x \in \mathbb R^+$时存在。
+</p>
+
+<h2>二项式定理</h2>
+<p>
+形如$a+b$这样的式子称为二项式，当我们考虑二项式的幂的展开式时，会希望有一个统一的表达式来表示其展开后的形式。<br />
+从简单的例子入手，不难发现一些规律。如
+\begin{equation*}
+(a + b)^2 = a^2 + 2ab +b^2 \\
+(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \\
+\cdots
+\end{equation*}
+具体来说，二项式的幂$(a + b)^n$的展开式有$n+1$项，每一项都有这样的形式$c \cdot a^p \cdot b^q$，其中$c$是一个常数，$p + q = n$，且$q$从0一直取到$n$.<br />
+正式的说，二项式的幂$(a + b)^n$展开后可以表达为如下形式的和式
+\begin{equation}
+(a + b)^n = \sum_{k=0}^n \binom n k a^{n-k}b^k
+\end{equation}
+其中$n$为正整数。上述等式被称为二项式定理。
+该式可以用数学归纳法予以证明。其中$\binom n k$称为二项式系数，表示从$n$个不同的东西中，不计顺序地取出$k$个的取法的个数。<br />
+这个系数有些很有意思的性质，比如，假设我们将$n$个东西全部取完，因为不计顺序，所以实际上只有一种取法，即
+\begin{equation}
+\binom n n = 1
+\end{equation}
+又如，一旦取出了$k$个，剩下的$n-k$个就自然确定，所以有
+\begin{equation}
+\binom n k = \binom n {n-k} \label{1}
+\end{equation}
+实际上，如果使用阶乘符号，可以将其表示为
+\begin{equation}
+\binom n k = {n! \over (n-k)! k!}
+\end{equation}
+这就很容易看出上述两条性质为什么成立了。<br />
+为了将二项式定理推广，我们需要引进一种新的表示方法来表示二项式系数$\binom n k$。首先注意到阶乘符号表示形式中，分子分母可以约去一些项，即
+\begin{equation}
+{n! \over (n-k)! k!} = {n \cdot (n-1) \cdot (n-2) \cdots (n-(k-1)) \over k!}
+\end{equation}
+我们给分子一个专门的记号，记为$(n)_k$。称为$n$的下降阶乘幂，其中$k$为正整数。该记号也称为Pochhammer符号，其中$n$表示该连乘积的首项，$k$表示该连乘积的项数，且$(n)_0 = 1$。<br />
+Pochhammer符号并不要求$n$一定为正整数，实际上，可以对任意的实数$r$定义Pochhammer符号，只要将$n$替换为$r$即可，所以有
+\begin{equation}
+(r)_k = r \cdot (r-1) \cdot (r-2) \cdots (r-(k-1))
+\end{equation}
+现在，二项式定理可以被重新表示为
+\begin{equation}
+(a + b)^n = \sum_{k=0}^n {(n)_k \over k!} a^{n-k}b^k
+\end{equation}
+最后，我们不加证明地指出，二项式定理可以推广到任意实数幂，只要将上式中的求和上限修改为无穷大，即
+\begin{equation}
+(a + b)^r = \sum_{k=0}^\infty {(r)_k \over k!} a^{r-k}b^k
+\end{equation}
+该等式也被称为广义二项式定理。由于修改为无穷多项和，自然要注意这和式是否收敛。通过比值审敛法，即考虑相邻两项的绝对值比值的极限，有
+\begin{equation*}
+\lim_{k \to \infty}\left|{{(r)_{k+1} \over (k+1)!} a^{r-(k+1)}b^{k+1} \over {(r)_k \over k!} a^{r-k}b^k}\right| = {|b| \over |a|}
+\end{equation*}
+令上式小于1，我们得到原和式绝对收敛的条件为$|b| < |a|$。而当$|b| = |a|$时，是否收敛就要视$r$而定，在这里就不多做讨论了。<br />
+有人会说，为啥广义二项式定理和二项式定理的求和项数不一样呢？我想说，其实是一样的，只不过在二项式定理中，从第n+2项开始，所有后续求和项都是0，所以看上去只求到了第n+1项和。把二项式定理的求和上限改为无穷，和不修改完全是等价的。我们也说，二项式定理是广义二项式定理在幂次为正整数时的特例。<br />
+二项式定理本身也很值得玩味，如令$a=1$，$b=1$我们就得到
+\begin{equation}
+2^n = \sum_{k=0}^n \binom n k
+\end{equation}
+另外，由于$a$,$b$在式中的对称性，我们有
+\begin{equation}
+\sum_{k=0}^n \binom n k a^{n-k}b^k = \sum_{k=0}^n \binom n k a^kb^{n-k}
+\end{equation}
+左边是$(a + b)^n$，右边是$(b + a)^n$，显然相等。某种程度上说，这是交换律的一种体现而已。<br />
+只令$b=1$，我们还能得到一种较为简洁的形式
+\begin{equation}
+(1 + a)^n = \sum_{k=0}^\infty \binom n k a^k
+\end{equation}
+上述诸结论对广义二项式定理也成立。
+</p>
+
+</body>
+</html>

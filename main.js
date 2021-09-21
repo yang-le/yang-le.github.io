@@ -12,7 +12,7 @@
             }
             return '';
         }
-    }).use(markdownitFootnote).use(markdownitAbbr).use(markdownItKatexx).use(markdownItAnchor).use(markdownItTocDoneRight, { placeholder: '\\@\\[TOC\\](\\(.*\\))?' });
+    }).use(markdownitFootnote).use(markdownitAbbr).use(markdownitEmoji).use(markdownItKatexx).use(markdownItAnchor).use(markdownItTocDoneRight, { placeholder: '\\@\\[TOC\\](\\(.*\\))?' });
 
     fetch('https://yang-le.github.io/articles/' + (article ? article : 'home') + '.md')
         .then(response => {
