@@ -99,7 +99,8 @@ $$\operatorname{Gal}(S/\mathbb Q) \cong S_3$$
 > $$\operatorname{Frob}_p \in \operatorname{Gal}(\mathbb Q(\sqrt d)/\mathbb Q)$$
 > 使得
 > $$\operatorname{tr}\rho(\operatorname{Frob}_p) = \rho(\operatorname{Frob}_p) = a_p$$
-> 同样有 $$N_p = 1 + \rho(\operatorname{Frob}_p)$$
+> 同样有
+> $$N_p = 1 + \rho(\operatorname{Frob}_p)$$
 > 这样，前面由二次互反律给出的推论其实就是说，存在Dirichlet特征
 > $$\chi \colon (\Z/4|d|\Z)^\times \to \{\pm 1\} \sub \mathbb C^\times$$
 > 使得对于素数$p \nmid 2d$，有
