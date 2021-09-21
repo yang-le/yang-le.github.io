@@ -29,3 +29,4 @@
     * [Linux 内核游记 (2)](?article=linux_kernel_travel_notes_2)
     * [Linux 内核游记 (3)](?article=linux_kernel_travel_notes_3)
     * [Linux 内核游记 (4)](?article=linux_kernel_travel_notes_4)
+* [旧文归档](?article=old_articles)
