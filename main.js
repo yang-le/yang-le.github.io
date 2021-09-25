@@ -1,6 +1,7 @@
 (function () {
     const url = new URL(window.location.href);
-    const article = url.searchParams.get('article');
+    const _article = url.searchParams.get('article');
+    const article = _article ? _article : 'home';
     const markdown = markdownit({
         html: true,
         linkify: true,
@@ -34,8 +35,9 @@
     }).use(markdownItKatexx).use(markdownItAnchor).use(markdownItTocDoneRight, { placeholder: '\\@\\[TOC\\](\\(.*\\))?' });
 
     // window.markdown = markdown;
+    window.livereOptions = { refer: article };
 
-    fetch('https://yang-le.github.io/articles/' + (article ? article : 'home') + '.md')
+    fetch('https://yang-le.github.io/articles/' + article + '.md')
         .then(response => {
             return response.text();
         }).then(md => {
