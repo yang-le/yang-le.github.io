@@ -33,6 +33,8 @@
         }
     }).use(markdownItKatexx).use(markdownItAnchor).use(markdownItTocDoneRight, { placeholder: '\\@\\[TOC\\](\\(.*\\))?' });
 
+    // window.markdown = markdown;
+
     fetch('https://yang-le.github.io/articles/' + (article ? article : 'home') + '.md')
         .then(response => {
             return response.text();
