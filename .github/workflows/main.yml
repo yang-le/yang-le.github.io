@@ -11,7 +11,7 @@ on:
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  # workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,18 +26,16 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: generate last_update.json
         run: |
           echo { > last_update.json
           for f in `ls articles/`; do
             echo \"$f\": `git log -1 --format=%at articles/$f`, >> last_update.json
           done
           echo } >> last_update.json
-          cat last_update.json
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: master # The branch the action should deploy to.
           folder: . # The folder the action should deploy.
-          dry-run: true
