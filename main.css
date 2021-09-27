@@ -21,7 +21,7 @@
 
 .container.warning {
     border-left-color: #e7c000;
-    background-color: rgba(255,299,100,.3);
+    background-color: rgba(255,255,100,.3);
     color:#6b5900;
 }
 
@@ -32,4 +32,13 @@
 .container.info {
     border-left-color: #42b983;
     background-color: #f3f5f7;
+}
+
+@media (min-width: 70rem) {
+    nav.table-of-contents {
+        position: fixed;
+        left: 1em;
+        background-color: var(--cbg);
+        z-index: -1;
+    }
 }
