@@ -46,11 +46,12 @@
             .then(response => {
                 return response.json();
             }).then(last_update => {
+                const pubdate = new Date(last_update[article] * 1000);
                 content.innerHTML += `
                 <hr>
                 <section><p>
                     <span>发现错误？欢迎<a href="https://github.com/yang-le/yang-le.github.io/edit/master/articles/${article}.md">帮忙修改</a>。</span>
-                    <span class="float-right">最后更新: <time></time></span>
+                    <span class="float-right">最后更新: <time pubdate datetime="${pubdate.toISOString()}">${pubdate.toLocaleString()}</time></span>
                 </p></section>
                 `;
             });
