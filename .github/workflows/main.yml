@@ -24,13 +24,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+          fetch-depth: 0
 
       # Runs a set of commands using the runners shell
       - name: generate last_update.json
         run: |
           echo { > last_update.json
           for f in `ls articles/*.md`; do
-            echo "git log -1 --format=%at $f = `git log -1 --format=%at $f`"
             echo \"`basename $f .md`\": `git log -1 --format=%at $f`, >> last_update.json
           done
           echo '"end": 1}' >> last_update.json
