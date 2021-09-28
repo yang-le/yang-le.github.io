@@ -30,7 +30,7 @@ jobs:
         run: |
           echo { > last_update.json
           for f in `ls articles/*.md`; do
-            echo \"`basename $f .md`\": `git log -1 --format=%at articles/$f`, >> last_update.json
+            echo \"`basename $f .md`\": `git log -1 --format=%at $f`, >> last_update.json
           done
           echo '"end": 1}' >> last_update.json
 
