@@ -42,13 +42,18 @@
             return response.text();
         }).then(md => {
             content.innerHTML = markdown.render(md);
-            content.innerHTML += `
-            <hr>
-            <section><p>
-                <span>发现错误？欢迎<a href="https://github.com/yang-le/yang-le.github.io/edit/master/articles/${article}.md">帮忙修改</a>。</span>
-                <span class="float-right">最后更新: <time>2021</time></span>
-            </p></section>
-            `;
+            fetch('https://yang-le.github.io/last_update.json')
+            .then(response => {
+                return response.json();
+            }).then(last_update => {
+                content.innerHTML += `
+                <hr>
+                <section><p>
+                    <span>发现错误？欢迎<a href="https://github.com/yang-le/yang-le.github.io/edit/master/articles/${article}.md">帮忙修改</a>。</span>
+                    <span class="float-right">最后更新: <time></time></span>
+                </p></section>
+                `;
+            });
         });
 
     fetch('https://yang-le.github.io/nav.md')
