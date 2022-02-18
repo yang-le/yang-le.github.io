@@ -55,6 +55,9 @@
                 </p></section>
                 `;
             });
+
+            const heti = new Heti();
+            heti.spacingElements(document.querySelectorAll('.heti'));
         });
 
     fetch('https://yang-le.github.io/nav.md')
