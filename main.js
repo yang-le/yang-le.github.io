@@ -34,9 +34,6 @@
         }
     }).use(markdownItKatexx).use(markdownItAnchor).use(markdownItTocDoneRight, { placeholder: '\\@\\[TOC\\](\\(.*\\))?' });
 
-    // window.markdown = markdown;
-    window.livereOptions = { refer: article };
-
     fetch('https://yang-le.github.io/articles/' + article + '.md')
         .then(response => {
             return response.text();
@@ -73,7 +70,7 @@
         repo: 'yang-le.github.io',
         owner: 'yang-le',
         admin: ['yang-le'],
-        id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: article,                // Ensure uniqueness and length less than 50
         distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')
