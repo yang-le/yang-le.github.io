@@ -67,6 +67,17 @@
             nav.innerHTML = markdown.render(md);
         });
 
+    var gitalk = new Gitalk({
+        clientID: 'ac6a28e474263a4bb7a3',
+        clientSecret: 'a21e06f173a63ed87bf54eec7120f171c25bca86',
+        repo: 'yang-le.github.io',
+        owner: 'yang-le',
+        admin: ['yang-le'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+
     KaTeX.innerHTML = katex.renderToString('\\KaTeX');
     year.innerHTML = new Date().getFullYear();
     theme.value = localStorage.getItem('theme');
