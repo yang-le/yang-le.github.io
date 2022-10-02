@@ -1,3 +1,5 @@
+@[TOC](一个简单的 RISC-V CPU 设计与实现)
+
 # 一个简单的 RISC-V CPU 设计与实现
 之前写的[RISCV五级流水CPU设计](https://yang-le.github.io/?article=riscv_five_stage_pipeline_cpu_design)不够详细，本篇算是一个补充。
 
