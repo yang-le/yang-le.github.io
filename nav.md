@@ -12,6 +12,7 @@
     * [电动力学](?article=electrodynamics)
     * [哈密顿力学](?article=hamiltonian_mechanics)
     * [量子力学 (0)](?article=quantum_mechanics_0)
+    * [量子力学 (1)](?article=quantum_mechanics_1)
 * [硬件 ▾](#)
     * [一个简单的RISC-V CPU设计与实现](?article=a_simple_riscv_cpu_design)
     * [RISCV五级流水CPU设计](?article=riscv_five_stage_pipeline_cpu_design)
