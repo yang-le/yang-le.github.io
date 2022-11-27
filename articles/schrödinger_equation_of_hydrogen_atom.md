@@ -141,7 +141,7 @@ $$D_n = \sum_{l = 0}^{n - 1}(2l + 1) = n^2$$
 $\Psi(r, \theta, \varphi)$还满足归一化条件
 $$\int_0^\infty\int_0^\pi\int_0^{2\pi}\Psi^2(r, \theta, \varphi)r^2\sin\theta d\varphi d\theta  dr = 1$$
 
-我们可以求一下基态(n = 1, l = m = 0)时的波函数，代入$\Psi$的表达式就有
+我们可以求一下基态($n = 1, l = m = 0$)时的波函数，代入$\Psi$的表达式就有
 $$\Psi_{100} = \sqrt\frac{1}{\pi a_0^3}e^{-\frac{r}{a_0}}$$
 于是电子出现在半径为$r$的球壳附近的概率为
 $$dP = 4\pi r^2\Psi_{100}^2d r$$

@@ -1,5 +1,9 @@
 @[toc](拉普拉斯算子的球坐标形式)
 
+# 拉普拉斯算子的球坐标形式
+
+球坐标与笛卡尔坐标的转换关系为:
+
 $$\left\{ \begin {aligned}
 x &= r\sin\theta\cos\varphi \\
 y & = r\sin\theta\sin\varphi \\
