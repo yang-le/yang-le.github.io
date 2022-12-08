@@ -22,9 +22,12 @@ $$\nabla_av^b = \tilde\nabla_av^b + C^b{}_{ac}v^c$$
 $$v^\nu{}_{;\mu} = v^\nu{}_{,\mu} + \Gamma^\nu{}_{\mu\sigma}v^\sigma, ~ \omega_{\nu;\mu} = \omega_{\nu,\mu} - \Gamma^\sigma{}_{\mu\nu}\omega_\sigma$$
 其中逗号表示求偏导数，分号表示求协变导数。
 ### 与度规适配的导数算符
-导数算符$\nabla_a$称为与$g_{bc}$相适配的，如果$\nabla_ag_{bc} = 0$. 可以证明，这样的$\nabla_a$是唯一的。为此，我们可以展开$\nabla_ag_{bc}$，即$$\nabla_ag_{bc} = \tilde\nabla_ag_{bc} - C^d{}_{ab}g_{dc} - C^d{}_{ac}g_{bd} = \tilde\nabla_ag_{bc} - C_{cab} - C_{bac}$$
-故由$\nabla_ag_{bc} = 0$得$$C_{cab} + C_{bac} = \tilde\nabla_ag_{bc}$$
-同理$$C_{cba} + C_{abc} = \tilde\nabla_bg_{ac} \\ C_{bca} + C_{acb} = \tilde\nabla_cg_{ab}$$
+导数算符$\nabla_a$称为与$g_{bc}$相适配的，如果$\nabla_ag_{bc} = 0$. 可以证明，这样的$\nabla_a$是唯一的。为此，我们可以展开$\nabla_ag_{bc}$，即
+$$\nabla_ag_{bc} = \tilde\nabla_ag_{bc} - C^d{}_{ab}g_{dc} - C^d{}_{ac}g_{bd} = \tilde\nabla_ag_{bc} - C_{cab} - C_{bac}$$
+故由$\nabla_ag_{bc} = 0$得
+$$C_{cab} + C_{bac} = \tilde\nabla_ag_{bc}$$
+同理
+$$C_{cba} + C_{abc} = \tilde\nabla_bg_{ac} \\ C_{bca} + C_{acb} = \tilde\nabla_cg_{ab}$$
 前两式相加减第三式，并注意到$C_{cab} = C_{cba}$得
 $$2C_{cab} = \tilde\nabla_ag_{bc} + \tilde\nabla_bg_{ac} - \tilde\nabla_cg_{ab}$$
 于是
@@ -85,8 +88,10 @@ $$\begin{aligned}
 R_{abc}{}^d\omega_d &= 2(- \Gamma^e{}_{c[b}\partial_{a]}\omega_e - \omega_e\partial_{[a}\Gamma^e{}_{b]c} - \Gamma^d{}_{c[a}\partial_{b]}\omega_d + \Gamma^d{}_{c[a}\Gamma^e{}_{b]d}\omega_e) \\
 &= -2\omega_e\partial_{[a}\Gamma^e{}_{b]c} + 2\Gamma^d{}_{c[a}\Gamma^e{}_{b]d}\omega_e
 \end{aligned}$$
-故$$R_{abc}{}^d = -2\partial_{[a}\Gamma^d{}_{b]c} + 2\Gamma^e{}_{c[a}\Gamma^d{}_{b]e}$$
-其坐标分量为$$R_{\mu\nu\sigma}{}^\rho = \Gamma^\rho{}_{\mu\sigma,\nu} - \Gamma^\rho{}_{\nu\sigma,\mu} + \Gamma^\lambda{}_{\sigma\mu}\Gamma^\rho{}_{\nu\lambda} - \Gamma^\lambda{}_{\sigma\nu}\Gamma^\rho{}_{\mu\lambda}$$
+故
+$$R_{abc}{}^d = -2\partial_{[a}\Gamma^d{}_{b]c} + 2\Gamma^e{}_{c[a}\Gamma^d{}_{b]e}$$
+其坐标分量为
+$$R_{\mu\nu\sigma}{}^\rho = \Gamma^\rho{}_{\mu\sigma,\nu} - \Gamma^\rho{}_{\nu\sigma,\mu} + \Gamma^\lambda{}_{\sigma\mu}\Gamma^\rho{}_{\nu\lambda} - \Gamma^\lambda{}_{\sigma\nu}\Gamma^\rho{}_{\mu\lambda}$$
 进而可以得到里奇张量的坐标分量表达式为
 $$R_{\mu\sigma} =R_{\mu\nu\sigma}{}^\nu = \Gamma^\nu{}_{\mu\sigma,\nu} - \Gamma^\nu{}_{\nu\sigma,\mu} + \Gamma^\lambda{}_{\sigma\mu}\Gamma^\nu{}_{\nu\lambda} - \Gamma^\lambda{}_{\sigma\nu}\Gamma^\nu{}_{\mu\lambda} $$
 ### 用(刚性)标架计算
@@ -174,7 +179,13 @@ $$\begin{aligned}
 \delta\Delta-\Delta\delta&=-\bar{\nu}D+(\tau-\bar{\alpha}-\beta)\Delta+(\mu-\gamma+\bar{\gamma})\delta+\bar{\lambda}\bar{\delta} \\
 \bar{\delta}\delta-\delta\bar{\delta}&=(\bar{\mu}-\mu)D+(\bar{\rho}-\rho)\Delta+(\alpha-\bar{\beta})\delta-(\bar{\alpha}-\beta)\bar{\delta}
 \end{aligned}$$
-外尔张量有10个实的独立分量，用5个复数代表，定义为$$\Psi_0 = -C_{1313}, ~ \Psi_1 = -C_{1213}, ~ \Psi_2 = -C_{1342}, ~ \Psi_3 = -C_{1242}, ~ \Psi_4 = -C_{2424}$$里奇张量有10个，其中$R_{11}, ~ R_{12}, ~R_{22}$显然为实数，$R_{34} = R_{43} = \bar R_{34}$也是实数，由此定义以下四个实数$$\Phi_{00} = -\frac{1}{2}R_{11}, ~ \Phi_{11} = -\frac{1}{4}(R_{12} + R_{34}), ~ \Phi_{22} = -\frac{1}{2}R_{22}, ~ \Lambda = \frac{1}{12}(R_{12} - R_{34})$$其余6个分量为复数，分别为$$\Phi_{01} = -\frac{1}{2}R_{13}, ~ \Phi_{10} = -\frac{1}{2}R_{14}, ~ \Phi_{02} = -\frac{1}{2}R_{33}, ~ \Phi_{20} = -\frac{1}{2}R_{44}, ~ \Phi_{12} = -\frac{1}{2}R_{23}, ~ \Phi_{21} = -\frac{1}{2}R_{24}$$易见$\Phi$构成一个厄米矩阵。由这些符号，我们可以写出黎曼曲率张量的分量表达式
+外尔张量有10个实的独立分量，用5个复数代表，定义为
+$$\Psi_0 = -C_{1313}, ~ \Psi_1 = -C_{1213}, ~ \Psi_2 = -C_{1342}, ~ \Psi_3 = -C_{1242}, ~ \Psi_4 = -C_{2424}$$
+里奇张量有10个，其中$R_{11}, ~ R_{12}, ~R_{22}$显然为实数，$R_{34} = R_{43} = \bar R_{34}$也是实数，由此定义以下四个实数
+$$\Phi_{00} = -\frac{1}{2}R_{11}, ~ \Phi_{11} = -\frac{1}{4}(R_{12} + R_{34}), ~ \Phi_{22} = -\frac{1}{2}R_{22}, ~ \Lambda = \frac{1}{12}(R_{12} - R_{34})$$
+其余6个分量为复数，分别为
+$$\Phi_{01} = -\frac{1}{2}R_{13}, ~ \Phi_{10} = -\frac{1}{2}R_{14}, ~ \Phi_{02} = -\frac{1}{2}R_{33}, ~ \Phi_{20} = -\frac{1}{2}R_{44}, ~ \Phi_{12} = -\frac{1}{2}R_{23}, ~ \Phi_{21} = -\frac{1}{2}R_{24}$$
+易见$\Phi$构成一个厄米矩阵。由这些符号，我们可以写出黎曼曲率张量的分量表达式
 $$\begin{aligned}
 D\rho -\bar{\delta}\kappa&=(\rho^2+\sigma\bar{\sigma})+(\varepsilon+\bar{\varepsilon})\rho-\bar{\kappa}\tau-\kappa(3\alpha+\bar{\beta}-\pi)+\Phi_{00}, ~ [R_{1314}] \\
 D\sigma-\delta\kappa&=(\rho+\bar{\rho})\sigma+(3\varepsilon-\bar{\varepsilon})\sigma-(\tau-\bar{\pi}+\bar{\alpha}+3\beta)\kappa+\Psi_0, ~ [R_{1313}] \\
