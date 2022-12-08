@@ -15,6 +15,7 @@
     * [量子力学 (0)](?article=quantum_mechanics_0)
     * [量子力学 (1)](?article=quantum_mechanics_1)
     * [氢原子的薛定谔方程](?article=schrödinger_equation_of_hydrogen_atom)
+    * [黎曼曲率张量漫谈](?article=riemann_tensor)
 * [硬件 ▾](#)
     * [一个简单的RISC-V CPU设计与实现](?article=a_simple_riscv_cpu_design)
     * [RISCV五级流水CPU设计](?article=riscv_five_stage_pipeline_cpu_design)
