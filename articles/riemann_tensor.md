@@ -40,7 +40,7 @@ $$C^c{}_{ab} = \frac{1}{2}g^{cd}(\tilde\nabla_ag_{bd} + \tilde\nabla_bg_{ad} - \
 $$(\nabla_a\nabla_b - \nabla_b\nabla_a)\omega_c = R_{abc}{}^d\omega_d$$
 由此定义可以看出，欧氏空间和闵氏空间的黎曼曲率张量场为零。黎曼张量场为零的度规称为平直度规，欧式空间和闵氏空间都称为平直空间。
 
-使用与[导数算符](#_1)小节中同样的讨论方法，不难证明
+使用与[导数算符](#导数算符)小节中同样的讨论方法，不难证明
 $$(\nabla_a\nabla_b - \nabla_b\nabla_a)v^c = -R_{abd}{}^cv^d$$
 以及其对张量的对应结论，即导数算符$\nabla_a$的对易子$(\nabla_a\nabla_b - \nabla_b\nabla_a)$作用于任一$(k, l)$型张量场$T$的结果可以表示为$k + l$项，每项都含有$R_{abc}{}^d$，与$T$的上指标缩并的$k$项前面为$-$号，与$T$的下指标缩并的$l$项前面为$+$号。
 
@@ -172,7 +172,9 @@ $$\begin{aligned}
 &\lambda = \omega_{244}, ~ \tau = -\omega_{312}, ~ &\alpha = \frac{1}{2}(\omega_{214} - \omega_{344}) \\
 &\nu = \omega_{242}, ~ \pi = \omega_{241}, ~ &\beta = \frac{1}{2}(\omega_{213} - \omega_{343})
 \end{aligned}$$
-这12个希腊字母称为自旋系数。又引入4个求导符号$$D = l^a\nabla_a, ~ \Delta = n^a\nabla_a, ~ \delta = m^a\nabla_a, ~ \bar\delta = \bar m^a\nabla_a$$它们之间满足如下的对易关系：
+这12个希腊字母称为自旋系数。又引入4个求导符号
+$$D = l^a\nabla_a, ~ \Delta = n^a\nabla_a, ~ \delta = m^a\nabla_a, ~ \bar\delta = \bar m^a\nabla_a$$
+它们之间满足如下的对易关系：
 $$\begin{aligned}
 \Delta D-D\Delta&=(\gamma+\bar{\gamma})D+(\varepsilon+\bar{\varepsilon})\Delta-(\bar{\tau}+\pi)\delta-(\tau+\bar{\pi})\bar{\delta} \\
 \delta D-D\delta&=(\bar{\alpha}+\beta-\bar{\pi})D+\kappa\Delta-(\bar{\rho}+\varepsilon-\bar{\varepsilon})\delta-\sigma\bar{\delta} \\
