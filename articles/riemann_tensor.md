@@ -94,6 +94,17 @@ $$R_{abc}{}^d = -2\partial_{[a}\Gamma^d{}_{b]c} + 2\Gamma^e{}_{c[a}\Gamma^d{}_{b
 $$R_{\mu\nu\sigma}{}^\rho = \Gamma^\rho{}_{\mu\sigma,\nu} - \Gamma^\rho{}_{\nu\sigma,\mu} + \Gamma^\lambda{}_{\sigma\mu}\Gamma^\rho{}_{\nu\lambda} - \Gamma^\lambda{}_{\sigma\nu}\Gamma^\rho{}_{\mu\lambda}$$
 进而可以得到里奇张量的坐标分量表达式为
 $$R_{\mu\sigma} =R_{\mu\nu\sigma}{}^\nu = \Gamma^\nu{}_{\mu\sigma,\nu} - \Gamma^\nu{}_{\nu\sigma,\mu} + \Gamma^\lambda{}_{\sigma\mu}\Gamma^\nu{}_{\nu\lambda} - \Gamma^\lambda{}_{\sigma\nu}\Gamma^\nu{}_{\mu\lambda} $$
+#### 关于缩并Christoffel符号
+计算中经常遇到如$\Gamma^\mu{}_{\mu\sigma}$这样的表达式，下面简单介绍相关结果。首先
+$$\Gamma^\mu{}_{\mu\sigma} = \frac{1}{2}g^{\mu\rho}(g_{\rho\mu,\sigma} + g_{\sigma\rho,\mu} - g_{\mu\sigma,\rho}) = \frac{1}{2}g^{\mu\rho}g_{\rho\mu,\sigma} + g^{\mu\rho}g_{\sigma[\rho,\mu]} = \frac{1}{2}g^{\mu\rho}g_{\rho\mu,\sigma}$$
+另一方面，$g_{\mu\rho}$的行列式$g$可用其余子式$A^{\mu\rho}$展开，$g = g_{\mu\rho}A^{\mu\rho}$，而$A^{\mu\rho} = gg^{\mu\rho}$，故
+$$\frac{\partial g}{\partial g_{\mu\rho}} = gg^{\mu\rho}$$
+注意到
+$$g_{,\sigma} = \frac{\partial g}{\partial g_{\mu\rho}}g_{\mu\rho,\sigma} = gg^{\mu\rho}g_{\mu\rho,\sigma}$$
+就有
+$$\Gamma^\mu{}_{\mu\sigma} = \frac{1}{2g}g_{,\sigma} = \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}}{\partial x^\sigma}$$
+由此结果，我们就可以计算类似$\nabla_av^a = \partial_av^a + \Gamma^a{}_{ab}v^b$这样的表达式，结果就是
+$$\nabla_av^a = \frac{1}{\sqrt{-g}}\frac{\partial (\sqrt{-g}v^\sigma)}{\partial x^\sigma}$$
 ### 用(刚性)标架计算
 设$\{(e_\mu)^a\}$是任一基底场，其中第$\mu$基矢场$(e_\mu)^a$沿第$\tau$基矢场$(e_\tau)^a$的导数$(e_\tau)^b\nabla_b(e_\mu)^a$可用基底场展开：
 $$(e_\tau)^b\nabla_b(e_\mu)^a = \gamma^\sigma{}_{\mu\tau}(e_\sigma)^a$$

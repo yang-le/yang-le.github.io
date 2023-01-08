@@ -21,6 +21,7 @@
     * [线性引力论和牛顿极限](?article=linearized_theory_of_gravity)
     * [爱因斯坦场方程之Schwarzschild真空解](?article=field_equations_1)
     * [爱因斯坦场方程之Reissner-Nordstrom(电磁真空)解](?article=field_equations_2)
+    * [作用量漫谈](?article=action)
 * [硬件 ▾](#)
     * [一个简单的RISC-V CPU设计与实现](?article=a_simple_riscv_cpu_design)
     * [RISCV五级流水CPU设计](?article=riscv_five_stage_pipeline_cpu_design)
