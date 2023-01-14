@@ -41,7 +41,7 @@ $$\zeta(s) =\frac{1}{\Gamma(s)}\int_0^\infin\frac{x^{s-1}}{e^x -1}\rm dx$$
 现考虑将$\zeta$函数定义为复变函数，将上述积分中的$x$简单地换为$z$，并选择Hankel围道进行积分，经过一番化简之后，发现并不能与原定义相容。实际上，应当考虑如下稍作修改后的复积分
 $$\int_H\frac{(-z)^{s-1}}{e^z - 1}\rm dz$$
 式中$(-z)^{s-1}$应理解为$e^{(s-1)\ln(-z)}$，根据复对数的定义，$\ln(-z) = \ln|-z| + i\arg(-z)$。当Hankel围道无限趋近于正实轴时
-$$\lim_{y \to 0} \ln|-z| = \lim_{y \to 0} \ln|-(x + iy)| = x$$
+$$\lim_{y \to 0} \ln|-z| = \lim_{y \to 0} \ln|-(x + iy)| = \ln x$$
 而其中幅角一项就要分两种情况考虑，不难看出
 $$\lim_{y \to 0^+} \arg(-z) = -\pi$$
 而
