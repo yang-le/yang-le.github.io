@@ -1,9 +1,8 @@
 # Résumé
 
-## Name: Yang Le
-## Email:
-- qtxzh0125@gmail.com
-- yangle0125@qq.com
+## Contact Info
+- Yang Le <qtxzh0125@gmail.com>
+- 杨乐 <yangle0125@qq.com>
 
 ## Education
 - School: Hebei University of Science and Technology
