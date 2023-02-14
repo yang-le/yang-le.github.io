@@ -1,21 +1,21 @@
 # Résumé
 
-## Contact Info
+## 📧Contact Info
 - Yang Le <qtxzh0125@gmail.com>
 - 杨乐 <yangle0125@qq.com>
 
-## Education
+## 🏫Education
 - School: Hebei University of Science and Technology
 - Major: Software Engineering
 
-## Skill
+## 👨‍💻Skill
 - 10 years working/coding experience of C/C++
 - As a 15 years Linux user, familiar with Linux and its kernel
 - 3 years working experience of Android HAL
 - 3 years working experience of ADAS
 - Java, Python, Kotlin, JavaScript, Latex and Verilog
 
-## Working Experience
+## 👨‍💼Working Experience
 ### 2011 ~ 2014 (Software Engineer in Neusoft)
 - Multimedia Player for Panasonic
 - Digital Camera for Panasonic
@@ -26,7 +26,7 @@
 ### 2022 ~ 2023 (Senior Software Engineer in ReachAuto, Neusoft)
 - Linux Platform, BSP
 
-## Personal Projects
+## :octocat:Personal Projects
 ### [riscv_cpu](https://github.com/yang-le/riscv_cpu)
 A Verilog implementation of a RISC-V CPU that can pass the official tests.
 ### [cnet](https://github.com/yang-le/cnet)
@@ -35,3 +35,5 @@ A deep learning framework using C language.
 A toy operating system that supports mouse.
 ### [DLAN-Demo](https://github.com/yang-le/DLAN-Demo)
 An android app that can project smartphone screen to TV, using Kotlin & Compose.
+
+![Yang Le's Github Stats](https://github-readme-stats.vercel.app/api?username=yang-le&show_icons=true)
