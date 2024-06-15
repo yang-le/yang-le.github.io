@@ -37,7 +37,7 @@ jobs:
           echo '"end": 1}' >> last_update.json
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master # The branch the action should deploy to.
           folder: . # The folder the action should deploy.
