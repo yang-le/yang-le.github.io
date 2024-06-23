@@ -12,6 +12,8 @@
     * [谈谈外微分](?article=exterior_calculus)
     * [求真数学史(1)](?article=history_of_math_1)
     * [求真数学史(2)](?article=history_of_math_2)
+    * [同伦类型论(0)](?article=hott_0)
+    * [同伦类型论(1)](?article=hott_1)
 * [物理 ▾](#)
     * [拉格朗日力学](?article=lagrangian_mechanics)
     * [狭义相对论](?article=special_theory_of_relativity)
