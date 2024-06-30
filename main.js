@@ -54,7 +54,7 @@
             });
 
             const heti = new Heti();
-            heti.spacingElements(document.querySelectorAll('.heti'));
+            heti.spacingElements(document.querySelectorAll('.heti :not(.katex) *'));
         });
 
     fetch('https://yang-le.github.io/nav.md')
