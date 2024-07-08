@@ -46,7 +46,7 @@ _⁺⁺ : Universe → Universe
 ```
 以下定义有时是有用的
 ```agda
-universe-of : {𝓤 : Universe} (X : 𝓤  ̇) → Universe
+universe-of : {𝓤 : Universe} (X : 𝓤 ̇) → Universe
 universe-of {𝓤} X = 𝓤
 ```
 词缀
