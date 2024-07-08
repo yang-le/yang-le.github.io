@@ -6,6 +6,7 @@
         html: true,
         linkify: true,
         highlight: function (str, lang) {
+            if (lang == 'agda') lang = 'haskell';
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     return hljs.highlight(str, { language: lang }).value;
