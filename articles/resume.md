@@ -9,11 +9,10 @@
 - Major: Software Engineering
 
 ## 👨‍💻Skill
-- 10 years working/coding experience of C/C++
+- 10+ years working/coding experience of C/C++
 - As a 15 years Linux user, familiar with Linux and its kernel
-- 3 years working experience of Android HAL
-- 3 years working experience of ADAS
-- Java, Python, Kotlin, JavaScript, Latex and Verilog
+- Fluent in English, 2 years working experience in an American company
+- Haskell, Agda, Lean, Java, Python, Kotlin, JavaScript, Latex and Verilog
 
 ## 👨‍💼Working Experience
 ### 2011 ~ 2014 (Software Engineer in Neusoft)
@@ -25,6 +24,8 @@
 - Android Platform, HAL
 ### 2022 ~ 2023 (Senior Software Engineer in ReachAuto, Neusoft)
 - Linux Platform, BSP
+### 2023 ~ 2024 (Software Engineer P3 in Rocket Software)
+- Multi-Value Databases
 
 ## :octocat:Personal Projects
 ### [riscv_cpu](https://github.com/yang-le/riscv_cpu)
