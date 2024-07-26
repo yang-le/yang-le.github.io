@@ -1,3 +1,5 @@
+@[TOC](Sigma类型)
+
 # Quest 2 - Sigma类型
 
 <!--
