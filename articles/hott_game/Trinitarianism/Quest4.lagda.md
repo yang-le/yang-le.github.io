@@ -11,7 +11,7 @@ open import Cubical.Foundations.Isomorphism renaming (Iso to _≅_) public
 
 private
   variable
-    A : Type
+    A B : Type
     x y z w : A
 ```
 -->
@@ -64,7 +64,7 @@ idSym A x .x rfl = rfl
 ```
 这里我们使用了[dot patterns](https://agda.readthedocs.io/en/latest/language/function-definitions.html#dot-patterns)，解释如下
 - 如果 `x` 和 `y` 根据证明 `p` 是相等的而我们想要说明关于 `x` `y` 和 `p` 的某些性质，那么只要考虑它们是外延相等的情形即可；即 `y` 在字面意义上就是项 `x` 且 `p` 是 `rfl`。
-- 我们所拥有的关于构造 `Id x y` 的唯一配方是 `rfl`，所以我们应该尝试规约到这种情形。
+- 我们所拥有的关于构造 `Id x y` 的唯一配方是 `rfl`，所以我们应该尝试归约到这种情形。
 - 要构造从 `Id` 发出的映射，将其视作总空间，只需考虑对角映射。
 ![](https://thehottgameguide.readthedocs.io/en/latest/_images/idRec.png)
 
@@ -129,10 +129,10 @@ Assoc rfl rfl rfl = rfl
 
 这些公理说明任何类型都是一个广群，其结构如上。这和类型的几何观点符合得很好：在经典同伦论中任何空间都有一个广群结构且任何广群都可被嵌入一个空间中。
 
-### 递归器 —— `Id` 的映出属性
+### 递归器 —— `Id`的映出属性
 
 我们想要抽出我们映出恒等类型的方法：
-::: info `Id` 的映出属性
+::: info Id的映出属性
 假定一个空间 `A` 和一个点 `x : A`。给定“从 `x` 出发的路径的空间”上的丛 `M : (y : A) (p : Id x y) → Type`，为了做出映射 `{y : A} (p : Id x y) → M y p`，我们只需给出一个 `M x refl` 中的点。传统上这称为 `Id` 的“递归器”。（我们还没有几何地证明它。）
 :::
 
@@ -195,7 +195,7 @@ Id→Path rfl = refl
 ```
 对于第一个，为了表述我们的动机我们需要隐式参数 `A` 和 `x`。
 
-检查 `rightInv` 的目标我们应该能看到它要求一个 `Path→Id (λ _ → x) ≡ rfl` 中的点，也就是 `Path→Id refl ≡ rfl`。`agda` 知道 `Id→Path rfl` 就是 `refl` （它们外延相等），所以它直接问我们要规约后版本的证明而不是 `Path→Id (Id→Path rfl) ≡ rfl` 中的点。（我们在头脑将 `(λ _ → x)` 规约为 `refl` 但 `agda` 做得正好相反。）
+检查 `rightInv` 的目标我们应该能看到它要求一个 `Path→Id (λ _ → x) ≡ rfl` 中的点，也就是 `Path→Id refl ≡ rfl`。`agda` 知道 `Id→Path rfl` 就是 `refl` （它们外延相等），所以它直接问我们要归约后版本的证明而不是 `Path→Id (Id→Path rfl) ≡ rfl` 中的点。（我们在头脑将 `(λ _ → x)` 归约为 `refl` 但 `agda` 做得正好相反。）
 
 我们将上述结果抽取为引理：
 
@@ -227,6 +227,97 @@ Path≅Id = iso Path→Id Id→Path rightInv leftInv where
     cong' : {B : Type} (f : A → B) (p : x ≡ y) → f x ≡ f y
     cong' {x = x} f = J (λ y p → f x ≡ f y) refl
 ```
-从这之后我们就直接用库中的 `cong` 了，不过你也可以尝试继续使用哦个你自己的版本。现在使用 `cong` 我们就可以定义 `leftInv`。注意外延地看 `Id→Path rfl` 和 `refl` 相同，我们只需要说明 `Id→Path (Path→Id refl) ≡ Id→Path rfl`。
+从这之后我们就直接用库中的 `cong` 了，不过你也可以尝试继续使用你自己的版本。现在使用 `cong` 我们就可以定义 `leftInv`。注意外延地看 `Id→Path rfl` 和 `refl` 相同，我们只需要说明 `Id→Path (Path→Id refl) ≡ Id→Path rfl`。
 
 如果两个空间是同构的那么它们共享相同的属性，在这个意义下得出这两个类型同构的结论是一个接受它们“相同”的一个很好的理由，因为同构理应和其他的构造友好地交互。我们将在[第三部分]()展开这一点。
+
+```agda
+id : A → A
+id x = x
+
+sym : x ≡ y → y ≡ x
+sym {A} {x} = J (λ y _ → y ≡ x ) refl
+
+symRefl : sym {x = x} refl ≡ refl
+symRefl {A} {x} = JRefl (λ y _ → y ≡ x) refl
+
+_∙_ : x ≡ y → y ≡ z → x ≡ z
+_∙_ {A} {x} {y} {z} = J (λ y _ → y ≡ z → x ≡ z) id
+
+transRefl : _∙_ {A} {x} {x} {z} refl ≡ λ x → x
+transRefl {A} {x} {z} = JRefl (λ y _ → y ≡ z → x ≡ z) id
+
+refl∙refl : refl {x = x} ∙ refl ≡ refl
+refl∙refl = cong (λ f → f refl) transRefl
+
+refl∙ : (p : x ≡ y) → refl ∙ p ≡ p
+refl∙ = J (λ _ p → refl ∙ p ≡ p) refl∙refl
+
+∙refl : (p : x ≡ y) → p ∙ refl ≡ p
+∙refl = J (λ _ p → p ∙ refl ≡ p) refl∙refl
+
+sym∙ : (p : x ≡ y) → sym p ∙ p ≡ refl
+sym∙ = J (λ _ p → sym p ∙ p ≡ refl) (∙refl (sym refl) ∙ symRefl)
+
+∙sym : (p : x ≡ y) → p ∙ sym p ≡ refl
+∙sym = J (λ _ p → p ∙ sym p ≡ refl) (refl∙ (sym refl) ∙ symRefl)
+
+assoc : {A : Type} {w x : A} (p : w ≡ x) {y z : A} (q : x ≡ y) (r : y ≡ z)
+      → (p ∙ q) ∙ r ≡ p ∙ (q ∙ r)
+
+assoc {A} = J (λ x p → {y z : A} (q : x ≡ y) (r : y ≡ z) → (p ∙ q) ∙ r ≡ p ∙ (q ∙ r))
+              (λ q r → (cong (λ x → x ∙ r) (refl∙ q)) ∙ sym (refl∙ (q ∙ r)))
+
+_≡⟨_⟩_ : (x : A) → x ≡ y → y ≡ z → x ≡ z
+_ ≡⟨ x≡y ⟩ y≡z = x≡y ∙ y≡z
+
+_∎ : (x : A) → x ≡ x
+_ ∎ = refl
+
+infixr 30 _∙_
+infix  3 _∎
+infixr 2 _≡⟨_⟩_
+
+pathToFun : A ≡ B → A → B
+pathToFun {A} = J (λ y _ → A → y) id
+
+pathToFunRefl : pathToFun {A} refl ≡ id
+pathToFunRefl {A} = JRefl (λ y _ → A → y) id
+
+pathToFunReflx : (x : A) → pathToFun {A} refl x ≡ x
+pathToFunReflx x = cong (λ f → f x) pathToFunRefl
+
+endPt : (B : A → Type) (p : x ≡ y) → B x → B y
+endPt {x = x} B = J (λ y p → B x → B y) id
+
+endPtRefl : (B : A → Type) → endPt {x = x} B refl ≡ id
+endPtRefl {x = x} B = JRefl (λ y p → B x → B y) id
+
+endPt' : (B : A → Type) (p : x ≡ y) → B x → B y
+endPt' B p = pathToFun (cong B p)
+
+funExt : {B : A → Type} {f g : (a : A) → B a}
+       → ((a : A) → f a ≡ g a) → f ≡ g
+
+funExt h = λ i a → h a i
+
+funExtIso : {B : A → Type} {f g : (a : A) → B a}
+          → ((a : A) → f a ≡ g a) ≅ (f ≡ g)
+
+funExtIso = iso funExt (λ p a → cong (λ f → f a) p) rightInv leftInv where
+
+  rightInv : section funExt (λ p a i → p i a)
+  rightInv h = refl
+
+  leftInv : retract funExt (λ p a i → p i a)
+  leftInv h = refl
+
+open import Agda.Builtin.Sigma
+
+_×_ : (A B : Type) → Type
+A × B = Σ A (λ _ → B)
+
+Path× : (x y : A × B) → (x ≡ y) ≅ ((x .fst ≡ y .fst) × (x .snd ≡ y .snd))
+Path× (a0 , b0) (a1 , b1) = {!!}
+
+```

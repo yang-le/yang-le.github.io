@@ -97,11 +97,7 @@ data ℕ : Type where
   - `zero` 是 `ℕ` 的配方
   - `suc` 接受一个 `ℕ` 的既存配方，给出 `ℕ` 的另一个配方
 - 范畴论的角度：`ℕ` 是范畴 `Type` 中的[自然数对象](https://www.zhihu.com/question/609503563/answer/3107267809)。这意味着它自带态射 `zero : ⊤ → ℕ` 和 `suc : ℕ → ℕ` 满足对任意给定的 `⊤ → A → A` 都存在一个唯一的态射 `ℕ → A` 使得下图交换：
-$$\begin{CD}
-\top @>zero>> \N @>suc>> \N \\
-@VVV @VVV @VVV \\
-\top @>>a_0> A @>>a_{suc}> A
-\end{CD}$$
+![](https://thehottgameguide.readthedocs.io/en/latest/_images/nno.png)
 - 几何角度：`ℕ` 是带有一个点 `zero` 的空间，且对每一个 `ℕ` 中的点 `n`, 存在另一个点 `suc n` 也在 `ℕ` 中。
 
 要了解如何使用类型 `ℕ` 的项，比如在 `ℕ` 上归纳，请转到 [Quest 1 - 依赖类型](?article=hott_game/Trinitarianism/Quest1.lagda)。
