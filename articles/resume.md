@@ -2,7 +2,7 @@
 
 ## 📧Contact Info
 - Yang Le <qtxzh0125@gmail.com>
-- 杨乐 <yangle0125@qq.com>
+- Github https://github.com/yang-le
 
 ## 🏫Education
 - School: Hebei University of Science and Technology
@@ -10,9 +10,9 @@
 
 ## 👨‍💻Skill
 - 10+ years working/coding experience of C/C++
-- As a 15 years Linux user, familiar with Linux and its kernel
+- 15+ years Linux experience, familiar with Linux and its kernel
 - Fluent in English, 2 years working experience in an American company
-- Haskell, Agda, Lean, Java, Python, Kotlin, JavaScript, Latex and Verilog
+- Latex, Python, JavaScript, Verilog, Java / Kotlin, Lisp and Haskell
 
 ## 👨‍💼Working Experience
 ### 2011 ~ 2014 (Software Engineer in Neusoft)
@@ -27,7 +27,17 @@
 ### 2023 ~ 2024 (Software Engineer P3 in Rocket Software)
 - Multi-Value Databases
 
-## :octocat:Personal Projects
+## ⭐Contributes & Credits
+### [bug fix for TAOCP](https://www-cs-faculty.stanford.edu/~knuth/boss.html)
+I found a bug in the "Shell Sort" in Vol.3. Search for my name.
+### [bug fix for AOSP](https://android.googlesource.com/platform/packages/services/Car/+/6aa4aa5cfad56050a384c792df0acd57d0d1a2d4)
+I found a bug in the EVS Service of Andriod Automotive and fixed it.
+### bug fix for Apollo
+- https://github.com/ApolloAuto/apollo/pull/3940
+- https://github.com/ApolloAuto/apollo/pull/4141
+
+
+## ❤️Personal Projects
 ### [riscv_cpu](https://github.com/yang-le/riscv_cpu)
 A Verilog implementation of a RISC-V CPU that can pass the official tests.
 ### [cnet](https://github.com/yang-le/cnet)
@@ -36,5 +46,3 @@ A deep learning framework using C language.
 A toy operating system that supports mouse.
 ### [DLAN-Demo](https://github.com/yang-le/DLAN-Demo)
 An android app that can project smartphone screen to TV, using Kotlin & Compose.
-
-![Yang Le's Github Stats](https://github-readme-stats.vercel.app/api?username=yang-le&show_icons=true)
