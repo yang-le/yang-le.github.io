@@ -104,7 +104,7 @@ $$L(t,x,v) = \frac{1}{2}m(v\cdot v)$$
 这里形式参数$x$表示给定的直角坐标系下的坐标分量的元组，形式参数$v$表示速度分量的元组。
 
 我们可将这一公式表示为例程:
-```scm
+```scheme
 (define ((L-free-particle mass) local)
     (let ((v (velocity local)))
         (* 1/2 mass (dot-product v v))))
@@ -115,7 +115,7 @@ $$L(t,x,v) = \frac{1}{2}m(v\cdot v)$$
 $$q(t) = (x(t), y(t), z(t))$$
 
 我们可以这样定义它
-```scm
+```scheme
 (define q
     (up (literal-function 'x)
         (literal-function 'y)
@@ -123,7 +123,7 @@ $$q(t) = (x(t), y(t), z(t))$$
 ```
 
 其中`literal-function`构造一个例程，表示一个单参数函数，除了给定的符号名之外，该函数的性质未知。符号`q`现在表示一个单实数参数（时刻）例程，它生成一个三分量的元组表示对应时刻的坐标。例如，我们可以像下面这样对该例程在时刻`t`求值
-```scm
+```scheme
 (q 't)
 ```
 > (up (x t) (y t) (z t))
@@ -132,13 +132,13 @@ $$q(t) = (x(t), y(t), z(t))$$
 $$Dq(t) = (Dx(t), Dy(t), Dz(t))$$
 
 我们可以作出并使用一个函数的导数。例如，我们可以写
-```scm
+```scheme
 ((D q) 't)
 ```
 > (up ((D x) t) ((D y) t) ((D z) t))
 
 函数$\Gamma$接受一个坐标路径并返回一个关于时刻的函数，它给出局部元组$(t, q(t), Dq(t), \dots)$。我们以例程`Gamma`实现这个$\Gamma$。它的行为是这样的
-```scm
+```scheme
 ((Gamma q) 't)
 ```
 <blockquote><pre>
@@ -148,7 +148,7 @@ $$Dq(t) = (Dx(t), Dy(t), Dz(t))$$
 </pre></blockquote>
 
 所以复合$L \circ \Gamma$是一个关于时刻的函数，返回该点在路径上的拉格朗日量的值
-```scm
+```scheme
 ((compose (L-free-particle 'm) (Gamma q)) 't)
 ```
 <blockquote><pre>
@@ -158,21 +158,21 @@ $$Dq(t) = (Dx(t), Dy(t), Dz(t))$$
 </pre></blockquote>
 
 例程`show-expression`化简表达式并使用$\TeX$以传统的中缀形式显示结果。我们使用这个方法来制作本书中方框中的表达式。这个例程也生成前缀形式，不过我们通常不展示它。
-```scm
+```scheme
 (show-expression
     ((compose (L-free-particle 'm) (Gamma q)) 't))
 ```
 > $$\frac{1}{2}m(Dx(t))^2 + \frac{1}{2}m(Dy(t))^2 + \frac{1}{2}m(Dz(t))^2$$
 
 现在我们可以计算从时刻$t_1$到时刻$t_2$的拉格朗日作用量如下：
-```scm
+```scheme
 (define (Lagrangian-action L q t1 t2)
     (definite-integral (compose L (Gamma q)) t1 t2))
 ```
 `Lagrangian-action`以计算拉格朗日量的例程`L`，计算坐标路径的例程`q`以及起始和终止时刻`t1`和`t2`为参数。这里使用的`definite-integral`以一个函数和两个积分限`t1`和`t2`为参数，计算该函数在区间`t1`到`t2`上的定积分。注意`Lagrangian-action`的定义不依赖于任何特定的坐标集甚至是配置空间的维度。从拉格朗日量的坐标表示和坐标路径计算作用量的方法不依赖于坐标系统。
 
 我们现在可以为自由粒子沿给定路径计算作用量了。例如，考虑一个以均匀速度沿直线$t \mapsto (4t + 7, 3t + 5, 2t + 1)$运动的粒子。我们将其路径表示为例程
-```scm
+```scheme
 (define (test-path t)
     (up (+ (* 4 t) 7)
         (+ (* 3 t) 5)
@@ -180,7 +180,7 @@ $$Dq(t) = (Dx(t), Dy(t), Dz(t))$$
 ```
 
 对于一个质量为$3$的粒子，我们取其位于$t = 0$和$t = 10$之间的作用量
-```scm
+```scheme
 (Lagrangian-action (L-free-particle 3.0) test-path 0.0 10.0)
 ```
 > 435
