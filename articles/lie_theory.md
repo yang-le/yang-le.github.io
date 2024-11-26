@@ -1,4 +1,4 @@
-# 李群及其李代数
+# 李群和李代数
 
 ## 李群
 
@@ -81,6 +81,104 @@ $$[A, B] := \eta^{-1}([\eta(A), \eta(B)]) = [\eta(A), \eta(B)]|_e$$
 
 ## 复李代数的分类
 
+若$\mathfrak a, \mathfrak b$是$K$上的李代数$(\mathfrak l, [\bullet , \bullet])$的李子代数，则我们定义
+$$[\mathfrak a, \mathfrak b] := \mathrm{span}_K(\{[x, y] \in \mathfrak l | x \in \mathfrak a \land y \in \mathfrak b\})$$
+
+李代数$\mathfrak l$称为是阿贝尔的，若
+$$\forall x, y \in \mathfrak l: [x, y] = 0$$
+等价地，$[\mathfrak l, \mathfrak l] = 0$，其中$0$是平凡李代数$\{0\}$.
+
+李代数$\mathfrak l$的李子代数$\mathfrak i$称为它的一个理想，若$[\mathfrak i, \mathfrak l] \sube \mathfrak i$. 即
+$$\forall x \in \mathfrak i: \forall y \in \mathfrak l: [x, y] \in \mathfrak i$$
+$0$和$\mathfrak l$称为$\mathfrak l$的平凡理想。
+
+称一个李代数$\mathfrak l$是
+- 单的，若它是非阿贝尔的且它不包含非平凡理想
+- 半单的，若它可以表示为单李代数的直和
+
+称李代数$\mathfrak l$的李子代数$\mathfrak l' := [\mathfrak l, \mathfrak l]$为$\mathfrak l$的导出李子代数。李子代数的序列
+$$\mathfrak l \supe  \mathfrak l' \supe \mathfrak l'' \supe \cdots \supe \mathfrak l^{(n)} \supe \cdots$$
+称为$\mathfrak l$的导出序列。李代数$\mathfrak l$称为可解的，若其导出序列最终达到$0$，即$\exist k \in N: \mathfrak l^{(k)} = 0$.
+
 ### Levi分解
+
+定理：（Levi）
+每个有限维复李代数$(\mathfrak l, [\bullet , \bullet])$都可以按如下方式分解：
+$$\mathfrak l = \mathfrak r \oplus_S (\mathfrak l_1 \oplus \dots \oplus \mathfrak l_n)$$
+其中：
+- $\mathfrak r$是一个可解的李代数
+- $\mathfrak l_1, \dots, \mathfrak l_n$是单李代数
+- $\mathfrak l_1 \oplus \mathfrak l_2$是李代数直和，满足$[\mathfrak l_1, \mathfrak l_2] = 0$
+- $\mathfrak r \oplus_S \mathfrak l$是李代数半直和，满足$[\mathfrak r, \mathfrak l] \sube \mathfrak r$
+
+时至今日，一般的可解李代数的分类仍是一个未完全解决的问题。但有限维的，复单李代数的分类已完全解决。
+
+### 伴随映射和基灵形式
+
+设$\mathfrak l$是$K$上的一个李代数，且$x \in \mathfrak l$。关于$x$的伴随映射是如下的$K$-线性映射
+$$\mathrm{ad}_x : \mathfrak l \to \mathfrak l$$
+其中$\mathrm{ad}_x(y) := [x, y]$.
+
+$\mathfrak l$上的基灵形式是一个$K$-双线性映射$\kappa: \mathfrak l \times \mathfrak l \to K$，其定义为
+$$\kappa(x, y) := \mathrm{tr}(\mathrm{ad}_x \circ \mathrm{ad}_y)$$
+
+注意和一般的“形式”不同的是，基灵形式并不是反称的，而是对称的，即
+$$\forall x, y \in \mathfrak l: \kappa(x, y) = \kappa(y, x)$$
+
+可以证明一个李代数是半单的，当且仅当它的基灵形式是非退化的。因此，若$\mathfrak l$是一个半单李代数，则基灵形式是其上的一个伪内积。
+
+我们称一个线性映射$\phi: V \to V$关于$V$上的一个伪内积$B$为对称的，若
+$$\forall v, w \in V, B(\phi(v), w) = B(v, \phi(w))$$
+称其为关于该伪内积$B$是反称的，若
+$$\forall v, w \in V, B(\phi(v), w) = -B(v, \phi(w))$$
+
+可以证明，（在半单李代数的情况）伴随映射关于基灵形式是反称的。
+
+为了进行计算，在$\mathfrak l$上引入一组基$\{e_i\}$将是有用的。设$\mathfrak l$是$K$上的一个李代数，$\{e_i\}$是其基，我们有
+$$[e_i, e_j] = C^k{}_{ij}e_k$$
+其中$C^k{}_{ij} \in K$. 这些数字$C^k{}_{ij}$称为$\mathfrak l$关于基$\{e_i\}$的结构常数。
+
+对应于李括号的反称性质，我们有$C^k{}_{ij} = -C^k{}_{ji}$. 我们现在可以将伴随映射和基灵形式以分量的形式表示出来。设$\{\epsilon^i\}$是对应的对偶基，我们有
+$$\begin{align*}
+(\mathrm{ad}_{e_i})^k{}_j :&= \epsilon^k(\mathrm{ad}_{e_i}(e_j)) \\
+&= \epsilon^k([e_i, e_j]) \\
+&= \epsilon^kC^m{}_{ij}e_m \\
+&= C^m{}_{ij}\epsilon^k(e_m) \\
+&= C^k{}_{ij}
+\end{align*}$$
+而
+$$\begin{align*}
+\kappa_{ij} :&= \kappa(e_i, e_j) \\
+&= \mathrm{tr}(\mathrm{ad}_{e_i} \circ \mathrm{ad}_{e_j}) \\
+&= (\mathrm{ad}_{e_i} \circ \mathrm{ad}_{e_j})^k{}_k \\
+&= (\mathrm{ad}_{e_i})^k{}_m(\mathrm{ad}_{e_j})^m{}_k \\
+&= C^k{}_{im}C^m{}_{jk}
+\end{align*}$$
+其中我们对线性映射和其对应的矩阵使用了相同的记号。
+
+### 基本根和外尔群
+
+设$\mathfrak l$是一个$d$维的李代数，它的一个嘉当子代数$\mathfrak h$是$\mathfrak l$的一个极大子代数，若$\mathfrak h$存在一组基$\{h_1, \dots, h_m\}$，可被扩展为$\mathfrak l$的一组基$\{h_1, \dots, h_m, e_1, \dots, e_{d-m}\}$，满足$e_1, \dots, e_{d-m}$是$\mathrm{ad}$的本征矢量，即
+$$\forall h \in \mathfrak h: \exist \lambda_\alpha(h) \in \mathbb C: \mathrm{ad}_h(e_\alpha) = \lambda_\alpha(h)e_\alpha$$
+其中$1 \le \alpha \le d - m$. 这组基$\{h_1, \dots, h_m, e_1, \dots, e_{d-m}\}$被称为$\mathfrak l$的一个嘉当-外尔基。
+
+定理：设$\mathfrak l$是一个有限维的半单复李代数。则
+- $\mathfrak l$具有一个嘉当子代数
+- $\mathfrak l$所有的嘉当子代数有相同的维度，称为$\mathfrak l$的秩
+- $\mathfrak l$的任一嘉当子代数都是阿贝尔的
+
+注意到$\mathrm{ad}$是双线性的，也就是说$\lambda_\alpha: \mathfrak h \to \mathbb C$是线性映射，即$\lambda_\alpha \in \mathfrak h^*$.
+
+我们称映射$\lambda_1, \dots, \lambda_{d - m} \in \mathfrak h^*$为$\mathfrak l$的根。它们的集合$\Phi := \{\lambda_1, \dots, \lambda_{d - m}\} \sube \mathfrak h^*$称为根集。
+
+可以证明，若$\lambda_\alpha$是零映射，我们将有$e_\alpha \in \mathfrak h$. 因此，$0 \notin \Phi$. 此外，由伴随映射关于基灵形式的反称性我们有
+$$\lambda \in \Phi \Rightarrow -\lambda \in \Phi$$
+因此$\Phi$不是线性独立的。
+
+我们定义基本根的集合$\Pi \sub \Phi$，满足
+- $\Pi = \{\pi_1, \dots, \pi_f\}$是$\mathfrak h^*$的一个线性独立的子集
+- $\forall \lambda \in \Phi: \exist n_1, \dots, n_f \in \N: \lambda = \pm\sum_{i = 1}^fn_i\pi_i $
+
+可以证明，在有限维半单复李代数的情况下，这样的一个基本根的集合总是存在的。且它构成$\mathfrak h^*$的一组基，即$\mathrm{span}_{\mathbb C}(\Pi) = \mathfrak h^*$. 于是我们有$|\Pi| = \dim \mathfrak h^* = \dim \mathfrak h$. 注意，一般情况下，$\Pi$并非唯一的。
 
 
