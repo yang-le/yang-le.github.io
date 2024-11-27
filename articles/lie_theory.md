@@ -177,7 +177,7 @@ $$\lambda \in \Phi \Rightarrow -\lambda \in \Phi$$
 
 我们定义基本根的集合$\Pi \sub \Phi$，满足
 - $\Pi = \{\pi_1, \dots, \pi_f\}$是$\mathfrak h^*$的一个线性独立的子集
-- $\forall \lambda \in \Phi: \exist n_1, \dots, n_f \in \N: \lambda = \pm\sum_{i = 1}^fn_i\pi_i $
+- $\forall \lambda \in \Phi: \exist n_1, \dots, n_f \in \N: \lambda = \pm\sum_{i = 1}^fn_i\pi_i$
 
 可以证明，在有限维半单复李代数的情况下，这样的一个基本根的集合总是存在的。且它构成$\mathfrak h^*$的一组基，即$\mathrm{span}_{\mathbb C}(\Pi) = \mathfrak h^*$. 于是我们有$|\Pi| = \dim \mathfrak h^* = \dim \mathfrak h$. 注意，一般情况下，$\Pi$并非唯一的。
 

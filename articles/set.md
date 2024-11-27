@@ -181,13 +181,27 @@ $$\forall x: ((\empty \notin x \land \forall a, b \in x: a \cap b = \empty) \Rig
 
 给定两个映射$\phi: A \to B$和$\psi: B \to C$，我们可以构造第三个映射，称为$\phi$和$\psi$的复合，记作$\psi \circ \phi$，定义为
 $$\psi \circ \phi: A \to C$$
-其中$(\psi \circ \phi)(a) := \psi(\phi(a))$. 
+其中$(\psi \circ \phi)(a) := \psi(\phi(a))$. 这经常表示为下面的图
+<script type="text/tikz">
+  \begin{tikzcd}
+    & B \arrow[rd, "\psi"] & \\
+    A \arrow[ru, "\phi"] \arrow[rr, "\psi\circ\phi"'] & & C
+  \end{tikzcd}
+</script>
+并称此图是交换的，意思是图中的每条路径给出相同的结果。以后我们会遇到有很多映射的情形，这些图可以极大地简化我们的说明。
 
 可以证明映射的复合满足结合律，即$\xi \circ (\psi \circ \phi) = (\xi \circ \psi) \circ \phi$.
 
 设$\phi: A \to B$是一个双射，$\phi$的逆映射，记作$\phi^{-1}$，定义为
 $$\phi^{-1}\circ\phi = \mathrm{id}_A \\
 \phi\circ\phi^{-1} = \mathrm{id}_B$$
+
+等价地，我们要求下图交换：
+<script type="text/tikz">
+  \begin{tikzcd}
+    A \arrow[r, "\phi", bend left] \arrow["\mathrm{id}_A"', loop, distance=2em, in=215, out=145] & B \arrow[l, "\phi^{-1}", bend left] \arrow["\mathrm{id}_B"', loop, distance=2em, in=35, out=325]
+  \end{tikzcd}
+</script>
 
 逆映射只对双射有定义。但我们将经常在拓扑中见到的如下记号，则对任意映射都有定义。
 
@@ -243,7 +257,7 @@ $$\Z := (\N \times \N) / \sim$$
 
 这个定义背后的想法是序对$(m, n)$表示“$m - n$”. 换言之，我们用自然数的差（尚待定义）来表示整数。显然，有多种方式来表示同一个整数。例如，整数$-1$可以表示为$(1, 2), (2, 3), (112, 113), \dots$
 
-但是请注意$(1, 2) \sim (2, 3), (1, 2) \sim (112, 113)$等等。实际上，取关于$\sim$的商集处理了这种“冗余”。也请注意，这里我们不说$\N \sube \Z$，毕竟$N$和$\Z := (\N \times \N) / \sim$包含完全不同的元素，说它们中的一个是另一个的子集是完全没有意义的。然而$\N$确实可以嵌入到$\Z$，即存在一个包含映射$\iota : \N \hookrightarrow \Z$，定义为
+但是请注意$(1, 2) \sim (2, 3), (1, 2) \sim (112, 113)$等等。实际上，取关于$\sim$的商集处理了这种“冗余”。也请注意，这里我们不说$\N \sube \Z$，毕竟$\N$和$\Z := (\N \times \N) / \sim$包含完全不同的元素，说它们中的一个是另一个的子集是完全没有意义的。然而$\N$确实可以嵌入到$\Z$，即存在一个包含映射$\iota : \N \hookrightarrow \Z$，定义为
 $$\iota(n) := [(n, 0)]$$
 在这个意义上我们说$\N$是包含于$\Z$的。
 
