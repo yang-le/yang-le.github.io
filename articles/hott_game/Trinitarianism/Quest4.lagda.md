@@ -43,7 +43,12 @@ data Id {A : Type} : (x y : A) → Type where
 - 当 `x` 和 `y` 是相同的配方时，构造 `Id x y` 的唯一配方即被给出
 - `Id x y` 是从 `x` 到 `y` 的路径空间，即该空间中的点是 `A` 中从 `x` 到 `y` 的路径。对 `A` 中的每一个点 `x`，在 `x` 处有常路径 `rfl x`。
 - `Id` 是 `A × A` 上的丛，对角映射 `A → A × A` 将 `x ↦ (x , x)` 可经由 `Id → A × A` 分解（视 `Id` 为总空间 `Σ (A × A) Id`）。
-![](https://thehottgameguide.readthedocs.io/en/latest/_images/idType.png)
+<script type="text/tikz">
+\begin{tikzcd}
+A \arrow[rr, "{x\mapsto(x,x,\mathrm{rfl})}"] \arrow[rrd, "\mathrm{diagonal}"'] &  & {\sum_{(x,y):A\times A}\mathrm{Id}(x,y)} \arrow[d, "{(x,y,p)\mapsto(x,y)}"] \\
+                                                                                &  & A\times A                                                                  
+\end{tikzcd}
+</script>
 
 我们推荐你首先尝试使用 `rfl` 的显式参数版本 `rfl : (x : A) → Id x x`，以便搞清楚其中到底发生了什么，但我们下面将使用 `rfl` 的隐式参数版本 `rfl : {x : A} → Id x x`。
 
@@ -68,7 +73,12 @@ idSym A x .x rfl = rfl
 - 如果 `x` 和 `y` 根据证明 `p` 是相等的而我们想要说明关于 `x` `y` 和 `p` 的某些性质，那么只要考虑它们是外延相等的情形即可；即 `y` 在字面意义上就是项 `x` 且 `p` 是 `rfl`。
 - 我们所拥有的关于构造 `Id x y` 的唯一配方是 `rfl`，所以我们应该尝试归约到这种情形。
 - 要构造从 `Id` 发出的映射，将其视作总空间，只需考虑对角映射。
-![](https://thehottgameguide.readthedocs.io/en/latest/_images/idRec.png)
+<script type="text/tikz">
+\begin{tikzcd}
+A \arrow[r, "{x\mapsto(x,x,\mathrm{rfl})}"] & \sum\mathrm{rfl} \arrow[r, hook] \arrow[rd, "f_{\mathrm{rfl}}"'] & \sum\mathrm{Id} \arrow[d, "f", dashed] \\
+                                            &                                                                  & M                                     
+\end{tikzcd}
+</script>
 
 ::: info 几何视角
 我们还没有从几何视角论证此证明。这是因为直觉上要构造从路径空间发出的映射只需考虑常路径这件事并非那么明显。我们后面将单独讨论这一几何属性。
