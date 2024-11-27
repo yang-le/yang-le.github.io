@@ -52,10 +52,11 @@
                     <span class="float-right">最后更新: <time pubdate datetime="${pubdate.toISOString()}">${pubdate.toLocaleString()}</time></span>
                 </p></section>
                 `;
-            });
 
-            const heti = new Heti();
-            heti.spacingElements(document.querySelectorAll('.heti :not(.katex) *'));
+                const heti = new Heti();
+                heti.spacingElements(document.querySelectorAll('.heti :not(.katex) *'));
+                onload();
+            });
         });
 
     fetch('https://yang-le.github.io/nav.md')
