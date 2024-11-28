@@ -183,10 +183,13 @@ $$\forall x: ((\empty \notin x \land \forall a, b \in x: a \cap b = \empty) \Rig
 $$\psi \circ \phi: A \to C$$
 其中$(\psi \circ \phi)(a) := \psi(\phi(a))$. 这经常表示为下面的图
 <script type="text/tikz">
+  \usetikzlibrary{cd}
+  \begin{document}
   \begin{tikzcd}
     & B \arrow[rd, "\psi"] & \\
     A \arrow[ru, "\phi"] \arrow[rr, "\psi\circ\phi"'] & & C
   \end{tikzcd}
+  \end{document}
 </script>
 并称此图是交换的，意思是图中的每条路径给出相同的结果。以后我们会遇到有很多映射的情形，这些图可以极大地简化我们的说明。
 
@@ -198,9 +201,12 @@ $$\phi^{-1}\circ\phi = \mathrm{id}_A \\
 
 等价地，我们要求下图交换：
 <script type="text/tikz">
+  \usetikzlibrary{cd}
+  \begin{document}
   \begin{tikzcd}
     A \arrow[r, "\phi", bend left] \arrow["\mathrm{id}_A"', loop, distance=2em, in=215, out=145] & B \arrow[l, "\phi^{-1}", bend left] \arrow["\mathrm{id}_B"', loop, distance=2em, in=35, out=325]
   \end{tikzcd}
+  \end{document}
 </script>
 
 逆映射只对双射有定义。但我们将经常在拓扑中见到的如下记号，则对任意映射都有定义。
