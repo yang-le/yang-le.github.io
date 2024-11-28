@@ -88,6 +88,11 @@
     theme.value = localStorage.getItem('theme');
     theme.setAttribute('onchange', "switchTheme(this.value)");
     switchTheme(theme.value);
+
+    var css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/fonts.css";
+    document.getElementsByTagName("head")[0].appendChild(css);
 })();
 
 function switchTheme(theme) {
