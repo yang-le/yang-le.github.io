@@ -44,19 +44,25 @@
             .then(response => {
                 return response.json();
             }).then(last_update => {
-                const pubdate = new Date(last_update[article] * 1000);
+                var isoString = "";
+                var localeString = "N/A";
+                const lastUpdate = last_update[article];
+                if (lastUpdate) {
+                    const pubdate = new Date(lastUpdate * 1000);
+                    isoString = pubdate.toISOString();
+                    localeString = pubdate.toLocaleString();
+                }
                 content.innerHTML += `
                 <hr>
                 <section><p>
                     <span>发现错误？欢迎<a href="https://github.com/yang-le/yang-le.github.io/edit/master/articles/${article}.md">帮忙修改</a>。</span>
-                    <span class="float-right">最后更新: <time pubdate datetime="${pubdate.toISOString()}">${pubdate.toLocaleString()}</time></span>
+                    <span class="float-right">最后更新: <time pubdate datetime="${isoString}">${localeString}</time></span>
                 </p></section>
                 `;
-
-                const heti = new Heti();
-                heti.spacingElements(document.querySelectorAll('.heti :not(.katex) *'));
-                onload();
             });
+
+            const heti = new Heti();
+            heti.spacingElements(document.querySelectorAll('.heti :not(.katex) *'));
         });
 
     fetch('https://yang-le.github.io/nav.md')
