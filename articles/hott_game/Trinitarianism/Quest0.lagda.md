@@ -100,10 +100,11 @@ data ℕ : Type where
   - `suc` 接受一个 `ℕ` 的既存配方，给出 `ℕ` 的另一个配方
 - 范畴论的角度：`ℕ` 是范畴 `Type` 中的[自然数对象](https://www.zhihu.com/question/609503563/answer/3107267809)。这意味着它自带态射 `zero : ⊤ → ℕ` 和 `suc : ℕ → ℕ` 满足对任意给定的 `⊤ → A → A` 都存在一个唯一的态射 `ℕ → A` 使得下图交换：
 <script type="text/tikz">
+  \usepackage{amsfonts}
   \usetikzlibrary{cd}
   \begin{document}
   \begin{tikzcd}
-  \top \arrow[d] \arrow[r, "\mathrm{zero}"] & N \arrow[d] \arrow[r, "\mathrm{suc}"] & N \arrow[d] \\
+  \top \arrow[d] \arrow[r, "\mathrm{zero}"] & \mathbb N \arrow[d] \arrow[r, "\mathrm{suc}"] & \mathbb N \arrow[d] \\
   \top \arrow[r, "a_0"']           & A \arrow[r, "a_{\mathrm{suc}}"']      & A          
   \end{tikzcd}
   \end{document}
