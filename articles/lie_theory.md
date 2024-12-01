@@ -156,7 +156,7 @@ $$\begin{align*}
 \end{align*}$$
 其中我们对线性映射和其对应的矩阵使用了相同的记号。
 
-### 基本根和外尔群
+### 单根和外尔群
 
 设$\mathfrak l$是一个$d$维的李代数，它的一个嘉当子代数$\mathfrak h$是$\mathfrak l$的一个极大子代数，若$\mathfrak h$存在一组基$\{h_1, \dots, h_m\}$，可被扩展为$\mathfrak l$的一组基$\{h_1, \dots, h_m, e_1, \dots, e_{d-m}\}$，满足$e_1, \dots, e_{d-m}$是$\mathrm{ad}$的本征矢量，即
 $$\forall h \in \mathfrak h: \exist \lambda_\alpha(h) \in \mathbb C: \mathrm{ad}_h(e_\alpha) = \lambda_\alpha(h)e_\alpha$$
@@ -175,10 +175,110 @@ $$\forall h \in \mathfrak h: \exist \lambda_\alpha(h) \in \mathbb C: \mathrm{ad}
 $$\lambda \in \Phi \Rightarrow -\lambda \in \Phi$$
 因此$\Phi$不是线性独立的。
 
-我们定义基本根的集合$\Pi \sub \Phi$，满足
+我们定义单根的集合$\Pi \sub \Phi$，满足
 - $\Pi = \{\pi_1, \dots, \pi_f\}$是$\mathfrak h^*$的一个线性独立的子集
 - $\forall \lambda \in \Phi: \exist n_1, \dots, n_f \in \N: \lambda = \pm\sum_{i = 1}^fn_i\pi_i$
 
-可以证明，在有限维半单复李代数的情况下，这样的一个基本根的集合总是存在的。且它构成$\mathfrak h^*$的一组基，即$\mathrm{span}_{\mathbb C}(\Pi) = \mathfrak h^*$. 于是我们有$|\Pi| = \dim \mathfrak h^* = \dim \mathfrak h$. 注意，一般情况下，$\Pi$并非唯一的。
+可以证明，在有限维半单复李代数的情况下，这样的一个单根的集合总是存在的。且它构成$\mathfrak h^*$的一组基，即$\mathrm{span}_{\mathbb C}(\Pi) = \mathfrak h^*$. 于是我们有$|\Pi| = \dim \mathfrak h^* = \dim \mathfrak h$. 注意，一般情况下，$\Pi$并非唯一的。
 
+现在我们想要在$\mathfrak h^*$上也定义一个伪内积。我们知道$K$上的有限维矢量空间$V$上的一个伪内积$B(\bullet,\bullet)$可以诱导一个线性同构$i : V \to V^*$，定义为$i(v) :=B(v, \bullet)$. 我们可以此来定义$V^*$上的伪内积
+$$B^*: V^* \times V^* \to K$$
+定义为$B^*(\phi, \psi) = B(i^{-1}(\phi), i^{-1}(\psi))$. 考虑$\kappa$在$\mathfrak h$上的限制，即$\kappa|_{\mathfrak h} : \mathfrak h \times \mathfrak h \to K$. 可以证明它仍是一个伪内积。现在我们可以定义
+$$\kappa^*: \mathfrak h^* \times \mathfrak h^* \to \mathbb C$$
+其中$\kappa^*(\mu, \nu) := \kappa(i^{-1}(\mu), i^{-1}(\nu))$.
 
+现在我们定义$\mathfrak h^*_\R := \mathrm{span}_\R(\Pi)$，注意到$\Phi \sube \mathrm{span}_{\pm\N}(\Pi)$于是我们有
+$$\Pi \sube \Phi \sube \mathfrak h^*_\R \sube \mathfrak h^*$$
+
+将$\kappa^*$限制到$\mathfrak h^*_\R$导致如下神奇的结果。
+
+定理：
+- $\forall \alpha, \beta \in \mathfrak h^*_\R, \kappa^*(\alpha, \beta) \in \R$
+- $\kappa^* : \mathfrak h^*_\R \times \mathfrak h^*_\R \to \R$是$\mathfrak h^*_\R$上的一个内积
+
+就是说，将$\kappa^*$限制到$\mathfrak h^*_\R$之后，非但没有将其削弱，$\kappa^*$的非退化性反而增强为了正定性。于是我们现在$\mathfrak h^*_\R$上就拥有了一个合适的实内积，我们可以用其来计算诸如长度和角度等等。特别是，我们可以计算单根的长度和它们之间的角度了。
+
+根集$\Phi$对我们的分类至关重要，我们能由某一给定的单根的集合$\Pi$将其准确复原吗？这导致如下的定义：
+
+对任一$\lambda \in \Phi$我们定义
+$$S_\lambda : \mathfrak h^*_\R \to \mathfrak h^*_\R$$
+其中
+$$S_\lambda(\mu) := \mu - 2\frac{\kappa^*(\lambda, \mu)}{\kappa^*(\lambda, \lambda)}\lambda$$
+映射$S_\lambda$被称作外尔变换，且如下的集合
+$$W := \{S_\lambda | \lambda \in \Phi\}$$
+在映射复合下形成一个群，称作外尔群。关于外尔群，我们有如下的
+
+定理：
+- 外尔群由$\Pi$中的单根生成，即
+    $$\forall w \in W: \exist \pi_1, \dots, \pi_n \in \Pi: w = S_{\pi_1} \circ S_{\pi_2} \circ \cdots \circ S_{\pi_n}$$
+- 每个根都可由单根经外尔群的作用产生，即
+    $$\forall \lambda \in \Phi: \exist \pi \in \Pi: \exist w \in W: \lambda = w(\pi)$$
+- 外尔群置换根，即
+    $$\forall \lambda \in \Phi: \forall w \in W: w(\lambda) \in \Phi$$
+
+### 邓肯图和嘉当分类
+
+现在我们考虑任意的两个单根$\pi_i, \pi_j \in \Pi$，外尔群于其上的作用为
+$$S_{\pi_i}(\pi_j) := \pi_j - 2\frac{\kappa^*(\pi_i, \pi_j)}{\kappa^*(\pi_i, \pi_i)}\pi_i$$
+既然$S_{\pi_i}(\pi_j) \in \Phi$，而$\Phi \sube \mathrm{span}_{\pm\N}(\Pi)$，那么对所有的$1 \le i \ne j \le |\Pi|$我们必须有
+$$- 2\frac{\kappa^*(\pi_i, \pi_j)}{\kappa^*(\pi_i, \pi_i)} \in \N$$
+于是我们有如下的定义：
+
+一个李代数的嘉当矩阵是一个$r \times r$的矩阵（$r = |\Pi|$），其元素为
+$$C_{ij} := 2\frac{\kappa^*(\pi_i, \pi_j)}{\kappa^*(\pi_i, \pi_i)}$$
+
+请勿将此与结构常数$C^k{}_{ij}$混淆。显然我们有$C_{ii} = 2$.
+即在对角线上，此矩阵的元素为$2$；而在非对角线上，此矩阵的元素为某些非正的整数。
+另外，请注意嘉当矩阵不是对称阵；但如果$C_{ij} = 0$，则我们有$C_{ji} = 0$.
+
+关于嘉当矩阵，我们有如下的
+
+定理：每一个有限维的单复李代数都对应于一个唯一的嘉当矩阵，反之亦然。
+
+于是分类所有的有限维单复李代数的问题就转化为寻找所有的嘉当矩阵的问题。
+而这个问题又进一步地转化为确定所有的不等价的邓肯图的问题。
+为此我们引入如下的定义：
+
+给定一个嘉当矩阵$C$，它的bond number定义为
+$$n_{ij} := C_{ij}C_{ji}$$
+注意这里没有求和，上式展开如下
+$$\begin{align*}
+n_{ij} &= 4\frac{\kappa^*(\pi_i, \pi_j)}{\kappa^*(\pi_i, \pi_i)}\frac{\kappa^*(\pi_j, \pi_i)}{\kappa^*(\pi_j, \pi_j)} \\
+&= 4\left(\frac{\kappa^*(\pi_i, \pi_j)}{|\pi_i||\pi_j|}\right)^2 \\
+&= 4\cos^2\varphi
+\end{align*}$$
+其中$\varphi$是$\pi_i$和$\pi_j$的夹角。若$i \ne j$，这个夹角既不是零也不是$180\degree$，因此$0 \le \cos^2\varphi < 1$，于是
+$$n_{ij} \in \{0, 1, 2, 3\}$$
+又$C_{ij}$的非对角线上的元素为非正整数，唯一的可能性就是
+
+| $C_{ij}$ | $C_{ji}$ | $n_{ij}$ |
+|----------|----------|----------|
+| 0        | 0        | 0        |
+| -1       | -1       | 1        |
+| -1       | -2       | 2        |
+| -2       | -1       | 2        |
+| -1       | -3       | 3        |
+| -3       | -1       | 3        |
+
+注意在$n_{ij} = 2$或$3$的情况，相应的单根长度是不同的，即要么$|\pi_i| < |\pi_j|$，要么$|\pi_i| > |\pi_j|$.
+实际上可以证明，单李代数的根至多有两种不同的长度。
+嘉当矩阵的这种冗余性可以很好地由邓肯图反映出来，我们将在此详述其构造方法。
+
+关联于某个嘉当矩阵的一个邓肯图可以按照下述方法构造：
+- 对应于每一个单根$\pi_i \in \Pi$，用一个圈来表示
+- 在表示$\pi_i$和$\pi_j$的圈之间画$n_{ij}$条线
+- 对于$n_{ij} = 2$或$3$的情况，在线上画一个箭头，从较长的根指向较短的根
+
+邓肯图完全刻画了任意的单根集合，由单根集我们可以通过外尔变换重构整个根集。
+有了根集我们就可以构造嘉当-外尔基。
+
+现在我们终于可以阐述如下的分类定理了：
+
+定理：（Killing, Cartan）任何有限维单复李代数都可从其单根的集合$\Pi$重构出来，后者仅有如下几种形式：
+- 4族无穷多的集族 $A_n, n \ge 1, ~ B_n, n \ge 2, ~ C_n, n \ge 3, ~ D_n, n \ge 4$
+- 5个例外集合 $E_6, E_7, E_8, F_4, G_2$
+
+除此之外就没有其他了。这些是所有可能的（连通）邓肯图。
+
+这4族单根对应的李代数称为典型李代数，5个例外集合对应的李代数称为例外李代数。现在，我们终于完成了对所有有限维单复李代数的分类。
+有限维半单李代数是单李代数的直和，它们对应于非连通的邓肯图，其连通分量就是上面列出的这些。
