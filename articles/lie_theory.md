@@ -276,7 +276,136 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
 
 定理：（Killing, Cartan）任何有限维单复李代数都可从其单根的集合$\Pi$重构出来，后者仅有如下几种形式：
 - 4族无穷多的集族 $A_n, n \ge 1, ~ B_n, n \ge 2, ~ C_n, n \ge 3, ~ D_n, n \ge 4$
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,0) node[anchor=east]  {$A_n$};
+    \foreach \x in {0,...,5}
+    \draw[xshift=\x cm,thick] (\x cm,0) circle (.3cm);
+    \draw[dotted,thick] (0.3 cm,0) -- +(1.4 cm,0);
+    \foreach \y in {1.15,...,4.15}
+    \draw[xshift=\y cm,thick] (\y cm,0) -- +(1.4 cm,0);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,0) node[anchor=east]  {$B_n$};
+    \foreach \x in {0,...,4}
+    \draw[xshift=\x cm,thick] (\x cm,0) circle (.3cm);
+    \draw[xshift=5 cm,thick] (5 cm, 0) circle (.3 cm);
+    \draw[dotted,thick] (0.3 cm,0) -- +(1.4 cm,0);
+    \foreach \y in {1.15,...,3.15}
+    \draw[xshift=\y cm,thick] (\y cm,0) -- +(1.4 cm,0);
+    \draw[thick] (8.3 cm, .1 cm) -- +(1.4 cm,0);
+    \draw[thick] (8.3 cm, -.1 cm) -- +(1.4 cm,0);
+    \draw(9,0) --++(120:0.4) (9,0) --++(-120:0.4);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,0) node[anchor=east]  {$C_n$};
+    \foreach \x in {0,...,4}
+    \draw[xshift=\x cm,thick] (\x cm,0) circle (.3cm);
+    \draw[xshift=5 cm,thick] (5 cm, 0) circle (.3 cm);
+    \draw[dotted,thick] (0.3 cm,0) -- +(1.4 cm,0);
+    \foreach \y in {1.15,...,3.15}
+    \draw[xshift=\y cm,thick] (\y cm,0) -- +(1.4 cm,0);
+    \draw[thick] (8.3 cm, .1 cm) -- +(1.4 cm,0);
+    \draw[thick] (8.3 cm, -.1 cm) -- +(1.4 cm,0);
+    \draw(9,0) --++(60:0.4) (9,0) --++(-60:0.4);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,0) node[anchor=east]  {$D_n$};
+    \foreach \x in {0,...,4}
+    \draw[xshift=\x cm,thick] (\x cm,0) circle (.3cm);
+    \draw[xshift=8 cm,thick] (30: 17 mm) circle (.3cm);
+    \draw[xshift=8 cm,thick] (-30: 17 mm) circle (.3cm);
+    \draw[dotted,thick] (0.3 cm,0) -- +(1.4 cm,0);
+    \foreach \y in {1.15,...,3.15}
+    \draw[xshift=\y cm,thick] (\y cm,0) -- +(1.4 cm,0);
+    \draw[xshift=8 cm,thick] (30: 3 mm) -- (30: 14 mm);
+    \draw[xshift=8 cm,thick] (-30: 3 mm) -- (-30: 14 mm);
+    \end{tikzpicture}
+    \end{document}
+</script>
+
 - 5个例外集合 $E_6, E_7, E_8, F_4, G_2$
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,0) node[anchor=east]  {$G_2$};
+    \draw[thick] (0 ,0) circle (.3 cm);
+    \draw[thick] (2 cm,0) circle (.3 cm);
+    \draw[thick] (30: 3mm) -- +(1.5 cm, 0);
+    \draw[thick] (0: 3 mm) -- +(1.4 cm, 0);
+    \draw[thick] (-30: 3 mm) -- +(1.5 cm, 0);
+    \draw(1,0) --++(120:0.4) (1,0) --++(-120:0.4);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-3,0) node[anchor=east]  {$F_4$};
+    \draw[thick] (-2 cm ,0) circle (.3 cm);
+    \draw[thick] (0 ,0) circle (.3 cm);
+    \draw[thick] (2 cm,0) circle (.3 cm);
+    \draw[thick] (4 cm,0) circle (.3 cm);
+    \draw[thick] (15: 3mm) -- +(1.5 cm, 0);
+    \draw[xshift=-2 cm,thick] (0: 3 mm) -- +(1.4 cm, 0);
+    \draw[thick] (-15: 3 mm) -- +(1.5 cm, 0);
+    \draw[xshift=2 cm,thick] (0: 3 mm) -- +(1.4 cm, 0);
+    \draw(1,0) --++(120:0.4) (1,0) --++(-120:0.4);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,1) node[anchor=east]  {$E_6$};
+    \foreach \x in {0,...,4}
+    \draw[thick,xshift=\x cm] (\x cm,0) circle (3 mm);
+    \foreach \y in {0,...,3}
+    \draw[thick,xshift=\y cm] (\y cm,0) ++(.3 cm, 0) -- +(14 mm,0);
+    \draw[thick] (4 cm,2 cm) circle (3 mm);
+    \draw[thick] (4 cm, 3mm) -- +(0, 1.4 cm);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,1) node[anchor=east]  {$E_7$};
+    \foreach \x in {0,...,5}
+    \draw[thick,xshift=\x cm] (\x cm,0) circle (3 mm);
+    \foreach \y in {0,...,4}
+    \draw[thick,xshift=\y cm] (\y cm,0) ++(.3 cm, 0) -- +(14 mm,0);
+    \draw[thick] (4 cm,2 cm) circle (3 mm);
+    \draw[thick] (4 cm, 3mm) -- +(0, 1.4 cm);
+    \end{tikzpicture}
+    \end{document}
+</script>
+<script type="text/tikz">
+    \begin{document}
+    \begin{tikzpicture}[scale=.4]
+    \draw (-1,1) node[anchor=east]  {$E_8$};
+    \foreach \x in {0,...,6}
+    \draw[thick,xshift=\x cm] (\x cm,0) circle (3 mm);
+    \foreach \y in {0,...,5}
+    \draw[thick,xshift=\y cm] (\y cm,0) ++(.3 cm, 0) -- +(14 mm,0);
+    \draw[thick] (4 cm,2 cm) circle (3 mm);
+    \draw[thick] (4 cm, 3mm) -- +(0, 1.4 cm);
+    \end{tikzpicture}
+    \end{document}
+</script>
 
 除此之外就没有其他了。这些是所有可能的（连通）邓肯图。
 
