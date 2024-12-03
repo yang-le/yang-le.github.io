@@ -34,8 +34,6 @@
 
 此外$f$自然地诱导出$M$上的一个对偶矢量场$\mathrm df$，定义为$\mathrm df|_p(v) := v(f)$. 于是$v(f) = v^{**}(\mathrm df|_p)$. 即在$p$点的局部看，$f$可等同于$p$点的切空间$T_pM$到$\R$的映射$\mathrm df|_p$.
 
-需要说明的是，根据定义$\phi_*$是把$M$中一点$p$处的矢量$\mapsto$其像点$\phi(p)$处的矢量。
-
 现在拉回映射可自然地推广到对偶矢量的情形，其定义如下
 
 <script type="text/tikz">
@@ -49,7 +47,35 @@
     \end{document}
 </script>
 
-- 拉回对$(0, l)$型张量场的定义
-- 推前对$(k, 0)$型张量的定义
-- 何时可把推前$\phi_*$定义为场$\mapsto$场的映射？
-- 拉回/推前映射对$(k, l)$型张量场的定义以及它们的关系
+对任意的$l$-形式场，拉回映射都可仿照上图定义。我们已经看到，对函数（标量场）的拉回其实就是$0$-形式场的拉回。
+
+推前映射也可做相应的推广，对任意的$(k, 0)$型张量，推前映射可仿照下图定义：
+
+<script type="text/tikz">
+    \usepackage{amsfonts}
+    \usetikzlibrary{cd}
+    \begin{document}
+    \begin{tikzcd}
+    T^*_pM \arrow[d, "T"'] & T^*_pN \arrow[l, "\phi^*"'] \arrow[ld, "\phi_*T"] \\
+    \mathbb R              &                                                  
+    \end{tikzcd}
+    \end{document}
+</script>
+
+我们也已经看到，对矢量的推前就是$k = 1$时的情形。
+
+需要说明的是，根据定义$\phi_*$是把$M$中一点$p$处的$(k, 0)$型张量$\mapsto$其像点$\phi(p)$处的$(k, 0)$型张量。如果$M$上有一个张量场，它至多被推前到$\phi[M]$. 如果$\phi$不是满射，则$N$上存在未定义张量的点；如果$\phi$不是单射，则$N$上就会存在一个点上有多个张量的情况。
+然而，如果$\phi$是微分同胚，上述困难就不复存在了，推前映射$\phi_*$就可看作是把$M$上的$(k, 0)$型张量场$\mapsto N$上的同型张量场。进一步地，由于$\phi^{-1}$的存在，其拉回$\phi^{-1*}$可看作对形式场的推前$\phi_*$.
+
+<script type="text/tikz">
+    \usepackage{amsfonts}
+    \usetikzlibrary{cd}
+    \begin{document}
+    \begin{tikzcd}
+    T_{\phi^{-1}(q)}M \arrow[rd, "\omega"'] & T_qN \arrow[l, "\phi^{-1}_*"'] \arrow[d, "\phi_*\omega"] \\
+                                            & \mathbb R                                               
+    \end{tikzcd}
+    \end{document}
+</script>
+
+于是推前映射对所有类型的张量场就都有了定义。同理，拉回映射也可以推广到所有类型的张量场。推广后它们仍为线性映射，且互为彼此的逆。
