@@ -288,6 +288,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
@@ -304,6 +305,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
@@ -320,6 +322,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
@@ -351,6 +354,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
@@ -367,6 +371,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
@@ -380,6 +385,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
@@ -393,6 +399,7 @@ $$n_{ij} \in \{0, 1, 2, 3\}$$
     \end{tikzpicture}
     \end{document}
 </script>
+<br>
 <script type="text/tikz">
     \begin{document}
     \begin{tikzpicture}[scale=.4]
