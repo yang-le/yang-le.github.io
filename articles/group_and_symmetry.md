@@ -110,12 +110,6 @@ $$l_g(r_h(s)) = g(sh) = (gs)h = r_h(l_g(s))$$
 
 ## 拉格朗日定理
 
-| 阶 | 群 |
-| -- | -- |
-| 1 | $1$（平凡群） |
-| 2 | $\Z/2\Z$ |
-| 3 | $\Z/3\Z$ |
-
 我们可以用拉格朗日定理来辅助小群的分类。拉格朗日定理说群$G$的子群$H$的阶必整除群$G$的阶。
 
 推论：群$G$的元素$g$的阶（即使得$g^n = 1$的最小的正整数$n$）必整除$G$的阶。因为如果$g$的阶为$n$，则$\{1, g, g^2, \dots, g^{n - 1}\}$构成$G$的一个子群$H$，其阶为$n$.
@@ -136,7 +130,7 @@ $G$于$S$上的作用称为是传递的，如果$S$仅分裂为一个轨道。�
 现在假定$G$传递性地作用于$S$，取$s \in S$，令$H = G_s$，如何从$H$和$G$重构$S$呢？注意$S$中的其他元素$t$必定具有$t = gs$这样的形式，其中$g \in G$.
 假定$g_1, g_2$都满足此条件，于是我们有$g_2^{-1}g_1s = s$，即$g_2^{-1}g_1 \in H$或者说$g_1 \in g_2H$.
 其中形如$gH = \{gh \in G | h \in H\}$这样的集合称为子群$H$在$G$中的左陪集。
-> 换一个角度看，也可以说$gH$是$g$在$H$作用下的轨道。陪集是轨道的一个例子。
+<aside>换一个角度看，也可以说$gH$是$g$在$H$作用下的轨道。陪集是轨道的一个例子。</aside>
 
 从$t = g_1s = g_2s$我们导出了$g_1H = g_2H$，于是我们有一个双射将$S$中的元素$t$映为$H$的陪集$t \mapsto \{g \in G| gs = t\} = g_1H$，其逆映射为$gH \mapsto gs$.
 所以左陪集可被看作是$G$作用下的集合中的元素。当我们考虑右作用的时候，类似也可以考虑右陪集。
@@ -149,7 +143,7 @@ $G$于左陪集集合上的左作用定义为$g(g_1H) = (gg_1)H$，其中$g_1H$�
 
 注意任意两个左陪集大小相同，要证明这一点我们只需要说明$\forall g \in G$，$gH$和$H$有相同的大小即可。
 为此，我们可定义一个从$gH$到$H$的双射，$t \mapsto g^{-1}t$，其逆为$h \mapsto gh$.
-> 这里我们用到了群的元素皆有逆这一事实。在半群中我们仍可以定义陪集，但它们就不一定有相同的大小了。
+<aside>这里我们用到了群的元素皆有逆这一事实。在半群中我们仍可以定义陪集，但它们就不一定有相同的大小了。</aside>
 
 至此我们也完成了拉格朗日定理的证明，因为$G$是$H$的所有左陪集的不交并，又所有左陪集都有相同的大小，自然我们就有$G$的阶等于$H$的阶乘以其左陪集的个数。
 
@@ -191,6 +185,7 @@ $\Z/2\Z \times \Z/2\Z$被称为克莱因四元群，可以视其为长方形的�
 
 我们再来看一下以上两个群的子群。对于$\Z/4\Z$来说，它有一个2阶的非平凡子群。
 <script type="text/tikz">
+\usepackage{amsfonts}
 \usetikzlibrary{cd}
 \begin{document}
 \begin{tikzcd}
@@ -202,12 +197,13 @@ $\Z/2\Z \times \Z/2\Z$被称为克莱因四元群，可以视其为长方形的�
 </script>
 而对于$\Z/2\Z \times \Z/2\Z$，它有三个2阶的非平凡子群，它的每一个2阶元都生成一个2阶子群。
 <script type="text/tikz">
+\usepackage{amsfonts}
 \usetikzlibrary{cd}
 \begin{document}
 \begin{tikzcd}
-                                         & \mathbb Z/2\mathbb Z \times \mathbb Z/2\mathbb Z \arrow[d, no head] \arrow[ld, no head] \arrow[rd, no head] &                                          \\
-\mathbb Z/2\mathbb Z \arrow[rd, no head] & \mathbb Z/2\mathbb Z \arrow[d, no head]                                                                     & \mathbb Z/2\mathbb Z \arrow[ld, no head] \\
-                                         & 1                                                                                                           &                                         
+& \mathbb Z/2\mathbb Z \times \mathbb Z/2\mathbb Z \arrow[d, no head] \arrow[ld, no head] \arrow[rd, no head] &  \\
+\mathbb Z/2\mathbb Z \arrow[rd, no head] & \mathbb Z/2\mathbb Z \arrow[d, no head] & \mathbb Z/2\mathbb Z \arrow[ld, no head] \\
+& 1 &                                         
 \end{tikzcd}
 \end{document}
 </script>
@@ -280,8 +276,8 @@ $$\begin{CD}
 反之，若$A, B$对易，我们就有$gAg^{-1} = abAb^{-1}a^{-1} = A$. 于是$A, B$皆为正规子群。
 
 下面给出直积的一些例子。
-- $\R^* \simeq \{1, -1\} \times R^+$
-- $\mathbb C^* \simeq \mathrm S^1 \times R^+$
+- $\R^* \simeq \{1, -1\} \times \R^+$
+- $\mathbb C^* \simeq \mathrm S^1 \times \R^+$
     
     这其实就是复数的极坐标分解。
 
@@ -303,3 +299,11 @@ $$\begin{CD}
     具体的一个例子是$(\Z/15\Z)^* \simeq (\Z/5\Z)^* \times (\Z/3\Z)^*$. 其中$(\Z/15\Z)^*$的阶为8. 而其余两个群我们在之前已经遇到过，它们的阶分别为4和2.
     由欧拉定理，我们得到$x^8 \equiv 1 \mod 15$. 然而，由于$(\Z/15\Z)^* \simeq \Z/4\Z \times \Z/2\Z$这个分解，我们知道$\Z/4\Z \times \Z/2\Z$这个群的元素的阶必整除4.
     所以实际上我们有$x^4 \equiv 1 \mod 15$. 于是使用像这样的群分解我们可以改进欧拉定理的结果。
+
+
+
+| 阶 | 群 |
+| -- | -- |
+| 1 | $1$（平凡群） |
+| 2 | $\Z/2\Z$ |
+| 3 | $\Z/3\Z$ |
