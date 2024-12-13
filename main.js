@@ -62,7 +62,7 @@
             });
 
             const heti = new Heti();
-            heti.spacingElements(document.querySelectorAll('.heti :not(.katex) *'));
+            heti.autoSpacing();
         });
 
     fetch('https://yang-le.github.io/nav.md')
@@ -72,7 +72,7 @@
             nav.innerHTML = markdown.render(md);
         });
 
-    var gitalk = new Gitalk({
+    const gitalk = new Gitalk({
         clientID: 'ac6a28e474263a4bb7a3',
         clientSecret: 'a21e06f173a63ed87bf54eec7120f171c25bca86',
         repo: 'yang-le.github.io',
