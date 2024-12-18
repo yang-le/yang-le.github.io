@@ -480,9 +480,9 @@ $$i^2 = j^2 = k^2 = ijk = -1$$
 这个环同样是由哈密顿发现的，称为哈密顿四元数环。
 
 四元数在某种程度上很像复数，有很多对复数可以做的事情同样可以对四元数做。
-回忆复数的定义为形如$a + bi$这样的数，其中$a, b$皆为实数。我们列表对比两者如下
+我们列表对比两者如下
 
-| -- | $\mathbb C$ | $\mathbb H$ |
+| | $\mathbb C$ | $\mathbb H$ |
 | -- | -- | -- |
 | 定义 | $z = a + bi$ | $z = a + bi + cj + dk$ |
 | 共轭 | $\bar z = a - bi \\ z\bar z = a^2 + b^2$ | $\bar z = a - bi - cj - dk \\ z\bar z = a^2 + b^2 + c^2 + d^2 \\ \overline{z_1z_2} = \bar z_2\bar z_1$|
@@ -501,7 +501,7 @@ $$i^2 = j^2 = k^2 = ijk = -1$$
 $$\begin{CD}
 1 @>>> \pm 1 @>>> S^3 @>>> \mathrm{SO}(3) @>>> 1
 \end{CD}$$
-这种情况下，我们称$S^3$是$\mathrm{SO}(3)$的二重覆叠，因为这个同态的核为2阶的。实际上，这个二重覆叠和所谓的[Plate trick](https://en.wikipedia.org/wiki/Plate_trick)有直接关系。
+这种情况下，我们称$S^3$是$\mathrm{SO}(3)$的二重覆叠，因为这个同态的核为2阶。实际上，这个二重覆叠和所谓的[Plate trick](https://en.wikipedia.org/wiki/Plate_trick)有直接关系。
 这里$S^3$也被物理学家称为自旋群，因其和基本粒子的自旋有关。
 
 这个二重覆叠的另一个应用是我们可以考虑$\mathrm{SO}(3)$的某些有限子群，特别是我们考虑那些对应于正多面体的旋转，它们的阶分别为12，24和60.
@@ -517,6 +517,72 @@ $$\begin{CD}
 1 @>>> \Z/2\Z @>>> S^3\times S^3 @>>> \mathrm{SO}(4) @>>> 1
 \end{CD}$$
 其中$\mathrm{SO}(4) = (S^3\times S^3) / (\Z/2\Z)$.
+
+## 伯恩赛德引理
+
+设$G$作用在$X$上，则$x \in X$的轨道$Gx$和其稳定子群$G_x$紧密相关。
+前面我们已经知道，轨道中的元素$gx$和$G_x$的陪集之间有一一对应的关系。
+$gx \leftrightarrow gG_x$. 于是$x$所在的轨道的大小就等于其稳定子群的陪集的个数。
+$$|Gx| = \frac{|G|}{|G_x|}$$
+这被称为轨道-稳定点定理。
+
+与此相关的，伯恩赛德引理是说轨道的个数$|X/G|$等于平均到每个群元的不动点的个数，即
+$$|X/G| = \frac{1}{|G|}\sum_{g \in G}|X^g|$$
+其中$X^g = \{x \in X | gx = x\}$. 实际上，对于满足$gx = x$的$(g, x)$，我们有两种计数方法。
+一种是对$g$进行求和，另一种对$x$进行求和。于是有$\sum_{g\in G}|X^g| = \sum_{x\in X}|G_x|$. 而根据轨道-稳定点定理
+$$\sum_{x\in X}|G_x| = \sum_{x \in X}\frac{|G|}{|Gx|} = \sum_{Gx \in X/G}\sum_{x \in Gx}\frac{|G|}{|Gx|} = \sum_{Gx \in X/G}|G| = |X/G||G|$$
+于是定理就得到了证明。
+
+伯恩赛德引理在考虑对称的计数上有很多应用，因为属于同一个轨道的可能性只需记一次即可。
+例如，在$8 \times 8$的棋盘格中放置棋子，要求每行/每列有且只有一个棋子，有多少种可能性？（对称的情况只记1种）
+
+在不考虑对称性带来的重复计数时，我们容易算出总的可能性为$8! = 40320$种。
+考虑$D_8$对称性后, 相关信息见下表
+
+| 共轭类 | 群元个数 | 不动点（摆放方式）个数 |
+| -- | -- | -- |
+| 单位元 | 1 | $40320$ |
+| 水平/垂直翻转 | 2 | $0$ |
+| 对角/反对角翻转 | 2 | $C_0 = C_1 = 1\\ C_n = C_{n-1} + (n - 1)C_{n -2}\\ C_8 = 764$ |
+| $\pm 90\degree$旋转 | 2 | $6\times 2 = 12$ |
+| $180\degree$旋转 | 1 | $8\times 6\times 4\times 2 = 384$ |
+
+因此，轨道个数为$\frac{1 \times 40320 + 2 \times 0 + 2 \times 764 + 2 \times 12 + 1 \times 384}{1 + 2 + 2 + 2 + 1} = 5282$.
+这就是在考虑对称性后棋子摆放方式的所有可能性。
+
+我们以$\pm 90\degree$旋转对称的12种摆放方式结束本节内容，你可以尝试将其打印出来，自己旋转对比看看。
+<div class="chess">
+    0s0Z0Z0Z00Z0Z0ZrZ00s0Z0Z0Z00Z0Z0ZrZ<br>
+    Z0Z0Z0Zr0s0Z0Z0Z00Z0Z0Z0Zr0s0Z0Z0Z0<br>
+    0Z0s0Z0Z00Z0s0Z0Z00Z0ZrZ0Z00Z0ZrZ0Z<br>
+    Z0Z0ZrZ00Z0Z0ZrZ00Z0s0Z0Z00Z0s0Z0Z0<br>
+    0ZrZ0Z0Z00ZrZ0Z0Z00Z0Z0s0Z00Z0Z0s0Z<br>
+    Z0Z0s0Z00Z0Z0s0Z00Z0ZrZ0Z00Z0ZrZ0Z0<br>
+    rZ0Z0Z0Z00Z0Z0Z0s0rZ0Z0Z0Z00Z0Z0Z0s<br>
+    Z0Z0Z0s00ZrZ0Z0Z00Z0Z0Z0s00ZrZ0Z0Z0
+</div>
+<br>
+<div class="chess">
+    0ZrZ0Z0Z00Z0Z0s0Z00ZrZ0Z0Z00Z0Z0s0Z<br>
+    Z0ZrZ0Z00Z0ZrZ0Z00Z0Z0s0Z00Z0Z0s0Z0<br>
+    0Z0Z0Z0s0rZ0Z0Z0Z00Z0Z0Z0s0rZ0Z0Z0Z<br>
+    Z0Z0Z0s00Z0Z0Z0s00ZrZ0Z0Z00ZrZ0Z0Z0<br>
+    0s0Z0Z0Z00s0Z0Z0Z00Z0Z0ZrZ00Z0Z0ZrZ<br>
+    s0Z0Z0Z00Z0Z0Z0Zr0s0Z0Z0Z00Z0Z0Z0Zr<br>
+    0Z0ZrZ0Z00Z0ZrZ0Z00Z0s0Z0Z00Z0s0Z0Z<br>
+    Z0Z0ZrZ00Z0s0Z0Z00Z0Z0ZrZ00Z0s0Z0Z0
+</div>
+<br>
+<div class="chess">
+    0Z0s0Z0Z00Z0ZrZ0Z00Z0s0Z0Z00Z0ZrZ0Z<br>
+    Z0s0Z0Z00Z0s0Z0Z00Z0Z0ZrZ00Z0Z0ZrZ0<br>
+    0Z0Z0ZrZ00Z0Z0ZrZ00s0Z0Z0Z00s0Z0Z0Z<br>
+    Z0Z0Z0Zr0s0Z0Z0Z00Z0Z0Z0Zr0s0Z0Z0Z0<br>
+    rZ0Z0Z0Z00Z0Z0Z0s0rZ0Z0Z0Z00Z0Z0Z0s<br>
+    ZrZ0Z0Z00ZrZ0Z0Z00Z0Z0Z0s00Z0Z0Z0s0<br>
+    0Z0Z0s0Z00Z0Z0s0Z00ZrZ0Z0Z00ZrZ0Z0Z<br>
+    Z0Z0s0Z00Z0ZrZ0Z00Z0Z0s0Z00Z0ZrZ0Z0
+</div>
 
 | 阶 | 群 |
 | -- | -- |
