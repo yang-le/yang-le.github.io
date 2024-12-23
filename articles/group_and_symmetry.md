@@ -722,7 +722,7 @@ $$1, a, b, ab, ba, aba, bab, abab, baba, \dots$$
 设$S, T$是西罗$p$-子群，$S \ne T$，我们要说明$S$不可能正规化$T$. 所谓$S$正规化$T$，即$sTs^{-1} = T, \forall s \in S$.
 如果是这样，则$T\rtimes S$就是$G$的$p^{2n}$阶子群，这和$S, T$是西罗$p$-子群矛盾。
 现在考虑所有西罗$p$-子群的集合在$S$作用下的轨道，我们知道其中一个轨道是单元素集合$\{S\}$.
-而其他轨道的大小为$p^k$，其中$k > 1$. 这是因为，根据轨道-稳定点定理，轨道的大小等于$S$的大小除以$S$的可以稳定轨道中元素的子集的大小。
+而其他轨道的大小为$p^k$，其中$k > 0$. 这是因为，根据轨道-稳定点定理，轨道的大小等于$S$的大小除以$S$的可以稳定轨道中元素的子集的大小。
 而这个子集不可能是整个$S$. 这就是说所有西罗$p$-子群的个数为$1 \mod p$.
 
 假设$S, T$互不共轭，考虑所有与$S$共轭的西罗$p$-子群在$S$作用下的轨道，使用完全类似上述的推理，我们得到其个数为$1 \mod p$.
@@ -743,6 +743,106 @@ $$\frac{|G|}{|N_G(H)|} = \frac{|G|/p^n}{|N_G(H)|/p^n}$$
 
 ## 阶为12的群
 
+<aside>正如二重多面体群是多面体群在二重覆叠下的原像，二重循环群定义为循环群在二重覆叠下的原像</aside>
+
+- $\Z/12\Z$，12阶的二元循环群
+- $\Z/6\Z\times \Z/2\Z \simeq \Z/3\Z\times \Z/2\Z\times \Z/2\Z$
+- $D_{12}, S_3 \times \Z/2\Z, \Z/3\Z\rtimes(\Z/2Z\times\Z/2\Z)$
+- 12阶的二元二面体群，$\Z/3\Z\rtimes\Z/4\Z$
+- 正四面体的旋转对称群，$A_4, (\Z/2Z\times\Z/2\Z)\rtimes\Z/3\Z$
+
+$A_4$是$S_4$的一个子群。设$S_4$是$w, x, y, z$的置换，则$A_4$可定义为保持$f = (w-x)(w-y)(w-z)(x-y)(x-z)(y-z)$不变的置换。
+由于任何一个置换要么保持$f$不变，要么将$f$变为$-f$，故$A_4$的指标为2，即其阶为12.
+
+我们列举了12个12阶的群，但阶为12的群只有5个。实际上，上述列出的每一行中的群都是互相同构的。
+
+根据西罗定理，阶为12的群$G$有3阶和4阶的西罗子群。其中3阶西罗子群有1个或4个；4阶西罗子群有1个或3个。
+
+让我们先假定其有1个西罗$3$-子群，则它必是正规的（否则，它的共轭类中不可能只有一个元素）。
+这时，群$G$就是这个西罗$3$-子群和一个4阶群的半直积。这个4阶群可能是$\Z/4\Z$，也可能是$\Z/2\Z\times\Z/2\Z$.
+它必须作用于这个西罗$3$-子群$\Z/3\Z$上。而$\Z/3\Z$只有两个自同构，即一个平凡自同构和一个非平凡自同构$g\leftrightarrow -g$.
+所以，这个作用必须是从这个4阶群到这个2阶自同构的同态，它要么是一个平凡同态，要么是非平凡同态。
+$\Z/4\Z$有1个非平凡同态，而$\Z/2\Z\times\Z/2\Z$有3个非平凡同态，但它们实际上都给出同一个结果。
+所以我们需要考虑4种情况，如下表。
+
+| 西罗$2$-子群 | 于$\Z/3\Z$上有平凡作用 | 于$\Z/3\Z$上有非平凡作用 |
+| -- | -- | -- |
+| $\Z/4\Z$ | $\Z/12\Z$ | $\Z/3\Z\rtimes\Z/4\Z$ |
+| $\Z/2\Z\times\Z/2\Z$ | $\Z/6\Z\times\Z/2\Z$ | $D_{12}$ |
+
+现在假定该群的3阶子群不是正规的，换言之，所有的3阶子群形成一个有4个元素的共轭类。
+记它们为$S_1, S_2, S_3, S_4$，它们两两相交均为平凡群。它们每个各含两个3阶元。
+所以群$G$中还剩下四个不是3阶元的元素，这是因为我们知道$G$必须有一个西罗$2$-子群，而西罗$2$-子群里不存在3阶元。
+且这剩下的四个元素必须都是西罗$2$-子群中的了。所以这个西罗$2$-子群必是正规的。
+即这里的可能性就是$\Z/4\Z\rtimes\Z/3\Z$或者$(\Z/2\Z\times\Z/2\Z)\rtimes\Z/3\Z$.
+前者是不可能的，因为$\Z/4\Z$没有3阶的自同构（除非我们考虑平凡作用，但这种情况下就只有一个3阶子群了，和我们的3阶子群不正规的假设矛盾）。
+然而读者可以验证$\Z/2\Z\times\Z/2\Z$确有3阶的自同构（3个非单位元的轮换）。
+实际上$\Z/3\Z$到这个3阶自同构有两个非平凡同态，但它们实际上都给出同一个结果。
+这个结果也是12阶群中唯一含两个以上3阶元的，容易验证它和$A_4$以及正四面体的旋转对称群同构。
+
+现在我们考察12阶群的子群结构。先从最简单的开始，$\Z/12\Z$的子群可能的阶为$1, 2, 3, 4, 6, 12$.
+<script type="text/tikz">
+\usepackage{amsfonts}
+\usetikzlibrary{cd}
+\begin{document}
+\begin{tikzcd}
+                                         & \mathbb Z/12\mathbb Z \arrow[ld, no head] \arrow[rd, no head] &                                                              &                                          \\
+\mathbb Z/4\mathbb Z \arrow[rd, no head] &                                                               & \mathbb Z/6\mathbb Z \arrow[ld, no head] \arrow[rd, no head] &                                          \\
+                                         & \mathbb Z/2\mathbb Z \arrow[rd, no head]                      &                                                              & \mathbb Z/3\mathbb Z \arrow[ld, no head] \\
+                                         &                                                               & 1                                                            &                                         
+\end{tikzcd}
+\end{document}
+</script>
+$\Z/6\Z\times\Z/2\Z$也比较简单，它有三个6阶子群和三个2阶子群。
+<script type="text/tikz">
+\usepackage{amsfonts}
+\usetikzlibrary{cd}
+\begin{document}
+\begin{tikzcd}
+                                                              & \mathbb Z/2\mathbb Z \times \mathbb Z/6\mathbb Z \arrow[ld, no head] \arrow[rd, no head] \arrow[d, no head] \arrow[rrd, no head] &                                                               &                                                                &                                           \\
+\mathbb Z/6\mathbb Z \arrow[rd, no head] \arrow[rrd, no head] & \mathbb Z/6\mathbb Z \arrow[d, no head] \arrow[rrd, no head]                                                                     & \mathbb Z/6\mathbb Z \arrow[ld, no head] \arrow[rrd, no head] & D_4 \arrow[ld, no head] \arrow[d, no head] \arrow[rd, no head] &                                           \\
+                                                              & \mathbb Z/3\mathbb Z \arrow[rd, no head]                                                                                         & \mathbb Z/2\mathbb Z \arrow[d, no head]                       & \mathbb Z/2\mathbb Z \arrow[ld, no head]                       & \mathbb Z/2\mathbb Z \arrow[lld, no head] \\
+                                                              &                                                                                                                                  & 1                                                             &                                                                &                                          
+\end{tikzcd}
+\end{document}
+</script>
+这两个都是阿贝尔群。现在来看$A_4$，它有三个2阶子群和四个3阶子群。
+<script type="text/tikz">
+\usepackage{amsfonts}
+\usetikzlibrary{cd}
+\begin{tikzcd}
+                                           &                                           &                                          & A_4 \arrow[rrd, no head] \arrow[llldd, no head] \arrow[lldd, no head] \arrow[ldd, no head] \arrow[dd, no head] &                                          &                                                                &                                            \\
+                                           &                                           &                                          &                                                                                                                &                                          & D_4 \arrow[ld, no head] \arrow[d, no head] \arrow[rd, no head] &                                            \\
+\mathbb Z/3\mathbb Z \arrow[rrrd, no head] & \mathbb Z/3\mathbb Z \arrow[rrd, no head] & \mathbb Z/3\mathbb Z \arrow[rd, no head] & \mathbb Z/3\mathbb Z \arrow[d, no head]                                                                        & \mathbb Z/2\mathbb Z \arrow[ld, no head] & \mathbb Z/2\mathbb Z \arrow[lld, no head]                      & \mathbb Z/2\mathbb Z \arrow[llld, no head] \\
+                                           &                                           &                                          & 1                                                                                                              &                                          &                                                                &                                           
+\end{tikzcd}
+\end{document}
+</script>
+$\Z/3\Z\rtimes\Z/4\Z$的结构如下
+<script type="text/tikz">
+\usepackage{amsfonts}
+\usetikzlibrary{cd}
+\begin{tikzcd}
+                                                                                   &                                          & \mathbb Z/12\mathbb Z \arrow[ld, no head] \arrow[rd, no head] &                                          \\
+\mathbb Z/6\mathbb Z \arrow[rru, no head] \arrow[rd, no head] \arrow[rrd, no head] & \mathbb Z/4\mathbb Z \arrow[rd, no head] & \mathbb Z/4\mathbb Z \arrow[u, no head] \arrow[d, no head]    & \mathbb Z/4\mathbb Z \arrow[ld, no head] \\
+                                                                                   & \mathbb Z/3\mathbb Z \arrow[rd, no head] & \mathbb Z/2\mathbb Z \arrow[d, no head]                       &                                          \\
+                                                                                   &                                          & 1                                                             &                                         
+\end{tikzcd}
+\end{document}
+</script>
+最复杂的是$D_{12}$，它有三个6阶子群，三个4阶子群和七个2阶子群。
+<script type="text/tikz">
+\usepackage{amsfonts}
+\usetikzlibrary{cd}
+\begin{tikzcd}
+                                            &                                                                                                           &                                                                                          &                                                             & D_{12} \arrow[ld, no head] \arrow[rd, no head] \arrow[rrd, no head]                  &                                                                    &                                                                                      &                                            \\
+                                            & D_6 \arrow[ld, no head] \arrow[d, no head] \arrow[rd, no head] \arrow[rrd, no head] \arrow[rrru, no head] & D_4 \arrow[rru, no head] \arrow[rrd, no head] \arrow[lld, no head] \arrow[rrrd, no head] & \mathbb Z/6\mathbb Z \arrow[d, no head] \arrow[rd, no head] & D_4 \arrow[u, no head] \arrow[d, no head] \arrow[llld, no head] \arrow[rrd, no head] & D_4 \arrow[ld, no head] \arrow[rrd, no head] \arrow[llld, no head] & D_6 \arrow[ld, no head] \arrow[d, no head] \arrow[rd, no head] \arrow[llld, no head] &                                            \\
+\mathbb Z/2\mathbb Z \arrow[rrrrd, no head] & \mathbb Z/2\mathbb Z \arrow[rrrd, no head]                                                                & \mathbb Z/2\mathbb Z \arrow[rrd, no head]                                                & \mathbb Z/3\mathbb Z \arrow[rd, no head]                    & \mathbb Z/2\mathbb Z \arrow[d, no head]                                              & \mathbb Z/2\mathbb Z \arrow[ld, no head]                           & \mathbb Z/2\mathbb Z \arrow[lld, no head]                                            & \mathbb Z/2\mathbb Z \arrow[llld, no head] \\
+                                            &                                                                                                           &                                                                                          &                                                             & 1                                                                                    &                                                                    &                                                                                      &                                           
+\end{tikzcd}
+\end{document}
+</script>
+
 | 阶 | 群 |
 | -- | -- |
 | 1 | $1$（平凡群） |
@@ -756,3 +856,4 @@ $$\frac{|G|}{|N_G(H)|} = \frac{|G|/p^n}{|N_G(H)|/p^n}$$
 | 9 | $C_9, C_3\times C_3$ |
 | 10 | $C_{10}, D_{10}$ |
 | 11 | $C_{11}$ |
+| 12 | $C_{12}, C_6\times C_2, C_3\rtimes C_4, D_{12}, A_4$ |
