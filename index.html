@@ -52,11 +52,14 @@
   <script defer src="https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/tikzjax.js"></script>
   <script src="main.js"></script>
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D89P1CFJH4"></script>
   <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-73293923-1', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D89P1CFJH4');
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
 </html>

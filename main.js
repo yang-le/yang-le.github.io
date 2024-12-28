@@ -61,6 +61,9 @@
                 `;
             });
 
+            Array.from(document.getElementsByClassName('katex')).forEach(element => {
+                element.classList.add('heti-skip');
+            });
             const heti = new Heti();
             heti.autoSpacing();
         });
