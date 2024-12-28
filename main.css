@@ -11,8 +11,8 @@
 
 .container.error {
     border-left-color: #c00;
-    background-color:#ffe6e6;
-    color:#4d0000;
+    background-color: #ffe6e6;
+    color: #4d0000;
 }
 
 .container.error .title {
@@ -21,8 +21,8 @@
 
 .container.warning {
     border-left-color: #e7c000;
-    background-color: rgba(255,255,100,.3);
-    color:#6b5900;
+    background-color: rgba(255, 255, 100, .3);
+    color: #6b5900;
 }
 
 .container.warning .title {
