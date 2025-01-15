@@ -132,13 +132,11 @@
 			var beta = rad(event.beta);
 			var gamma = rad(event.gamma);
 
-			console.log(event);
-
 			var nx = rotZ(rotY(rotX(x, beta), gamma), alpha);
 			var ny = rotZ(rotY(rotX(y, beta), gamma), alpha);
 
-			gravity.x = -10.0 * nx.z + (ball.vel.x > 0 ? -1 : 1) * ball.vel.x * ball.vel.x;
-			gravity.y = -10.0 * ny.z + (ball.vel.y > 0 ? -1 : 1) * ball.vel.y * ball.vel.y;
+			gravity.x = -10.0 * nx.z + (ball.vel.x > 0 ? -0.1 : 0.1) * ball.vel.x * ball.vel.x;
+			gravity.y = -10.0 * ny.z + (ball.vel.y > 0 ? -0.1 : 0.1) * ball.vel.y * ball.vel.y;
 		}
 
 		window.addEventListener("deviceorientation", handleOrientation);
