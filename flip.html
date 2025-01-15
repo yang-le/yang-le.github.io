@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<title>杨乐的个人主页</title>
+	<meta name="description" content="杨乐的个人主页">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="favicon.jpg">
+</head>
+
+<body>
+	<main>
+		<pre class="output"></pre>
+	</main>
+	<footer>
+		© <time id="year">2025</time> Yang Le<br>
+		Hosted on <a href="https://pages.github.com/">GitHub Pages</a>, with <a
+			href="https://www.jsdelivr.com/">jsDelivr</a> CDN.<br>
+	</footer>
+	<script>
+		var output = document.querySelector(".output");
+
+		function handleOrientation(event) {
+			var x = event.beta; // In degree in the range [-180,180]
+			var y = event.gamma; // In degree in the range [-90,90]
+
+			output.innerHTML = "beta : " + x + "\n";
+			output.innerHTML += "gamma: " + y + "\n";
+		}
+
+		window.addEventListener("deviceorientation", handleOrientation);
+	</script>
+</body>
+
+</html>
