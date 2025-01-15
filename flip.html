@@ -11,7 +11,7 @@
 
 <body>
 	<main>
-		<pre class="output"></pre>
+		<canvas id="myCanvas" style="border:1px solid"></canvas>
 	</main>
 	<footer>
 		© <time id="year">2025</time> Yang Le<br>
@@ -19,14 +19,126 @@
 			href="https://www.jsdelivr.com/">jsDelivr</a> CDN.<br>
 	</footer>
 	<script>
-		var output = document.querySelector(".output");
+		// canvas setup -------------------------------------------------------
+
+		var canvas = document.getElementById("myCanvas");
+		var c = canvas.getContext("2d");
+
+		canvas.width = window.innerWidth - 20;
+		canvas.height = window.innerHeight - 100;
+
+		var simMinWidth = 20.0;
+		var cScale = Math.min(canvas.width, canvas.height) / simMinWidth;
+		var simWidth = canvas.width / cScale;
+		var simHeight = canvas.height / cScale;
+
+		function cX(pos) {
+			return pos.x * cScale;
+		}
+
+		function cY(pos) {
+			return canvas.height - pos.y * cScale;
+		}
+
+		// scene -------------------------------------------------------
+
+		var gravity = { x: 0.0, y: 0.0 };
+		var timeStep = 1.0 / 60.0;
+
+		var ball = {
+			radius: 0.2,
+			pos: { x: 0.2, y: 0.2 },
+			vel: { x: 0.0, y: 0.0 }
+		};
+
+		// drawing -------------------------------------------------------
+
+		function draw() {
+			c.clearRect(0, 0, canvas.width, canvas.height);
+
+			c.fillStyle = "#FF0000";
+
+			c.beginPath();
+			c.arc(
+				cX(ball.pos), cY(ball.pos), cScale * ball.radius, 0.0, 2.0 * Math.PI);
+			c.closePath();
+			c.fill();
+		}
+
+		// simulation ----------------------------------------------------
+
+		function simulate() {
+
+			ball.vel.x += gravity.x * timeStep;
+			ball.vel.y += gravity.y * timeStep;
+			ball.pos.x += ball.vel.x * timeStep;
+			ball.pos.y += ball.vel.y * timeStep;
+
+			if (ball.pos.x < ball.radius) {
+				ball.pos.x = ball.radius;
+				ball.vel.x = -ball.vel.x;
+			}
+			if (ball.pos.x > simWidth - ball.radius) {
+				ball.pos.x = simWidth - ball.radius;
+				ball.vel.x = -ball.vel.x;
+			}
+			if (ball.pos.y < ball.radius) {
+				ball.pos.y = ball.radius;
+				ball.vel.y = -ball.vel.y;
+			}
+			if (ball.pos.y > simHeight - ball.radius) {
+				ball.pos.y = simHeight - ball.radius;
+				ball.vel.y = -ball.vel.y;
+			}
+		}
+
+		// make browser to call us repeatedly -----------------------------------
+
+		function update() {
+			simulate();
+			draw();
+			requestAnimationFrame(update);
+		}
+
+		update();
+
+		function rotX(v, a) {
+			var y = v.y * Math.cos(a) - v.z * Math.sin(a);
+			var z = v.y * Math.sin(a) + v.z * Math.cos(a);
+			return {x: v.x, y: y, z: z};
+		}
+		
+		function rotY(v, a) {
+			var x = v.x * Math.cos(a) + v.z * Math.sin(a);
+			var z = -v.x * Math.sin(a) + v.z * Math.cos(a);
+			return {x: x, y: v.y, z: z};
+		}
+
+		function rotZ(v, a) {
+			var x = v.x * Math.cos(a) - v.y * Math.sin(a);
+			var y = v.x * Math.sin(a) + v.y * Math.cos(a);
+			return {x: x, y: y, z: v.z};
+		}
+
+		function rad(a) {
+			return a * Math.PI / 180.0;
+		}
 
 		function handleOrientation(event) {
-			var x = event.beta; // In degree in the range [-180,180]
-			var y = event.gamma; // In degree in the range [-90,90]
+			const x = {x: 1.0, y:0.0, z:0.0};
+			const y = {x: 0.0, y:1.0, z:0.0};
 
-			output.innerHTML = "beta : " + x + "\n";
-			output.innerHTML += "gamma: " + y + "\n";
+			var alpha = rad(event.alpha);
+			var beta = rad(event.beta);
+			var gamma = rad(event.gamma);
+
+			console.log(event);
+
+			var nx = rotZ(rotY(rotX(x, beta), gamma), alpha);
+			var ny = rotZ(rotY(rotX(y, beta), gamma), alpha);
+
+			gravity.x = -10.0 * nx.z;
+			gravity.y = -10.0 * ny.z;
 		}
 
 		window.addEventListener("deviceorientation", handleOrientation);
