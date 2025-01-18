@@ -24,12 +24,12 @@ $$\left(d \over p\right) = \left\{\begin{aligned}
 -1, & \text{如果}x^2 \equiv d \mod p \text{无解}
 \end{aligned}\right.$$
 
-::: error 问题
+::: warn 问题
 随着$p$的变动，$N_p$的规律是什么？
 :::
 
 利用二次互反律(Gauss，1796)可以得到如下：
-::: info 定理
+::: hint 定理
 对于固定的$d \in \Z$，$d$不是平方数，则$N_p$($p$是素数且$p\nmid 2d$)只依赖于$p$的模$4|d|$同余类。
 :::
 
@@ -38,7 +38,7 @@ $$\chi\colon(\Z / 4|d|\Z)^\times \to \{\pm1\}$$
 使得对于素数$p, p\nmid 2d$，有
 $$\left(d \over p\right) = \chi(p)$$
 
-::: warning 注
+::: info 注
 一般的模$N$Dirichlet特征定义为同态
 $$\chi\colon(\Z / N\Z)^\times \to \mathbb C^\times$$
 其中$\chi$的取值为单位根。 因为$d$不是平方数，所以多项式$x^2 - d$在$\mathbb Q$上不可约，我们有
@@ -54,7 +54,7 @@ $$x^3 - x - 1$$
 $$N_p = \#\{x \mod p \mid x^3 - x - 1 \equiv 0 \mod p\}$$
 有$N_p = 0, 1$或$3$。
 
-::: error 问题
+::: warn 问题
 随着$p$的变动，$N_p$的规律是什么？
 :::
 
@@ -64,7 +64,7 @@ $$N_p= \left\{\begin{aligned}
 1, & \text{如果}\left(-23 \over p\right) = -1
 \end{aligned}\right.$$
 
-::: warning 注
+::: info 注
 二次互反律指出，对于
 $p \ne 2, 23, \left(-23 \over p\right) = \left(p \over23\right)$。
 所以条件$\left(-23 \over p\right)$只依赖于$p \mod 23$，
@@ -72,7 +72,7 @@ $p \ne 2, 23, \left(-23 \over p\right) = \left(p \over23\right)$。
 :::
 
 我们有如下(Hecke, 1920's)
-::: info 定理
+::: hint 定理
 考虑
 $$f(z) = q\prod_{n = 1}^\infty(1-q^n)(1-q^{23n})$$
 这里
@@ -91,7 +91,7 @@ $$\Gamma_0(N) = \{\begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \operatorname{S
 $$\operatorname{Gal}(S/\mathbb Q) \cong S_3$$
 为置换群，特别地，还是非交换群。这是和之前的二次同余的最重要的区别。
 
-::: warning 注
+::: info 注
 设
 $$\rho \colon S_3 \to \operatorname{GL}_2(\mathbb C)$$
 为$S_3$的(唯一)二维不可约表示,则$\operatorname{tr}\rho$的取值就是$-1, 0, 2$。
@@ -103,7 +103,7 @@ $$\operatorname{tr}\rho(\operatorname{Frob}_p) = a_p$$
 对于一般的在$\mathbb Q$上的不可约的三次方程，有类似的结论(Hecke, Maass 1920's - 1940's)。
 :::
 
-::: warning 注
+::: info 注
 回到之前的二次同余的情况，多项式为
 $$x^2 - d$$
 $d$不是平方数。一维表示
@@ -154,7 +154,7 @@ $$K(y;ir) = \frac{1}{2}\int_{-\infty}^\infty e^{-y\operatorname{cosh}t - irt}dt$
 Selberg自己证明了(1965)：$\lambda \ge \frac{3}{16}$，且$N = 1$时，有$\lambda > \frac{1}{4}$。
 目前最好的结果是Kim-Sarnak(2003)：$\lambda \ge \frac{1}{4} - (\frac{7}{64})^2$。
 
-::: warning 注
+::: info 注
 Kim-Sarnak关于Selberg猜想的结果其中关键的一步是Kim-Shahidi(2002)关于Langlands函子性猜想的一些特殊情形。在Kim-Shahidi中，需要用到例外群$E_7$的自守形式和自守表示理论。
 :::
 
@@ -168,7 +168,7 @@ $$T_n f = \lambda_n\cdot f ~ \forall n \ge 1, (n, N) = 1$$
 则称$f$为Hecke本征形式。可以证明，若$f$是Hecke本征形式，则$a_1 \ne 0$。假设$a_1 = 1$（这称为正规本征形式），则有
 $$\lambda_n = a_n ~ \forall n \ge 1, (n, N) = 1$$
 
-::: warning 注
+::: info 注
 对于$S_k(N, \chi)$的情形，Hecke算子满足以下恒等式： 
 $$\begin{aligned} T_{mn} = T_m \circ T_n ~ \forall (m, n) = 1, (m, N) = (n, N) = 1 \\ T_{p^{r+1}} = T_p \circ T_{p^r} - \chi(p)\cdot p^{k-1}T_{p^{r-1}} ~ \forall (p, N) = 1, r > 1 \end{aligned}$$
 $S_\lambda^M(N, \chi)$的情形类似。所以，若
@@ -178,7 +178,7 @@ $$\begin{aligned} a_{mn} = a_m \cdot a_n ~ \forall (m, n) = 1, (m, N) = (n, N) =
 $S_\lambda^M(N, \chi)$的情形类似。
 :::
 
-::: warning 注
+::: info 注
 关于之前讨论的三次同余方程，设$P$为$\mathbb
 Q$上的三次不可约多项式，假设其判别式$\Delta$不是平方数（即其Galios群同构于$S_3$），则
 - 若$P$有一实根和两个非实根，那么$P$对于的Hecke本征形式是在$S_1(N, \chi)$。
@@ -187,7 +187,7 @@ Q$上的三次不可约多项式，假设其判别式$\Delta$不是平方数（�
 其中$N$为Artin导子。$a_1 = 1$，且当$p \nmid N$时，有$N_p = 1+ a_p$。
 :::
 
-::: warning 注
+::: info 注
 严格来说，Dirichlet特征在非交换情形的推广是Hecke本征形式。
 :::
 
@@ -222,12 +222,12 @@ $$N_p = \#\{(x, y) \in \mathbb F_p^2 \mid y^2 + y \equiv x^3 - x^2 \mod p\}$$
 我们有Hasse不等式
 $$|N_p - p| < 2\sqrt p, ~ (p \ne 11)$$
 我们要问同样的
-::: error 问题
+::: warn 问题
 随着$p$的变动，$N_p$的规律是什么？
 :::
 
 对于这个问题，有如下（Eichler，1950's）
-::: info 定理
+::: hint 定理
 $$N_p = p - a_p$$
 这里
 $$q\prod_{n=1}^\infty[(1-q^n)(1-q^{11n})]^2 = \sum_{n = 1}^\infty a_nq^n, ~ a_1 = 1$$
@@ -243,7 +243,7 @@ $$q\prod_{n=1}^\infty[(1-q^n)(1-q^{11n})]^2 = \sum_{n = 1}^\infty a_nq^n, ~ a_1 
 该猜想在Semi-stable的情形由Wiles，Taylor-Wiles等人所证明。
 Ribet再此之前已经证明从谷山-志村猜想可以推出著名的费马大定理。
 
-::: warning 注
+::: info 注
 Wiles的证明也是需要用到Langlands(1980)的结果，Base Change for GL(2)。
 更多信息可参考维基百科关于函子性猜想，Endoscopy以及基本引理（吴宝珠，2008）的相关内容。
 :::

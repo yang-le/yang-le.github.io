@@ -44,7 +44,7 @@ isEven (suc (suc n)) = isEven n
 - 几何地：视作从空间 `ℕ` 到空间的空间 `Type` 的映射，`isEven` 给 `ℕ` 中的每一个点 `n` 赋予一个空间 `isEven n`。
 ![isEven](https://thehottgameguide.readthedocs.io/en/latest/_images/isEven.png)
 我们说 `isEven` 是 `ℕ` 上的*空间丛*，或者就简称 `ℕ` 上的丛。位于每一个 `n` 上方的空间 `isEven n` 称作 `n` 上的*纤维*。在这个特别的例子里纤维要么是空要么是单例。
-    ::: warning 注意
+    ::: warn 注意
     在上图中，我们未加说明地将 `ℕ` 画成了“不连通”的点，即*离散*空间。参见[后文]()以了解为什么这是合理的。
     :::
 - 范畴论：`isEven` 是俯范畴 `Type↓ℕ` 中的一个对象。

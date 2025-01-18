@@ -21,14 +21,14 @@
         render: function (tokens, idx) {
             if (tokens[idx].nesting === 1) {
                 const params = tokens[idx].info.trim();
-                if (params === '') return '<div class="container">';
+                if (params === '') return '<div class="card">';
 
                 const i = params.indexOf(' ');
-                if (i === -1) return `<div class="container ${params}">`;
+                if (i === -1) return `<div class="card ${params}">`;
 
                 const type = params.slice(0, i);
                 const title = params.slice(i);
-                return `<div class="container ${type}">` + (title ? `<p class="title">${title}</p>` : '');
+                return `<div class="card ${type}">` + (title ? `<p>${title}</p>` : '');
             } else {
                 return '</div>';
             }

@@ -29,7 +29,7 @@ $$\exist x: \forall y: y \notin x$$
 
 意为存在这样的集合，它不包含任何元素。结合外延公理，我们可以证明，这样的集合是唯一的，称之为空集，记作$\empty$.
 
-::: info 定理
+::: hint 定理
 空集是唯一的。
 
 证明：设$x$和$x'$都是空集，则$y \in x$为假，这就意味着$y \in x \Rightarrow y \in x'$为真。注意到这个结论是不依赖于$y$的，即
@@ -76,7 +76,7 @@ $$\forall m: \exist n: \forall y: (y \in n \Leftrightarrow \exist x: (x \in m \l
 
 其中$R$是一个泛函关系。所以替换公理模式并不是一个公理，而是依赖于$R$的一族公理，因此称为公理模式。
 
-::: info 定理
+::: hint 定理
 设$P(x)$是一个谓词，$m$是一个集合，则所有使得$P(y)$为真的$y \in m$构成一个集合，记为
 $$\{y \in m | P(y)\}$$
 
