@@ -646,12 +646,10 @@
 		var scene =
 		{
 			gravity: { x: 0.0, y: -9.8 },
-			//		gravity : 0.0,
 			dt: 1.0 / 120.0,
 			flipRatio: 0.9,
 			numPressureIters: 100,
 			numParticleIters: 2,
-			frameNr: 0,
 			overRelaxation: 1.9,
 			compensateDrift: true,
 			separateParticles: true,
@@ -1103,15 +1101,6 @@
 			}
 		});
 
-		function toggleStart() {
-			var button = document.getElementById('startButton');
-			if (scene.paused)
-				button.innerHTML = "Stop";
-			else
-				button.innerHTML = "Start";
-			scene.paused = !scene.paused;
-		}
-
 		// main -------------------------------------------------------
 
 		function simulate() {
@@ -1120,7 +1109,6 @@
 					scene.dt, scene.gravity, scene.flipRatio, scene.numPressureIters, scene.numParticleIters,
 					scene.overRelaxation, scene.compensateDrift, scene.separateParticles,
 					scene.obstacleX, scene.obstacleY, scene.obstacleRadius, scene.colorFieldNr);
-			scene.frameNr++;
 		}
 
 		function update() {
