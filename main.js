@@ -8,8 +8,6 @@ import markdownItAbbr from 'https://cdn.jsdelivr.net/npm/markdown-it-abbr/+esm'
 import markdownItContainer from 'https://cdn.jsdelivr.net/npm/markdown-it-container/+esm'
 
 import hljs from 'https://cdn.jsdelivr.net/npm/highlight.js/+esm'
-console.log('highlight.js ' + hljs.versionString)
-
 import hljsLean from 'https://cdn.jsdelivr.net/npm/highlightjs-lean/+esm'
 hljs.registerLanguage('lean', hljsLean)
 
@@ -112,7 +110,7 @@ gitalk.render('gitalk-container')
 KaTeX.innerHTML = markdown.renderInline('$\\KaTeX$');
 year.innerHTML = new Date().getFullYear();
 theme.value = localStorage.getItem('theme');
-theme.setAttribute('onchange', "switchTheme(this.value)");
+theme.addEventListener('change', ev => switchTheme(ev.target.value));
 switchTheme(theme.value);
 
 var css = document.createElement("link");
