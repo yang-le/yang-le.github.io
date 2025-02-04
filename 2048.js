@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentScore > highScore) {
             highScore = currentScore;
             highScoreElem.textContent = highScore;
-            localStorage.setItem('2048-highscore', highScore);
+            localStorage.setItem('2048-highScore', highScore);
         }
     }
 
