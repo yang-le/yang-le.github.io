@@ -4,14 +4,14 @@ const body = document.querySelector('body');
 const number = document.querySelector('.number');
 const guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
-const message  = document.querySelector('.message');
+const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const highscore = document.querySelector('.highscore');
 const again = document.querySelector('.again');
 
 let answer = Math.trunc(Math.random() * 20) + 1;
 
-check.addEventListener('click', function() {
+check.addEventListener('click', function () {
     if (guess.value < 1 || guess.value > 20) {
         message.textContent = "⛔ No number!";
         return;
@@ -47,7 +47,7 @@ check.addEventListener('click', function() {
     }
 });
 
-again.addEventListener('click', function() {
+again.addEventListener('click', function () {
     answer = Math.trunc(Math.random() * 20) + 1;
     message.textContent = "Start guessing...";
     score.textContent = 20;
