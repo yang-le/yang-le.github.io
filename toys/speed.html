@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Speedometer Progress</title>
+    <link rel="stylesheet" href="speed.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="rating">
+            <h2><span class="counter" data-target="90"></span><!--<sup>%</sup>--><br>HTML</h2>
+            <div class="block"></div>
+        </div>
+    </div>
+    <script>
+        'use strict';
+        const rating = document.getElementsByClassName('rating')[0];
+        const block = document.getElementsByClassName('block');
+
+        for (let i = 1; i < 100; ++i) {
+            rating.innerHTML += '<div class="block"></div>';
+            block[i].style.transform = `rotate(${3.6 * i}deg)`;
+            block[i].style.animationDelay = `${i / 40}s`;
+        }
+
+        const counter = document.querySelector('.counter');
+        counter.innerHTML = 0;
+
+        const target = Number(counter.dataset.target);
+        const NumberCounter = () => {
+            if (counter.innerText < target) {
+                setTimeout(NumberCounter, 25);
+                ++counter.innerText;
+            }
+        };
+
+        NumberCounter();
+        document.querySelectorAll(`.card .rating .block:nth-child(-n+${target + 1})`).forEach(elem => {
+            elem.style.backgroundColor = '#0f0';
+            elem.style.boxShadow = '0 0 15px #0f0, 0 0 30px #0f0';
+        });
+    </script>
+</body>
+
+</html>
