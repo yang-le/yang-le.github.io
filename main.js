@@ -60,6 +60,7 @@ fetch('https://yang-le.github.io/articles/' + article + '.md')
     .then(response => {
         return response.text();
     }).then(md => {
+        const content = document.getElementById('content');
         content.innerHTML = markdown.render(md);
         fetch('https://yang-le.github.io/last_update.json')
             .then(response => {
@@ -93,6 +94,7 @@ fetch('https://yang-le.github.io/nav.md')
     .then(response => {
         return response.text();
     }).then(md => {
+        const nav = document.getElementById('nav');
         nav.innerHTML = markdown.render(md);
     });
 
@@ -107,19 +109,18 @@ const gitalk = new Gitalk({
 })
 gitalk.render('gitalk-container')
 
+const KaTeX = document.getElementById('KaTeX');
 KaTeX.innerHTML = markdown.renderInline('$\\KaTeX$');
+
+const year = document.getElementById('year');
 year.innerHTML = new Date().getFullYear();
+
+const theme = document.getElementById('theme');
 theme.value = localStorage.getItem('theme');
 theme.addEventListener('change', ev => switchTheme(ev.target.value));
 switchTheme(theme.value);
 
-var css = document.createElement("link");
-css.rel = "stylesheet";
-css.href = "https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/fonts.css";
-document.getElementsByTagName("head")[0].appendChild(css);
-
-
 function switchTheme(theme) {
     localStorage.setItem('theme', theme);
-    document.documentElement.setAttribute('data-theme', theme)
+    document.documentElement.dataset.theme = theme;
 }
