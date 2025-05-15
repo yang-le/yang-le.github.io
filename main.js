@@ -98,17 +98,6 @@ fetch('https://yang-le.github.io/nav.md')
         nav.innerHTML = markdown.render(md);
     });
 
-const gitalk = new Gitalk({
-    clientID: 'ac6a28e474263a4bb7a3',
-    clientSecret: 'a21e06f173a63ed87bf54eec7120f171c25bca86',
-    repo: 'yang-le.github.io',
-    owner: 'yang-le',
-    admin: ['yang-le'],
-    id: article,                // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-})
-gitalk.render('gitalk-container')
-
 const KaTeX = document.getElementById('KaTeX');
 KaTeX.innerHTML = markdown.renderInline('$\\KaTeX$');
 
