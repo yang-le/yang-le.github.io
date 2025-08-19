@@ -1,6 +1,6 @@
 ---
 date:
-  created: 2023-12-31
+  created: 2024-11-12
 categories:
     - 数学
 ---
