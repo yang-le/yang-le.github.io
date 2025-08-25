@@ -7,6 +7,17 @@ categories:
 
 # 群和对称性
 
+## 介绍
+
+群公理：
+群是带有乘法（对称的复合）的集合，其乘法满足
+
+- 结合律 $(ab)c = a(bc)$
+- 有恒等元（平凡对称）$1a = a1 = a$
+- 有逆元 $a^{-1}a = aa^{-1} = 1$
+
+<!-- more -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/fonts.css">
 <script async src="https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/tikzjax.js"></script>
 <style>
@@ -20,21 +31,11 @@ categories:
     }
 </style>
 
-## 介绍
-
-群公理：
-群是带有乘法（对称的复合）的集合，其乘法满足
-
-- 结合律 $(ab)c = a(bc)$
-- 有恒等元（平凡对称）$1a = a1 = a$
-- 有逆元 $a^{-1}a = aa^{-1} = 1$
-
-<!-- more -->
-
 群论的目标
+
 - 分类所有的群（在同构的意义下）
 
-  几乎是不可能的任务，但我们至少可以尝试分类那些有趣的群
+    几乎是不可能的任务，但我们至少可以尝试分类那些有趣的群
 
 - 分类一个群可表为某对象之对称性的所有方式，这称为表示论
     - 置换表示
