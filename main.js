@@ -112,4 +112,10 @@ switchTheme(theme.value);
 function switchTheme(theme) {
     localStorage.setItem('theme', theme);
     document.documentElement.dataset.theme = theme;
+
+    var frame = document.querySelector(".giscus-frame");
+    frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: theme == 'dark' ? 'transparent_dark' : 'light' } } },
+        "https://giscus.app"
+    );
 }
