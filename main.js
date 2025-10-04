@@ -109,9 +109,6 @@ theme.value = localStorage.getItem('theme');
 theme.addEventListener('change', ev => switchTheme(ev.target.value));
 switchTheme(theme.value);
 
-var giscus = document.querySelector("script[src*=giscus]");
-giscus.setAttribute("data-theme", theme.value == 'dark' ? 'transparent_dark' : 'light')
-
 function switchTheme(theme) {
     localStorage.setItem('theme', theme);
     document.documentElement.dataset.theme = theme;
