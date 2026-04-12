@@ -64,4 +64,5 @@
     * [记水果](toys/memory.html)
     * [滑动条](toys/range.html)
     * [速度表](toys/speed.html)
+    * [液态玻璃](toys/liquid-glass.html)
 * [旧文归档](?article=old_articles)
