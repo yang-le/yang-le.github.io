@@ -1,5 +1,8 @@
 @[TOC]
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/fonts.css">
+<script async src="https://cdn.jsdelivr.net/gh/benrbray/tikzjax/output/tikzjax.js"></script>
+
 ## 介绍
 
 群公理：
